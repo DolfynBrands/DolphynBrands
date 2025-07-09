@@ -1,0 +1,193 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  Linkedin, 
+  Youtube, 
+  Mail, 
+  MapPin, 
+  Phone,
+  ArrowRight
+} from 'lucide-react';
+
+const Footer = () => {
+  const socialLinks = [
+    { icon: Facebook, href: '#', color: 'hover:text-blue-400' },
+    { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
+    { icon: Instagram, href: '#', color: 'hover:text-pink-400' },
+    { icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
+    { icon: Youtube, href: '#', color: 'hover:text-red-500' }
+  ];
+
+  const quickLinks = [
+    { name: 'About Us', href: '#about' },
+    { name: 'Our Brands', href: '#brands' },
+    { name: 'Partner Up', href: '#partner-up' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Contact', href: '#contact' }
+  ];
+
+  const legalLinks = [
+    { name: 'Privacy Policy', href: '#' },
+    { name: 'Terms of Service', href: '#' },
+    { name: 'Cookie Policy', href: '#' },
+    { name: 'GDPR', href: '#' }
+  ];
+
+  const brandRecommendations = [
+    { name: 'TechFlow', category: 'SaaS' },
+    { name: 'EcoVibe', category: 'Sustainability' },
+    { name: 'FinanceAI', category: 'FinTech' },
+    { name: 'HealthCore', category: 'Healthcare' }
+  ];
+
+  return (
+    <footer className="bg-gray-900 border-t border-gray-700">
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Company Info */}
+          <div className="space-y-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <span className="text-white font-bold">D</span>
+              </div>
+              <span className="text-white font-bold text-xl">Dolfyn Brands</span>
+            </div>
+            <p className="text-gray-400 leading-relaxed">
+              Transforming brands through AI-powered strategies and creative excellence. 
+              We make brands unforgettable.
+            </p>
+            <div className="flex space-x-4">
+              {socialLinks.map((social, index) => (
+                <motion.a
+                  key={index}
+                  href={social.href}
+                  whileHover={{ scale: 1.2, y: -2 }}
+                  className={`text-gray-400 ${social.color} transition-colors`}
+                >
+                  <social.icon size={20} />
+                </motion.a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Navigation */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
+            <nav className="space-y-3">
+              {quickLinks.map((link) => (
+                <motion.a
+                  key={link.name}
+                  href={link.href}
+                  className="block text-gray-400 hover:text-white transition-colors"
+                  whileHover={{ x: 5 }}
+                >
+                  {link.name}
+                </motion.a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Brand Recommendations */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Featured Brands</h3>
+            <div className="space-y-3">
+              {brandRecommendations.map((brand) => (
+                <motion.div
+                  key={brand.name}
+                  className="group cursor-pointer"
+                  whileHover={{ x: 5 }}
+                >
+                  <div className="text-gray-400 hover:text-white transition-colors">
+                    {brand.name}
+                  </div>
+                  <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                    {brand.category}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h3 className="text-white font-bold text-lg mb-6">Stay Updated</h3>
+            <p className="text-gray-400 mb-4">
+              Get the latest insights on brand transformation and AI innovation.
+            </p>
+            <div className="space-y-4">
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-l-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-r-lg hover:shadow-lg transition-shadow"
+                >
+                  <ArrowRight size={20} />
+                </motion.button>
+              </div>
+              <p className="text-xs text-gray-500">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-center space-x-3">
+              <Phone size={20} className="text-blue-400" />
+              <div>
+                <div className="text-white font-semibold">Phone</div>
+                <div className="text-gray-400">+1 (555) 123-4567</div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Mail size={20} className="text-purple-400" />
+              <div>
+                <div className="text-white font-semibold">Email</div>
+                <div className="text-gray-400">hello@dolfynbrands.com</div>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <MapPin size={20} className="text-yellow-400" />
+              <div>
+                <div className="text-white font-semibold">Address</div>
+                <div className="text-gray-400">San Francisco, CA 94105</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Legal Links */}
+        <div className="border-t border-gray-700 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-gray-400 text-sm">
+              © 2024 Dolfyn Brands. All rights reserved.
+            </div>
+            <div className="flex space-x-6">
+              {legalLinks.map((link) => (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
