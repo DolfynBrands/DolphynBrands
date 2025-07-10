@@ -94,12 +94,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               <span className="text-sm">+1 (234) 567-890</span>
             </motion.a>
             <motion.a
-              href="mailto:hello@dolfynbrands.com"
+                              href="mailto:contact@dolfynbrands.com"
               className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
               whileHover={{ scale: 1.05 }}
             >
               <Mail size={16} />
-              <span className="text-sm">hello@dolfynbrands.com</span>
+                              <span className="text-sm">contact@dolfynbrands.com</span>
             </motion.a>
           </div>
 
