@@ -5,8 +5,23 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* YouTube Video Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <iframe
+          className="w-full h-full object-cover"
+          src="https://www.youtube-nocookie.com/embed/wqqu1pcmw0U?autoplay=1&mute=1&controls=0&loop=1&playlist=wqqu1pcmw0U&modestbranding=1&showinfo=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1"
+          title="Background Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
+      </div>
+      
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/50 z-10" />
+      
       {/* Main Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+      <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
         {/* Main Headline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -14,18 +29,18 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12"
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             We Transform
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               Digital Brands
             </span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
             Building the world&apos;s most valuable digital brand portfolio through 
             AI-powered acquisition and optimization strategies.
           </p>
-          <p>
+          <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
           </p>
         </motion.div>
@@ -40,7 +55,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gray-900 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-800 transition-colors"
+            className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
             <ArrowRight size={20} />
@@ -49,7 +64,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="border-2 border-gray-900 text-gray-900 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-900 hover:text-white transition-colors"
+            className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
           >
             Learn More
           </motion.button>
@@ -63,16 +78,16 @@ const Hero = () => {
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">500+</div>
-            <div className="text-gray-600 text-sm">Brands</div>
+            <div className="text-3xl md:text-4xl font-bold mb-2">500+</div>
+            <div className="text-white/80 text-sm">Brands</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">$2.5B</div>
-            <div className="text-gray-600 text-sm">Portfolio Value</div>
+            <div className="text-3xl md:text-4xl font-bold mb-2">$2.5B</div>
+            <div className="text-white/80 text-sm">Portfolio Value</div>
           </div>
           <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">98%</div>
-            <div className="text-gray-600 text-sm">Success Rate</div>
+            <div className="text-3xl md:text-4xl font-bold mb-2">98%</div>
+            <div className="text-white/80 text-sm">Success Rate</div>
           </div>
         </motion.div>
       </div>
