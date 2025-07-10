@@ -10,12 +10,9 @@ const BrandShowcase = () => {
   });
 
   const brands = [
-    { name: 'TechFlow', industry: 'SaaS', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
-    { name: 'EcoVibe', industry: 'Sustainability', growth: '+275%', color: 'from-green-400 to-emerald-400' },
-    { name: 'FinanceAI', industry: 'FinTech', growth: '+420%', color: 'from-purple-400 to-pink-400' },
-    { name: 'HealthCore', industry: 'Healthcare', growth: '+180%', color: 'from-orange-400 to-red-400' },
-    { name: 'EduNext', industry: 'EdTech', growth: '+295%', color: 'from-yellow-400 to-orange-400' },
-    { name: 'RetailMax', industry: 'E-commerce', growth: '+365%', color: 'from-indigo-400 to-purple-400' }
+    { name: 'Viva Earth Organics', industry: 'Health and Wellness', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
+    { name: 'Viva Bloom', industry: 'Garden Supplies', growth: '+275%', color: 'from-green-400 to-emerald-400' },
+    { name: 'My Garden Emporium', industry: 'Plants and Sustainability', growth: '+420%', color: 'from-purple-400 to-pink-400' },
   ];
 
   const containerVariants = {
@@ -54,7 +51,7 @@ const BrandShowcase = () => {
               Brand <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Portfolio</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how we've transformed brands across industries, delivering exceptional results 
+              Discover how we&apos;ve transformed brands across industries, delivering exceptional results 
               through our AI-powered approach and creative excellence.
             </p>
           </motion.div>
@@ -85,7 +82,7 @@ const BrandShowcase = () => {
             variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {brands.map((brand, index) => (
+            {brands.map((brand) => (
               <motion.div
                 key={brand.name}
                 variants={itemVariants}

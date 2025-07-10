@@ -65,7 +65,7 @@ const CompanySection = () => {
             </div>
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Vision</h3>
             <p className="text-gray-700 text-lg leading-relaxed">
-              To become the world's most trusted brand transformation partner, empowering businesses 
+              To become the world&apos;s most trusted brand transformation partner, empowering businesses 
               to achieve unprecedented growth through innovative AI-driven strategies and creative excellence.
             </p>
           </motion.div>
@@ -148,7 +148,7 @@ const CompanySection = () => {
               { step: '02', title: 'Design', desc: 'Creative strategy and visual identity' },
               { step: '03', title: 'Develop', desc: 'AI-powered implementation and optimization' },
               { step: '04', title: 'Deploy', desc: 'Launch and continuous improvement' }
-            ].map((item, index) => (
+            ].map((item) => (
               <motion.div
                 key={item.step}
                 variants={itemVariants}

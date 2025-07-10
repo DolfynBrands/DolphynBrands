@@ -37,10 +37,9 @@ const Footer = () => {
   ];
 
   const brandRecommendations = [
-    { name: 'TechFlow', category: 'SaaS' },
-    { name: 'EcoVibe', category: 'Sustainability' },
-    { name: 'FinanceAI', category: 'FinTech' },
-    { name: 'HealthCore', category: 'Healthcare' }
+    { name: 'Viva Earth Organics', category: 'Health and Wellness' },
+    { name: 'Viva Bloom', category: 'Garden Supplies' },
+    { name: 'My Garden Emporium', category: 'Plants and Sustainability' }
   ];
 
   return (
@@ -153,14 +152,14 @@ const Footer = () => {
               <Mail size={20} className="text-purple-400" />
               <div>
                 <div className="text-white font-semibold">Email</div>
-                <div className="text-gray-400">hello@dolfynbrands.com</div>
+                <div className="text-gray-400">contact@dolfynbrands.com</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <MapPin size={20} className="text-yellow-400" />
               <div>
                 <div className="text-white font-semibold">Address</div>
-                <div className="text-gray-400">San Francisco, CA 94105</div>
+                <div className="text-gray-400">8 The Green, #22847, Dover,<br />DE 19901, USA</div>
               </div>
             </div>
           </div>
