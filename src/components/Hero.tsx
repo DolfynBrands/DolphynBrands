@@ -41,7 +41,9 @@ const Hero = () => {
           muted
           playsInline
           preload="auto"
+          // eslint-disable-next-line react/no-unknown-property
           webkit-playsinline="true"
+          // eslint-disable-next-line react/no-unknown-property
           x5-playsinline="true"
         >
           <source src="/video.mp4" type="video/mp4" />
