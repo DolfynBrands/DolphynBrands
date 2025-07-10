@@ -7,27 +7,41 @@
 - **Icons**: Lucide React
 - **Build Output**: `dist/` folder
 
+## Branch Strategy
+- **`main`**: Development branch (auto-deploys on push)
+- **`prod`**: Production branch (manual deployment only)
+
 ## Method 1: GitHub Actions (Recommended)
+
+### Development Workflow:
+
+1. **Push to Main (Development):**
+   ```bash
+   git add .
+   git commit -m "Your changes"
+   git push origin main
+   ```
+   ✅ **Automatic deployment** to Hostinger
+
+2. **Manual Production Deployment:**
+   - Go to GitHub repository → Actions tab
+   - Select "Deploy to Production" workflow
+   - Click "Run workflow"
+   - Choose environment (production/staging)
+   - Click "Run workflow"
 
 ### Setup Steps:
 
-1. **Push your code to GitHub:**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
-
-2. **Set up GitHub Secrets:**
+1. **Set up GitHub Secrets:**
    - Go to your GitHub repository → Settings → Secrets and variables → Actions
    - Add these secrets:
      - `FTP_SERVER`: Your Hostinger FTP server (e.g., `ftp.yourdomain.com`)
      - `FTP_USERNAME`: Your Hostinger FTP username
      - `FTP_PASSWORD`: Your Hostinger FTP password
 
-3. **Automatic Deployment:**
-   - Every push to `main` branch will trigger automatic deployment
-   - Manual deployment available via GitHub Actions tab
+2. **Workflow Files:**
+   - `.github/workflows/deploy.yml` - Auto-deploys from main branch
+   - `.github/workflows/deploy-prod.yml` - Manual production deployment
 
 ## Method 2: Hostinger's Built-in Git Integration
 
@@ -38,7 +52,7 @@
 5. **Configure:**
    - Source directory: `/`
    - Target directory: `public_html`
-   - Branch: `main`
+   - Branch: `main` (for development)
 
 ## Method 3: Manual Upload
 
@@ -86,6 +100,29 @@ The `.htaccess` file is already included in the `dist/` folder and provides:
 2. **Enable SSL certificate** for HTTPS
 3. **Configure subdomain** if needed
 
+## Development Workflow
+
+### Daily Development:
+1. **Make changes** in your code
+2. **Test locally:**
+   ```bash
+   npm run dev
+   ```
+3. **Commit and push to main:**
+   ```bash
+   git add .
+   git commit -m "Your changes"
+   git push origin main
+   ```
+4. **Automatic deployment** to Hostinger
+
+### Production Release:
+1. **Test thoroughly** on development (main branch)
+2. **Go to GitHub Actions** → "Deploy to Production"
+3. **Click "Run workflow"**
+4. **Select "production"** environment
+5. **Monitor deployment** in Actions tab
+
 ## Troubleshooting
 
 ### Common Issues:
@@ -107,27 +144,6 @@ The `.htaccess` file is already included in the `dist/` folder and provides:
 - ✅ CSS and JS files are cached for 1 year
 - ✅ Gzip compression enabled
 - ✅ Security headers configured
-
-## Development Workflow
-
-1. **Local Development:**
-   ```bash
-   npm run dev
-   ```
-
-2. **Build for Production:**
-   ```bash
-   npm run build
-   ```
-
-3. **Preview Build:**
-   ```bash
-   npm run preview
-   ```
-
-4. **Deploy:**
-   - Push to GitHub (automatic deployment)
-   - Or manually upload `dist/` contents
 
 ## File Structure
 ```

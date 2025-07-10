@@ -1,13 +1,21 @@
-name: Deploy DolphynBrands to Hostinger
+name: Deploy to Production
 
 on:
-  push:
-    branches: [ main ]  # Only deploy when pushing to main (dev branch)
-  workflow_dispatch:    # Allow manual deployment for prod
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+        - production
+        - staging
 
 jobs:
-  build-and-deploy:
+  deploy-to-production:
     runs-on: ubuntu-latest
+    environment: production
     
     steps:
     - name: Checkout code
@@ -30,12 +38,11 @@ jobs:
       
     - name: Verify build output
       run: |
-        echo "Checking build output..."
+        echo "Production build verification..."
         ls -la dist/
-        echo "Build completed successfully!"
+        echo "Production build completed successfully!"
       
-    - name: Deploy to Hostinger (Development)
-      if: github.ref == 'refs/heads/main'
+    - name: Deploy to Production
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: ${{ secrets.FTP_SERVER }}
