@@ -226,41 +226,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Process Timeline */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div variants={containerVariants} className="text-center">
-            <motion.h3 
-              variants={itemVariants}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-12"
-            >
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Process</span>
-            </motion.h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                { step: '01', title: 'Discover', desc: 'Deep brand analysis and market research' },
-                { step: '02', title: 'Design', desc: 'Creative strategy and visual identity' },
-                { step: '03', title: 'Develop', desc: 'AI-powered implementation and optimization' },
-                { step: '04', title: 'Deploy', desc: 'Launch and continuous improvement' }
-              ].map((item) => (
-                <motion.div
-                  key={item.step}
-                  variants={itemVariants}
-                  className="text-center"
-                >
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-lg">{item.step}</span>
-                  </div>
-                  <h4 className="text-xl font-bold text-gray-900 mb-2">{item.title}</h4>
-                  <p className="text-gray-600">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Stats Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">

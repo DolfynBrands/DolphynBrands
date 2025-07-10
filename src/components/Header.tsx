@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     { name: 'Home', key: 'home' },
     { name: 'About', key: 'about' },
     { name: 'Brands', key: 'brands' },
-    { name: 'Contact', key: 'contact' }
+    { name: 'Partner Up', key: 'contact' }
   ];
 
   const handleNavClick = (pageKey: string) => {
@@ -56,7 +56,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <div className="w-8 h-8 bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-sm">D</span>
             </div>
-            <span className="text-gray-900 font-bold text-lg">Dolfyn</span>
+            <span className="text-gray-900 font-bold text-lg">Dolfyn Brands</span>
           </motion.div>
 
           {/* Desktop Navigation */}

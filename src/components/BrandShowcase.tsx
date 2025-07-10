@@ -10,12 +10,9 @@ const BrandShowcase = () => {
   });
 
   const brands = [
-    { name: 'TechFlow', industry: 'SaaS', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
-    { name: 'EcoVibe', industry: 'Sustainability', growth: '+275%', color: 'from-green-400 to-emerald-400' },
-    { name: 'FinanceAI', industry: 'FinTech', growth: '+420%', color: 'from-purple-400 to-pink-400' },
-    { name: 'HealthCore', industry: 'Healthcare', growth: '+180%', color: 'from-orange-400 to-red-400' },
-    { name: 'EduNext', industry: 'EdTech', growth: '+295%', color: 'from-yellow-400 to-orange-400' },
-    { name: 'RetailMax', industry: 'E-commerce', growth: '+365%', color: 'from-indigo-400 to-purple-400' }
+    { name: 'Viva Earth', industry: 'Lifestyle', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
+    { name: 'Viva Bloom', industry: 'Plants', growth: '+275%', color: 'from-green-400 to-emerald-400' },
+    { name: 'My Graden Emporium', industry: 'Gardening', growth: '+420%', color: 'from-purple-400 to-pink-400' },
   ];
 
   const containerVariants = {
