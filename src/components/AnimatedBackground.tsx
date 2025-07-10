@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const AnimatedBackground = () => {
   const [elements, setElements] = useState<Array<{
@@ -10,6 +10,10 @@ const AnimatedBackground = () => {
     size: number;
     speed: number;
     opacity: number;
+    direction: number;
+    rotationSpeed: number;
+    amplitude: number;
+    frequency: number;
   }>>([]);
 
   const brandNames = [
@@ -69,7 +73,7 @@ const AnimatedBackground = () => {
     generateElements();
     window.addEventListener('resize', generateElements);
     return () => window.removeEventListener('resize', generateElements);
-  }, []);
+  }, [allTexts]);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden">

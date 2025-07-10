@@ -148,7 +148,7 @@ const CompanySection = () => {
               { step: '02', title: 'Design', desc: 'Creative strategy and visual identity' },
               { step: '03', title: 'Develop', desc: 'AI-powered implementation and optimization' },
               { step: '04', title: 'Deploy', desc: 'Launch and continuous improvement' }
-            ].map((item, index) => (
+            ].map((item) => (
               <motion.div
                 key={item.step}
                 variants={itemVariants}
