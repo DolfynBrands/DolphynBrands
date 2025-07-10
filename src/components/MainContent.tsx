@@ -118,7 +118,7 @@ const MainContent = () => {
               variants={itemVariants}
               className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
             >
-              Join the world's most successful digital brands. Let's discuss how we can 
+              Join the world&apos;s most successful digital brands. Let&apos;s discuss how we can 
               accelerate your growth and market presence.
             </motion.p>
             <motion.div 

@@ -130,8 +130,11 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Building the world's most valuable digital brand portfolio through 
+            Building the world&apos;s most valuable digital brand portfolio through 
             AI-powered acquisition and optimization strategies.
+          </p>
+          <p>
+            Let&apos;s build your brand&apos;s future together.
           </p>
         </motion.div>
 

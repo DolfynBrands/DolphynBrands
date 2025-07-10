@@ -51,7 +51,7 @@ const BrandShowcase = () => {
               Brand <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Portfolio</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover how we've transformed brands across industries, delivering exceptional results 
+              Discover how we&apos;ve transformed brands across industries, delivering exceptional results 
               through our AI-powered approach and creative excellence.
             </p>
           </motion.div>

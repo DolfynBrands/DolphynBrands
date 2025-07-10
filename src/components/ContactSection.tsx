@@ -60,15 +60,15 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-              Let's Build Something
+              Let&apos;s Build Something
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
                 Extraordinary
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              Ready to transform your brand into a market leader? We're here to make it happen. 
-              Let's start the conversation.
+              Ready to transform your brand into a market leader? We&apos;re here to make it happen. 
+              Let&apos;s start the conversation.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -97,7 +97,7 @@ export default function ContactSection() {
                 Partner With Us
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Ready to transform your brand? Let's start a conversation about how we can 
+                Ready to transform your brand? Let&apos;s start a conversation about how we can
                 help you achieve extraordinary results.
               </p>
             </motion.div>
