@@ -6,12 +6,7 @@ import {
   Target, 
   Zap, 
   Globe, 
-  Users, 
-  Award,
-  ArrowRight,
-  BarChart3,
-  Lightbulb,
-  Shield
+  ArrowRight
 } from 'lucide-react';
 
 const MainContent = () => {
