@@ -5,16 +5,19 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* YouTube Video Background */}
+      {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <iframe
+        <video
           className="w-full h-full object-cover"
-          src="https://www.youtube-nocookie.com/embed/wqqu1pcmw0U?autoplay=1&mute=1&controls=0&loop=1&playlist=wqqu1pcmw0U&modestbranding=1&showinfo=0&rel=0&playsinline=1&cc_load_policy=0&enablejsapi=1"
-          title="Background Video"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/video.mp4" type="video/mp4" />
+          {/* Fallback for browsers that don't support video */}
+          <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900"></div>
+        </video>
       </div>
       
       {/* Dark Overlay */}
