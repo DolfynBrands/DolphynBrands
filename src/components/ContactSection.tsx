@@ -227,7 +227,7 @@ export default function ContactSection() {
                       </div>
                       <div>
                         <h4 className="font-semibold text-gray-900">Email</h4>
-                        <p className="text-gray-600">hello@dolfynbrands.com</p>
+                        <p className="text-gray-600">contact@dolfynbrands.com</p>
                       </div>
                     </div>
                     

@@ -10,9 +10,9 @@ const BrandShowcase = () => {
   });
 
   const brands = [
-    { name: 'Viva Earth', industry: 'Lifestyle', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
-    { name: 'Viva Bloom', industry: 'Plants', growth: '+275%', color: 'from-green-400 to-emerald-400' },
-    { name: 'My Graden Emporium', industry: 'Gardening', growth: '+420%', color: 'from-purple-400 to-pink-400' },
+    { name: 'Viva Earth Organics', industry: 'Health and Wellness', growth: '+340%', color: 'from-blue-400 to-cyan-400' },
+    { name: 'Viva Bloom', industry: 'Garden Supplies', growth: '+275%', color: 'from-green-400 to-emerald-400' },
+    { name: 'My Garden Emporium', industry: 'Plants and Sustainability', growth: '+420%', color: 'from-purple-400 to-pink-400' },
   ];
 
   const containerVariants = {
