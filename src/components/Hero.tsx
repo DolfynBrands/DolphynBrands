@@ -1,18 +1,48 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      // Force play on mobile devices
+      const playVideo = async () => {
+        try {
+          await video.play();
+        } catch (error) {
+          console.log('Autoplay failed:', error);
+          // Fallback: try to play on user interaction
+          const handleUserInteraction = () => {
+            video.play().catch(console.log);
+            document.removeEventListener('touchstart', handleUserInteraction);
+            document.removeEventListener('click', handleUserInteraction);
+          };
+          document.addEventListener('touchstart', handleUserInteraction);
+          document.addEventListener('click', handleUserInteraction);
+        }
+      };
+      
+      playVideo();
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
+          ref={videoRef}
           className="w-full h-full object-cover"
           autoPlay
           loop
           muted
           playsInline
+          preload="auto"
+          webkit-playsinline="true"
+          x5-playsinline="true"
         >
           <source src="/video.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
