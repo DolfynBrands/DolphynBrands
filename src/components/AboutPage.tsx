@@ -1,14 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
 
 const AboutPage = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
