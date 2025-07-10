@@ -68,51 +68,6 @@ const MainContent = () => {
     }
   ];
 
-  const metrics = [
-    {
-      icon: BarChart3,
-      value: '$2.5B+',
-      label: 'Portfolio Value',
-      description: 'Total value of our brand portfolio'
-    },
-    {
-      icon: Users,
-      value: '500+',
-      label: 'Brands Acquired',
-      description: 'Successfully acquired and optimized'
-    },
-    {
-      icon: Award,
-      value: '98%',
-      label: 'Success Rate',
-      description: 'Brands showing positive growth'
-    },
-    {
-      icon: Lightbulb,
-      value: '300%',
-      label: 'Avg Growth',
-      description: 'Average revenue growth post-acquisition'
-    }
-  ];
-
-  const features = [
-    {
-      title: 'AI-Powered Analytics',
-      description: 'Advanced machine learning algorithms analyze market trends and consumer behavior.',
-      icon: BarChart3
-    },
-    {
-      title: 'Strategic Partnerships',
-      description: 'Building long-term relationships with brand founders and key stakeholders.',
-      icon: Users
-    },
-    {
-      title: 'Risk Management',
-      description: 'Comprehensive due diligence and risk assessment for every acquisition.',
-      icon: Shield
-    }
-  ];
-
   return (
     <div className="bg-white">
       {/* Services Section */}
