@@ -1,6 +1,9 @@
 name: Deploy to Production
 
 on:
+  push:
+    branches:
+      - Prod
   workflow_dispatch:
     inputs:
       environment:
@@ -15,7 +18,7 @@ on:
 jobs:
   deploy-to-production:
     runs-on: ubuntu-latest
-    environment: production
+    environment: Prod
     
     steps:
     - name: Checkout code
@@ -49,7 +52,7 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
-        server-dir: /public_html/
+        server-dir: /domains/dolfynbrands.com/public_html/
         exclude: |
           **/.git*
           **/.git*/**
