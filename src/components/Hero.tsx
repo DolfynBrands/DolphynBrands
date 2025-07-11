@@ -2,7 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -90,6 +94,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => setCurrentPage('contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
