@@ -19,13 +19,13 @@ function App() {
         return <BrandShowcase />;
       case 'contact':
         return <ContactSection />;
-      default:
-        return (
-          <>
-            <Hero />
-            <MainContent />
-          </>
-        );
+              default:
+          return (
+            <>
+              <Hero setCurrentPage={setCurrentPage} />
+              <MainContent />
+            </>
+          );
     }
   };
 
