@@ -73,6 +73,12 @@ export default function ContactSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const partnerSection = document.getElementById('partner-up');
+                if (partnerSection) {
+                  partnerSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 mx-auto hover:bg-gray-100 transition-colors"
             >
               <span>Get Started Today</span>
