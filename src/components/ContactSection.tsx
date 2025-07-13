@@ -16,9 +16,36 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company || 'Not provided');
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subject', `Partnership Inquiry from ${formData.name}`);
+      const response = await fetch('/send-email.php', {
+        method: 'POST',
+        body: formDataToSend
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -112,6 +139,16 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                  {submitStatus === 'success' && (
+                    <div className="text-green-600 font-semibold mb-4">
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="text-red-600 font-semibold mb-4">
+                      Sorry, there was an error sending your message. Please try again.
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
