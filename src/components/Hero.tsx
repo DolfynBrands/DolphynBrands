@@ -59,7 +59,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       </div>
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/70 z-10" />
+      <div className="absolute inset-0 bg-black/50 z-10" />
       
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
