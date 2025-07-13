@@ -243,8 +243,8 @@ export default function ContactSection() {
                       <div>
                         <h4 className="font-semibold text-gray-900">Address</h4>
                         <p className="text-gray-600">
-                          123 Innovation Drive<br />
-                          San Francisco, CA 94105
+                          8 The Green, #22847, Dover,<br />
+                          DE 19901, USA
                         </p>
                       </div>
                     </div>
