@@ -76,8 +76,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-            Building the world&apos;s most valuable digital brand portfolio through 
-            AI-powered acquisition and optimization strategies.
+            Building the world’s most valuable digital brand portfolio with AI-driven optimization and global expansion.
           </p>
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
