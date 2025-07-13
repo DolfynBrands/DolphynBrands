@@ -67,12 +67,17 @@ export default function ContactSection() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-              Ready to transform your brand into a market leader? We&apos;re here to make it happen. 
-              Let&apos;s start the conversation.
+              Ready to transform your brand into a global leader? We&apos;re here to make it happen. Let&apos;s start the conversation.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const partnerSection = document.getElementById('partner-up');
+                if (partnerSection) {
+                  partnerSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 mx-auto hover:bg-gray-100 transition-colors"
             >
               <span>Get Started Today</span>

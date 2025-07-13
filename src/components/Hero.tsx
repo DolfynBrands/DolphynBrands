@@ -2,7 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
-const Hero = () => {
+interface HeroProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -19,18 +23,19 @@ const Hero = () => {
             video.play().catch(console.log);
             document.removeEventListener('touchstart', handleUserInteraction);
             document.removeEventListener('click', handleUserInteraction);
+            window.removeEventListener('scroll', handleUserInteraction);
           };
           document.addEventListener('touchstart', handleUserInteraction);
           document.addEventListener('click', handleUserInteraction);
+          window.addEventListener('scroll', handleUserInteraction);
         }
       };
-      
       playVideo();
     }
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
@@ -45,6 +50,7 @@ const Hero = () => {
           webkit-playsinline="true"
           // eslint-disable-next-line react/no-unknown-property
           x5-playsinline="true"
+          poster="/video.mp4"
         >
           <source src="/video.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
@@ -64,16 +70,15 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            We Transform
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
+            Transforming Ambitious
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Digital Brands
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
+              Brands into Global Powerhouses
             </span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-            Building the world&apos;s most valuable digital brand portfolio through 
-            AI-powered acquisition and optimization strategies.
+            Building the world’s most valuable digital brand portfolio with AI-driven optimization and global expansion.
           </p>
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
@@ -90,6 +95,7 @@ const Hero = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => setCurrentPage('contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
