@@ -45,16 +45,16 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         isScrolled ? 'w-11/12 md:w-3/4' : 'w-11/12 md:w-5/6'
       }`}
     >
-      <div className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl px-6 py-4 shadow-lg">
+      <div className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl px-4 py-2 shadow-lg">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2 cursor-pointer"
+            className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
-            <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-10 h-10 object-contain" />
-            <span className="text-gray-900 font-bold text-lg">Dolfyn Brands</span>
+            <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" />
+            <span className="text-gray-900 font-bold text-2xl">Dolfyn Brands</span>
           </motion.div>
 
           {/* Desktop Navigation */}

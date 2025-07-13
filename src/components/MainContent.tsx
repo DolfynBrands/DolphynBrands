@@ -8,6 +8,7 @@ import {
   Globe, 
   ArrowRight
 } from 'lucide-react';
+import AnimatedBackground from './AnimatedBackground'; // Adjust the import based on your file structure
 
 const MainContent = () => {
   const [ref, inView] = useInView({
@@ -65,44 +66,48 @@ const MainContent = () => {
 
   return (
     <div className="bg-white">
-      {/* Services Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            ref={ref}
-            variants={containerVariants}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <motion.div variants={itemVariants} className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                What We Do
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We specialize in acquiring, optimizing, and scaling digital brands 
-                to create lasting value and market leadership.
-              </p>
-            </motion.div>
+      {/* Animated background only for What We Do section */}
+      <div className="relative">
+        <AnimatedBackground />
+        {/* Services Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <motion.div
+              ref={ref}
+              variants={containerVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              <motion.div variants={itemVariants} className="text-center mb-16">
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                  What We Do
+                </h2>
+                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                  We specialize in acquiring, optimizing, and scaling digital brands 
+                  to create lasting value and market leadership.
+                </p>
+              </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {services.map((service, index) => (
-                <motion.div
-                  key={index}
-                  variants={itemVariants}
-                  whileHover={{ y: -10, scale: 1.02 }}
-                  className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                >
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4`}>
-                    <service.icon size={24} className="text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {services.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    variants={itemVariants}
+                    whileHover={{ y: -10, scale: 1.02 }}
+                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+                  >
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4`}>
+                      <service.icon size={24} className="text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </div>
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
