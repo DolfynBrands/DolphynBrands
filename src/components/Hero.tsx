@@ -34,7 +34,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <video
@@ -69,10 +69,10 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           className="mb-12"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            We Transform
+            Transforming Ambitious
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-              Digital Brands
+              Brands into Global Powerhouses
             </span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
