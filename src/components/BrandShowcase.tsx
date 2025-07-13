@@ -37,7 +37,7 @@ const BrandShowcase = () => {
   };
 
   return (
-    <section id="brands" className="py-20 bg-gradient-to-br from-white to-gray-50">
+    <section id="brands" className="pt-32 py-20 bg-gradient-to-br from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4">
         <motion.div
           ref={ref}
