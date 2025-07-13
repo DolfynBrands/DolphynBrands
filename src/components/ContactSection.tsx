@@ -16,12 +16,11 @@ export default function ContactSection() {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  // Removed isSubmitting as it was unused
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
     setSubmitStatus('idle');
     try {
       const formDataToSend = new FormData();
@@ -41,10 +40,8 @@ export default function ContactSection() {
       } else {
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
