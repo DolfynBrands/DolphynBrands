@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
-import AnimatedBackground from './components/AnimatedBackground';
 import Hero from './components/Hero';
 import MainContent from './components/MainContent';
 import AboutPage from './components/AboutPage';
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <div className="relative min-h-screen bg-white overflow-x-hidden">
-      <AnimatedBackground />
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
         {renderPage()}

@@ -94,7 +94,7 @@ const AnimatedBackground = () => {
   }
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
       {elements.map((element) => (
         <motion.div
           key={element.id}
