@@ -35,7 +35,7 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.hostinger.com'; // Use your SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'pradeep@dolfynbrands.com'; // Your email
+    $mail->Username   = 'shruthi@dolfynbrands.com'; // Your email
     $mail->Password   = 'Vivaearth@123';      // Your email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
