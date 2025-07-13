@@ -2,6 +2,7 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+require __DIR__ . '/../config.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -35,8 +36,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.hostinger.com'; // Use your SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'shruthi@dolfynbrands.com'; // Your email
-    $mail->Password   = 'Vivaearth@123';      // Your email password
+    $mail->Username   = SMTP_USERNAME;
+    $mail->Password   = SMTP_PASSWORD;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
 
