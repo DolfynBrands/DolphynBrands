@@ -57,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       </div>
       
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute inset-0 bg-black/70 z-10" />
       
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
@@ -68,7 +68,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="mb-12"
         >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
             Transforming Ambitious
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
@@ -76,8 +76,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             </span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
-            Building the world&apos;s most valuable digital brand portfolio through 
-            AI-powered acquisition and optimization strategies.
+            Building the world’s most valuable digital brand portfolio with AI-driven optimization and global expansion.
           </p>
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
