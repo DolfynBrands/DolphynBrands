@@ -73,7 +73,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
             Transforming Ambitious
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
               Brands into Global Powerhouses
             </span>
           </h1>
