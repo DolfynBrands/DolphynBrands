@@ -1,6 +1,39 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
+const brandNames = [
+  'Nike', 'Apple', 'Google', 'Tesla', 'Amazon', 'Meta', 'Netflix', 'Spotify',
+  'Uber', 'Airbnb', 'Stripe', 'Discord', 'Figma', 'Notion', 'Slack', 'Zoom',
+  'Shopify', 'Twilio', 'Vercel', 'GitHub', 'Linear', 'Framer', 'Webflow',
+  'Microsoft', 'Adobe', 'Salesforce', 'Oracle', 'IBM', 'Intel', 'Nvidia',
+  'PayPal', 'Square', 'Coinbase', 'Robinhood', 'Canva', 'Dropbox', 'Atlassian',
+  'MongoDB', 'Snowflake', 'Datadog', 'Okta', 'Zendesk', 'HubSpot', 'Mailchimp',
+  'Asana', 'Trello', 'Miro', 'Loom', 'Calendly', 'Typeform', 'Intercom',
+  'Segment', 'Amplitude', 'Mixpanel', 'Hotjar', 'Optimizely', 'Contentful'
+];
+
+const reviews = [
+  '★★★★★ "Amazing transformation!"',
+  '★★★★★ "Best brand agency ever"',
+  '★★★★★ "Incredible results"',
+  '★★★★★ "Highly recommend"',
+  '★★★★★ "Outstanding service"',
+  '★★★★★ "Game-changing results"',
+  '★★★★★ "Exceeded expectations"',
+  '★★★★★ "Revolutionary approach"',
+  '★★★★★ "Phenomenal growth"',
+  '★★★★★ "Unmatched expertise"'
+];
+
+const partners = [
+  'Y Combinator', 'Techstars', 'Sequoia', 'A16z', 'Bessemer', 'Greylock',
+  'First Round', 'Founders Fund', 'Kleiner Perkins', 'Accel', 'General Catalyst',
+  'Index Ventures', 'Lightspeed', 'NEA', 'GV', 'CRV', 'Insight Partners',
+  'Tiger Global', 'Coatue', 'DST Global', 'SoftBank Vision', 'Benchmark'
+];
+
+const allTexts = [...brandNames, ...reviews, ...partners];
+
 const AnimatedBackground = () => {
   const [elements, setElements] = useState<Array<{
     id: number;
@@ -17,39 +50,6 @@ const AnimatedBackground = () => {
   }>>([]);
 
   const [mounted, setMounted] = useState(false);
-
-  const brandNames = [
-    'Nike', 'Apple', 'Google', 'Tesla', 'Amazon', 'Meta', 'Netflix', 'Spotify',
-    'Uber', 'Airbnb', 'Stripe', 'Discord', 'Figma', 'Notion', 'Slack', 'Zoom',
-    'Shopify', 'Twilio', 'Vercel', 'GitHub', 'Linear', 'Framer', 'Webflow',
-    'Microsoft', 'Adobe', 'Salesforce', 'Oracle', 'IBM', 'Intel', 'Nvidia',
-    'PayPal', 'Square', 'Coinbase', 'Robinhood', 'Canva', 'Dropbox', 'Atlassian',
-    'MongoDB', 'Snowflake', 'Datadog', 'Okta', 'Zendesk', 'HubSpot', 'Mailchimp',
-    'Asana', 'Trello', 'Miro', 'Loom', 'Calendly', 'Typeform', 'Intercom',
-    'Segment', 'Amplitude', 'Mixpanel', 'Hotjar', 'Optimizely', 'Contentful'
-  ];
-
-  const reviews = [
-    '★★★★★ "Amazing transformation!"',
-    '★★★★★ "Best brand agency ever"',
-    '★★★★★ "Incredible results"',
-    '★★★★★ "Highly recommend"',
-    '★★★★★ "Outstanding service"',
-    '★★★★★ "Game-changing results"',
-    '★★★★★ "Exceeded expectations"',
-    '★★★★★ "Revolutionary approach"',
-    '★★★★★ "Phenomenal growth"',
-    '★★★★★ "Unmatched expertise"'
-  ];
-
-  const partners = [
-    'Y Combinator', 'Techstars', 'Sequoia', 'A16z', 'Bessemer', 'Greylock',
-    'First Round', 'Founders Fund', 'Kleiner Perkins', 'Accel', 'General Catalyst',
-    'Index Ventures', 'Lightspeed', 'NEA', 'GV', 'CRV', 'Insight Partners',
-    'Tiger Global', 'Coatue', 'DST Global', 'SoftBank Vision', 'Benchmark'
-  ];
-
-  const allTexts = [...brandNames, ...reviews, ...partners];
 
   useEffect(() => {
     setMounted(true);
@@ -87,7 +87,7 @@ const AnimatedBackground = () => {
     
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [allTexts]);
+  }, []);
 
   if (!mounted || elements.length === 0) {
     return null;
