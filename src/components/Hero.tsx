@@ -23,12 +23,13 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             video.play().catch(console.log);
             document.removeEventListener('touchstart', handleUserInteraction);
             document.removeEventListener('click', handleUserInteraction);
+            window.removeEventListener('scroll', handleUserInteraction);
           };
           document.addEventListener('touchstart', handleUserInteraction);
           document.addEventListener('click', handleUserInteraction);
+          window.addEventListener('scroll', handleUserInteraction);
         }
       };
-      
       playVideo();
     }
   }, []);
@@ -49,6 +50,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           webkit-playsinline="true"
           // eslint-disable-next-line react/no-unknown-property
           x5-playsinline="true"
+          poster="/video.mp4"
         >
           <source src="/video.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
