@@ -16,9 +16,38 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>("idle");
+  const [responseMsg, setResponseMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setStatus("loading");
+    setResponseMsg("");
+    try {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${API_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setResponseMsg(data.message || "Message sent successfully!");
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        setStatus("error");
+        setResponseMsg(data.error || "Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setResponseMsg("Failed to send message. Please try again later.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -178,6 +207,16 @@ export default function ContactSection() {
                       />
                     </div>
                     
+                    {/* Status message */}
+                    {status === 'success' && (
+                      <div className="text-green-600 font-semibold">{responseMsg}</div>
+                    )}
+                    {status === 'error' && (
+                      <div className="text-red-600 font-semibold">{responseMsg}</div>
+                    )}
+                    {status === 'loading' && (
+                      <div className="text-blue-600 font-semibold">Sending...</div>
+                    )}
                     <motion.button
                       type="submit"
                       whileHover={{ scale: 1.02 }}
