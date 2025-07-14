@@ -74,7 +74,7 @@ const AboutPage = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="pt-32 py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div
             initial="hidden"

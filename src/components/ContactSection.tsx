@@ -16,6 +16,7 @@ export default function ContactSection() {
     message: ''
   });
 
+<<<<<<< HEAD
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>("idle");
   const [responseMsg, setResponseMsg] = useState("");
 
@@ -47,6 +48,34 @@ export default function ContactSection() {
       console.error(err);
       setStatus("error");
       setResponseMsg("Failed to send message. Please try again later.");
+=======
+  // Removed isSubmitting as it was unused
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitStatus('idle');
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company || 'Not provided');
+      formDataToSend.append('message', formData.message);
+      formDataToSend.append('subject', `Partnership Inquiry from ${formData.name}`);
+      const response = await fetch('/send-email.php', {
+        method: 'POST',
+        body: formDataToSend
+      });
+      const data = await response.json();
+      if (response.ok && data.success) {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        setSubmitStatus('error');
+      }
+    } catch {
+      setSubmitStatus('error');
+>>>>>>> 03a913faf8b36c94813d0388850a4788f594b2d7
     }
   };
 
@@ -141,6 +170,16 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                  {submitStatus === 'success' && (
+                    <div className="text-green-600 font-semibold mb-4">
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+                  {submitStatus === 'error' && (
+                    <div className="text-red-600 font-semibold mb-4">
+                      Sorry, there was an error sending your message. Please try again.
+                    </div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -282,8 +321,8 @@ export default function ContactSection() {
                       <div>
                         <h4 className="font-semibold text-gray-900">Address</h4>
                         <p className="text-gray-600">
-                          123 Innovation Drive<br />
-                          San Francisco, CA 94105
+                          8 The Green, #22847, Dover,<br />
+                          DE 19901, USA
                         </p>
                       </div>
                     </div>
