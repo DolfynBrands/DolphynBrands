@@ -1,0 +1,29 @@
+# robots.txt for dolfynbrands.com
+# Purpose: Guide search engine crawlers and protect sensitive areas.
+
+# --- Allow all major search engines full access to public content ---
+User-agent: Googlebot
+Disallow:
+
+User-agent: Bingbot
+Disallow:
+
+User-agent: Yandex
+Disallow:
+
+User-agent: Baiduspider
+Disallow:
+
+# --- Default rule for all other well-behaved bots ---
+User-agent: *
+Disallow:
+
+# --- Block all bots from sensitive/private directories ---
+# These folders may contain confidential, staging, or admin content.
+Disallow: /admin/
+Disallow: /cgi-bin/
+Disallow: /staging/
+Disallow: /private/
+
+# --- Sitemap location for improved crawling and indexing ---
+Sitemap: https://dolfynbrands.com/sitemap.xml 
