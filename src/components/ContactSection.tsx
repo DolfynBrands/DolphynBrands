@@ -255,9 +255,16 @@ export default function ContactSection() {
                     Get instant support and quick answers to your questions through our WhatsApp Business account.
                   </p>
                   <motion.button
+                    id="contact-us-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 hover:bg-green-50 transition-colors"
+                    onClick={() => {
+                      const phoneNumber = '916366314646';
+                      const message = encodeURIComponent("Hello! We’re excited to partner with Dolfyn Brands. Let’s connect!");
+                      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+                      window.open(url, '_blank');
+                    }}
                   >
                     <MessageCircle size={20} />
                     <span>Chat on WhatsApp</span>
