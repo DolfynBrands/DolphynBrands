@@ -26,7 +26,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     { name: 'Home', key: 'home' },
     { name: 'About', key: 'about' },
     { name: 'Brands', key: 'brands' },
-    { name: 'Partner Up', key: 'contact' }
+    { name: 'Our Team', key: 'team' },
+    { name: 'Partner Up', key: 'contact' },
   ];
 
   const handleNavClick = (pageKey: string) => {

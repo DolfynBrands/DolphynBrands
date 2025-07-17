@@ -6,6 +6,9 @@ import AboutPage from './components/AboutPage';
 import BrandShowcase from './components/BrandShowcase';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
+import OurPrinciples from './components/OurPrinciples';
+import OurTeam from './components/OurTeam';
+import OurJourney from './components/OurJourney';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -18,8 +21,14 @@ function App() {
         return <BrandShowcase />;
       case 'contact':
         return <ContactSection />;
-              default:
-          return (
+      case 'principles':
+        return <OurPrinciples />;
+      case 'team':
+        return <OurTeam />;
+      case 'journey':
+        return <OurJourney />;
+      default:
+        return (
             <>
               <Hero setCurrentPage={setCurrentPage} />
               <MainContent />
@@ -34,7 +43,7 @@ function App() {
       <main>
         {renderPage()}
       </main>
-      <Footer />
+      <Footer setCurrentPage={setCurrentPage} />
     </div>
   );
 }

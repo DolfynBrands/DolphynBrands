@@ -12,7 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const Footer = () => {
+const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void }) => {
   const socialLinks = [
     { icon: Facebook, href: '#', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
@@ -22,11 +22,14 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Brands', href: '#brands' },
-    { name: 'Partner Up', href: '#partner-up' },
+    { name: 'About Us', href: '#about', key: 'about' },
+    { name: 'Our Journey', href: '/our-journey', key: 'journey' },
+    { name: 'Our Brands', href: '#brands', key: 'brands' },
+    { name: 'Partner Up', href: '#partner-up', key: 'contact' },
     { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Contact', href: '#contact', key: 'contact' },
+    { name: 'Our Team', href: '/our-team', key: 'team' },
+    { name: 'Our Principles', href: '/our-principles', key: 'principles' }
   ];
 
   const legalLinks = [
@@ -82,6 +85,7 @@ const Footer = () => {
                   href={link.href}
                   className="block text-gray-400 hover:text-white transition-colors"
                   whileHover={{ x: 5 }}
+                  onClick={link.key && setCurrentPage ? (e) => { e.preventDefault(); setCurrentPage(link.key); } : undefined}
                 >
                   {link.name}
                 </motion.a>
