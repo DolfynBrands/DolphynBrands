@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
 
-const AboutPage = () => {
+const AboutPage = React.memo(() => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -284,6 +284,6 @@ const AboutPage = () => {
       </section>
     </div>
   );
-};
+});
 
 export default AboutPage;

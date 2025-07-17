@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground'; // Adjust the import based on your file structure
 
-const MainContent = () => {
+const MainContent = React.memo(() => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -151,6 +151,6 @@ const MainContent = () => {
       </section>
     </div>
   );
-};
+});
 
 export default MainContent;

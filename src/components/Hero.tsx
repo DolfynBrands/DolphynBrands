@@ -46,12 +46,13 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           muted
           playsInline
           preload="auto"
+          poster="/video.mp4"
           // eslint-disable-next-line react/no-unknown-property
           webkit-playsinline="true"
           // eslint-disable-next-line react/no-unknown-property
           x5-playsinline="true"
-          poster="/video.mp4"
         >
+          <source src="/video.webm" type="video/webm" />
           <source src="/video.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
           <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900"></div>

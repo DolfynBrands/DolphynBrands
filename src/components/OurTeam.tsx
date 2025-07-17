@@ -5,7 +5,7 @@ const teamMembers = [
   {
     name: 'Pradeep',
     role: 'Chief Executive Officer',
-    imageUrl: '/ourTeam/jane-doe.jpg',
+    imageUrl: '', // No image
     linkedinUrl: 'https://www.linkedin.com/in/janedoe-example/'
   },
   {
@@ -23,7 +23,7 @@ const teamMembers = [
   {
     name: 'Priya Iyengar',
     role: 'Graphic designer and illustrator',
-    imageUrl: '/ourTeam/aarav-sharma.jpg',
+    imageUrl: '', // No image
     linkedinUrl: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/'
   }
 ];
@@ -55,9 +55,24 @@ const OurTeam: React.FC = () => {
               transition={cardHover.transition}
               className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
             >
-              <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover object-center aspect-square rounded-full border-4 border-blue-100" />
-              </a>
+              {member.imageUrl ? (
+                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
+                  <picture>
+                    {member.name === 'Nithin C Hassan' && <source srcSet="/ourTeam/nithin-hassan.webp" type="image/webp" />}
+                    {member.name === 'Sai Rishi Gangarapu' && <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />}
+                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
+                  </picture>
+                </a>
+              ) : (
+                <div className="mb-6 rounded-full overflow-hidden shadow-lg w-32 h-32 bg-gray-200 flex items-center justify-center">
+                  {/* Simple SVG placeholder */}
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
+                    <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
+                    <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
+                  </svg>
+                </div>
+              )}
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
               <p className="text-blue-600 text-lg text-center">{member.role}</p>
             </motion.div>
@@ -72,9 +87,25 @@ const OurTeam: React.FC = () => {
               transition={cardHover.transition}
               className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
             >
-              <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                <img src={member.imageUrl} alt={member.name} className="w-full h-full object-cover object-center aspect-square rounded-full border-4 border-blue-100" />
-              </a>
+              {member.imageUrl ? (
+                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
+                  <picture>
+                    <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />
+                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
+                  </picture>
+                </a>
+              ) : (
+                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
+                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+                    {/* Simple SVG placeholder */}
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
+                      <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
+                      <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
+                    </svg>
+                  </div>
+                </a>
+              )}
               <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
               <p className="text-blue-600 text-lg text-center">{member.role}</p>
             </motion.div>

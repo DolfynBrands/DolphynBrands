@@ -34,7 +34,7 @@ const partners = [
 
 const allTexts = [...brandNames, ...reviews, ...partners];
 
-const AnimatedBackground = () => {
+const AnimatedBackground = React.memo(() => {
   const [elements, setElements] = useState<Array<{
     id: number;
     text: string;
@@ -143,6 +143,6 @@ const AnimatedBackground = () => {
       ))}
     </div>
   );
-};
+});
 
 export default AnimatedBackground;

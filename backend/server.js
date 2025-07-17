@@ -3,9 +3,21 @@ require('dotenv').config();
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
+const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(compression());
+
+// Serve static assets with cache headers
+app.use(express.static('public', {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.js') || path.endsWith('.css') || path.endsWith('.woff2') || path.endsWith('.webp') || path.endsWith('.png') || path.endsWith('.jpg') || path.endsWith('.jpeg') || path.endsWith('.svg')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+  }
+}));
 
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());

@@ -54,7 +54,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
-            <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" />
+            <picture>
+              <source srcSet="/company-logo.webp" type="image/webp" />
+              <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" width={80} height={80} />
+            </picture>
             <span className="text-gray-900 font-bold text-2xl">Dolfyn Brands</span>
           </motion.div>
 

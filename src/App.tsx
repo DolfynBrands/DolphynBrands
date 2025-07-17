@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MainContent from './components/MainContent';
-import AboutPage from './components/AboutPage';
-import BrandShowcase from './components/BrandShowcase';
-import ContactSection from './components/ContactSection';
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const BrandShowcase = lazy(() => import('./components/BrandShowcase'));
+const ContactSection = lazy(() => import('./components/ContactSection'));
+const OurPrinciples = lazy(() => import('./components/OurPrinciples'));
+const OurTeam = lazy(() => import('./components/OurTeam'));
+const OurJourney = lazy(() => import('./components/OurJourney'));
 import Footer from './components/Footer';
-import OurPrinciples from './components/OurPrinciples';
-import OurTeam from './components/OurTeam';
-import OurJourney from './components/OurJourney';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home');
@@ -41,7 +41,9 @@ function App() {
     <div className="relative min-h-screen bg-white overflow-x-hidden">
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
-        {renderPage()}
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-xl">Loading...</div>}>
+          {renderPage()}
+        </Suspense>
       </main>
       <Footer setCurrentPage={setCurrentPage} />
     </div>
