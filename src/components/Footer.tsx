@@ -14,10 +14,10 @@ import {
 
 const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void }) => {
   const socialLinks = [
-    { icon: Facebook, href: '#', color: 'hover:text-blue-400' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578568915484&sk=about', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
-    { icon: Instagram, href: '#', color: 'hover:text-pink-400' },
-    { icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
+    { icon: Instagram, href: 'https://www.instagram.com/dolfyn_brands/', color: 'hover:text-pink-400' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/dolfyn-brands/about/?viewAsMember=true', color: 'hover:text-blue-600' },
     { icon: Youtube, href: '#', color: 'hover:text-red-500' }
   ];
 
