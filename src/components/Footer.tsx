@@ -85,7 +85,11 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
                   href={link.href}
                   className="block text-gray-400 hover:text-white transition-colors"
                   whileHover={{ x: 5 }}
-                  onClick={link.key && setCurrentPage ? (e) => { e.preventDefault(); setCurrentPage(link.key); } : undefined}
+                  onClick={link.key && setCurrentPage ? (e) => {
+                    e.preventDefault();
+                    setCurrentPage(link.key);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  } : undefined}
                 >
                   {link.name}
                 </motion.a>
