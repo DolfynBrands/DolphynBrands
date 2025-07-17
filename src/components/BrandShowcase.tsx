@@ -135,4 +135,6 @@ const BrandShowcase = React.memo(() => {
   );
 });
 
+BrandShowcase.displayName = "BrandShowcase";
+
 export default BrandShowcase;

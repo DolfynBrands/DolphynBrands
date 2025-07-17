@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from "react";
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
 
@@ -50,6 +50,8 @@ const AboutPage = React.memo(() => {
       color: 'from-yellow-400 to-orange-400'
     }
   ];
+
+  AboutPage.displayName = "AboutPage";
 
   return (
     <div className="min-h-screen bg-white">

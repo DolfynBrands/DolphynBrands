@@ -192,4 +192,6 @@ const AISection = React.memo(() => {
   );
 });
 
+AISection.displayName = "AISection";
+
 export default AISection;

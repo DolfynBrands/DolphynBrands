@@ -153,4 +153,6 @@ const MainContent = React.memo(() => {
   );
 });
 
+MainContent.displayName = "MainContent";
+
 export default MainContent;
