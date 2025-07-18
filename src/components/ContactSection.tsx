@@ -24,15 +24,15 @@ export default function ContactSection() {
     setStatus("loading");
     setResponseMsg("");
     try {
-      const API_URL = import.meta.env.VITE_API_URL;
-      const res = await fetch(`${API_URL}/contact`, {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('message', formData.message);
+
+      const res = await fetch('/send-email.php', {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-        }),
+        body: formDataToSend,
       });
       const data = await res.json();
       if (res.ok) {
