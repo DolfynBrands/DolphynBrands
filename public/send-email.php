@@ -2,6 +2,18 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// Load environment variables from .env file
+if (file_exists(__DIR__ . '/../.env')) {
+    $env = file_get_contents(__DIR__ . '/../.env');
+    $lines = explode("\n", $env);
+    foreach ($lines as $line) {
+        if (strpos($line, '=') !== false && !str_starts_with(trim($line), '#')) {
+            list($key, $value) = explode('=', $line, 2);
+            putenv(trim($key) . '=' . trim($value));
+        }
+    }
+}
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
