@@ -65,12 +65,8 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
-        {/* Main Headline */}
-        <motion.div
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, delay: 0.1 }}
-          className="mb-12"
-        >
+        {/* Main Headline - No animation for LCP optimization */}
+        <div className="mb-12">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
             Transforming Ambitious
             <br />
@@ -84,7 +80,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
           </p>
-        </motion.div>
+        </div>
 
         {/* CTA Buttons */}
         <motion.div
