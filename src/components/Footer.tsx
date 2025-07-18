@@ -26,7 +26,6 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
     { name: 'Our Journey', href: '/our-journey', key: 'journey' },
     { name: 'Our Brands', href: '#brands', key: 'brands' },
     { name: 'Partner Up', href: '#partner-up', key: 'contact' },
-    { name: 'Blog', href: '#blog' },
     { name: 'Contact', href: '#contact', key: 'contact' },
     { name: 'Our Team', href: '/our-team', key: 'team' },
     { name: 'Our Principles', href: '/our-principles', key: 'principles' }
@@ -85,17 +84,19 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
                   href={link.href}
                   className="block text-gray-400 hover:text-white transition-colors"
                   whileHover={{ x: 5 }}
-                  onClick={link.key && setCurrentPage ? (e) => {
+                  onClick={setCurrentPage ? (e) => {
                     e.preventDefault();
-                    setCurrentPage(link.key);
-                    // Use setTimeout to ensure page change happens first
-                    setTimeout(() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
-                      // Fallback for browsers that don't support smooth scrolling
-                      if (window.scrollY > 0) {
-                        window.scrollTo(0, 0);
-                      }
-                    }, 50);
+                    if (link.key) {
+                      setCurrentPage(link.key);
+                      // Use setTimeout to ensure page change happens first
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        // Fallback for browsers that don't support smooth scrolling
+                        if (window.scrollY > 0) {
+                          window.scrollTo(0, 0);
+                        }
+                      }, 50);
+                    }
                   } : undefined}
                 >
                   {link.name}
