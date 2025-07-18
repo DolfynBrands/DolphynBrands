@@ -88,7 +88,14 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
                   onClick={link.key && setCurrentPage ? (e) => {
                     e.preventDefault();
                     setCurrentPage(link.key);
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    // Use setTimeout to ensure page change happens first
+                    setTimeout(() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      // Fallback for browsers that don't support smooth scrolling
+                      if (window.scrollY > 0) {
+                        window.scrollTo(0, 0);
+                      }
+                    }, 50);
                   } : undefined}
                 >
                   {link.name}
