@@ -58,7 +58,7 @@ try {
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = "New Contact Form Submission from $name";
+    $mail->Subject = "New Contact for Dolfyn Brands - $name";
     $mail->Body    = "
         <h2>Contact Form Submission</h2>
         <p><strong>Name:</strong> $name</p>
