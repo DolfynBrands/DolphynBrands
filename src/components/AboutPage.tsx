@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
+import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles } from 'lucide-react';
 
 const AboutPage = React.memo(() => {
   const containerVariants = {
@@ -222,6 +222,7 @@ const AboutPage = React.memo(() => {
       </section>
 
       {/* Stats Section */}
+      {/*
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <motion.div variants={containerVariants} initial="hidden" animate="visible" className="text-center">
@@ -251,6 +252,7 @@ const AboutPage = React.memo(() => {
           </motion.div>
         </div>
       </section>
+      */}
 
       {/* Call to Action Section */}
       <section className="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">

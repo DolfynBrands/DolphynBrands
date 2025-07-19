@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { TrendingUp, Users, Award, Zap } from 'lucide-react';
 
 const BrandShowcase = React.memo(() => {
   const [ref, inView] = useInView({
@@ -57,6 +56,7 @@ const BrandShowcase = React.memo(() => {
           </motion.div>
 
           {/* Stats Grid */}
+          {/*
           <motion.div 
             variants={itemVariants}
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16"
@@ -76,6 +76,7 @@ const BrandShowcase = React.memo(() => {
               </div>
             ))}
           </motion.div>
+          */}
 
           {/* Brand Cards */}
           <motion.div 
@@ -96,21 +97,16 @@ const BrandShowcase = React.memo(() => {
                     <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${brand.color} flex items-center justify-center`}>
                       <span className="text-white font-bold text-lg">{brand.name[0]}</span>
                     </div>
+                    {/*
                     <div className="text-right">
                       <div className="text-2xl font-bold text-green-400">{brand.growth}</div>
                       <div className="text-xs text-gray-400">Growth</div>
                     </div>
+                    */}
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-2">{brand.name}</h3>
                   <p className="text-gray-600 text-sm mb-4">{brand.industry}</p>
-                  
-                  <div className="flex items-center space-x-4 text-sm">
-                    <div className="flex items-center space-x-1">
-                      <TrendingUp size={16} className="text-green-400" />
-                      <span className="text-gray-700">Revenue Growth</span>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -124,8 +120,7 @@ const BrandShowcase = React.memo(() => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-shadow"
-            >
+              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-shadow">
               View All Case Studies
             </motion.button>
           </motion.div>

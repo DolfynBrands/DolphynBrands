@@ -260,7 +260,7 @@ export default function ContactSection() {
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 hover:bg-green-50 transition-colors"
                     onClick={() => {
-                      const phoneNumber = '916366314646';
+                      const phoneNumber = '918310612985';
                       const message = encodeURIComponent("Hello! We’re excited to partner with Dolfyn Brands. Let’s connect!");
                       const url = `https://wa.me/${phoneNumber}?text=${message}`;
                       window.open(url, '_blank');
