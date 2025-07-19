@@ -1,12 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import { fadeInUp, simpleHover } from '../utils/motionConfig';
 
-const Hero: React.FC = () => {
-  const navigate = useNavigate();
+interface HeroProps {
+  setCurrentPage: (page: string) => void;
+}
+
+const phrases = [
+  'Iconic',
+  'Scalable',
+  'Dominant',
+  'Future-Ready',
+  'World-Class',
+  'Innovation',
+  'Industry-Leading',
+];
+
+const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [displayedText, setDisplayedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -33,6 +47,45 @@ const Hero: React.FC = () => {
     }
   }, []);
 
+  // Typing effect for the polymorphic headline (adjective only)
+  useEffect(() => {
+    const fullText = phrases[currentPhrase];
+    let typingSpeed = 80;
+    let erasingSpeed = 40;
+    let delayAfterTyping = 1200;
+    let delayAfterErasing = 400;
+
+    if (!isDeleting && displayedText === fullText) {
+      // Pause before erasing
+      const timeout = setTimeout(() => setIsDeleting(true), delayAfterTyping);
+      return () => clearTimeout(timeout);
+    }
+    if (isDeleting && displayedText === '') {
+      // Move to next phrase after erasing
+      const timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+      }, delayAfterErasing);
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDisplayedText((prev) => prev.slice(0, -1));
+      } else {
+        setDisplayedText((prev) => fullText.slice(0, prev.length + 1));
+      }
+    }, isDeleting ? erasingSpeed : typingSpeed);
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentPhrase]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+    }, 2200);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
       {/* Video Background */}
@@ -44,7 +97,7 @@ const Hero: React.FC = () => {
           loop
           muted
           playsInline
-          preload="none"
+          preload="auto"
           poster="/video.mp4"
           // eslint-disable-next-line react/no-unknown-property
           webkit-playsinline="true"
@@ -63,13 +116,28 @@ const Hero: React.FC = () => {
       
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
-        {/* Main Headline - No animation for LCP optimization */}
-        <div className="mb-12">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
-            Transforming Ambitious
+        {/* Main Headline */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-12"
+        >
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)] ">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+              Transforming Brands into
+            </span>
+            <br />
+            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+              Brands into 
+            </span>
+            <br />*/}
+            <span className="text-transparent bg-clip-text bg-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+            {displayedText}
+            </span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
-              Brands into Global Powerhouses
+              Powerhouses
             </span>
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
@@ -78,17 +146,19 @@ const Hero: React.FC = () => {
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
           </p>
-        </div>
+        </motion.div>
 
         {/* CTA Buttons */}
         <motion.div
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, delay: 0.2 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col md:flex-row gap-4 justify-center items-center mb-16"
         >
           <motion.button
-            {...simpleHover}
-            onClick={() => navigate('/contact')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setCurrentPage('contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
@@ -96,8 +166,8 @@ const Hero: React.FC = () => {
           </motion.button>
           
           <motion.button
-            {...simpleHover}
-            onClick={() => navigate('/about')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
           >
             Learn More
@@ -105,9 +175,11 @@ const Hero: React.FC = () => {
         </motion.div>
 
         {/* Key Stats */}
+        {/*
         <motion.div
-          {...fadeInUp}
-          transition={{ ...fadeInUp.transition, delay: 0.3 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           <div className="text-center">
@@ -123,6 +195,7 @@ const Hero: React.FC = () => {
             <div className="text-white/80 text-sm">Success Rate</div>
           </div>
         </motion.div>
+        */}
       </div>
     </section>
   );
