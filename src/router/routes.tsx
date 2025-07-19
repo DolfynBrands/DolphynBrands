@@ -25,7 +25,7 @@ export interface RouteMetadata {
 // Route configuration type
 export interface AppRoute {
   path: string;
-  component: React.ComponentType<any>;
+  component: React.ComponentType;
   meta: RouteMetadata;
   isHome?: boolean;
 }

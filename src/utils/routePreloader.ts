@@ -1,7 +1,7 @@
 // Route preloader for performance optimization
 export const preloadRoute = (routePath: string) => {
   // Preload route components based on user interaction patterns
-  const routeComponentMap: Record<string, () => Promise<any>> = {
+  const routeComponentMap: Record<string, () => Promise<unknown>> = {
     '/about': () => import('../components/AboutPage'),
     '/brands': () => import('../components/BrandShowcase'),
     '/contact': () => import('../components/ContactSection'),

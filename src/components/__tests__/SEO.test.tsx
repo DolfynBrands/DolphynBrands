@@ -13,7 +13,7 @@ Object.defineProperty(window, 'location', {
   writable: true,
 });
 
-const renderSEOWithProvider = (props: any) => {
+const renderSEOWithProvider = (props: Record<string, unknown>) => {
   return render(
     <HelmetProvider>
       <SEO {...props} />

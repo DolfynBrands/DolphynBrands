@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft, Search } from 'lucide-react';
+import { Home, ArrowLeft } from 'lucide-react';
 
 const NotFound: React.FC = () => {
   return (
@@ -38,8 +38,8 @@ const NotFound: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
           >
-            The page you're looking for doesn't exist or has been moved. 
-            Let's get you back on track.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved. 
+            Let&apos;s get you back on track.
           </motion.p>
           
           {/* Action Buttons */}
