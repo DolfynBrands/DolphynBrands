@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Menu, X} from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-interface HeaderProps {
-  currentPage: string;
-  setCurrentPage: (page: string) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
+const Header: React.FC = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
@@ -23,17 +21,21 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   }, []);
 
   const navItems = [
-    { name: 'Home', key: 'home' },
-    { name: 'About', key: 'about' },
-    { name: 'Brands', key: 'brands' },
-    { name: 'Our Team', key: 'team' },
-    { name: 'Partner Up', key: 'contact' },
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+    { name: 'Brands', path: '/brands' },
+    { name: 'Our Team', path: '/team' },
+    { name: 'Partner Up', path: '/contact' },
   ];
 
-  const handleNavClick = (pageKey: string) => {
-    setCurrentPage(pageKey);
+  const handleNavClick = (path: string) => {
+    navigate(path);
     setIsMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const isCurrentPage = (path: string) => {
+    return location.pathname === path;
   };
 
   return (
@@ -52,7 +54,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3 cursor-pointer"
-            onClick={() => handleNavClick('home')}
+            onClick={() => handleNavClick('/')}
           >
             <picture>
               <source srcSet="/company-logo.webp" type="image/webp" />
@@ -65,17 +67,17 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <nav className="hidden md:flex items-center space-x-8 mr-8">
             {navItems.map((item) => (
               <motion.button
-                key={item.key}
-                onClick={() => handleNavClick(item.key)}
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
                 className={`transition-colors relative ${
-                  currentPage === item.key 
+                  isCurrentPage(item.path) 
                     ? 'text-gray-900 font-semibold' 
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
                 whileHover={{ scale: 1.05 }}
               >
                 {item.name}
-                {currentPage === item.key && (
+                {isCurrentPage(item.path) && (
                   <motion.div
                     className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
                     layoutId="activeTab"
@@ -109,10 +111,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <nav className="pt-4 pb-2">
             {navItems.map((item) => (
               <motion.button
-                key={item.key}
-                onClick={() => handleNavClick(item.key)}
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
                 className={`block w-full text-left py-2 transition-colors ${
-                  currentPage === item.key 
+                  isCurrentPage(item.path) 
                     ? 'text-gray-900 font-semibold' 
                     : 'text-gray-600 hover:text-gray-900'
                 }`}

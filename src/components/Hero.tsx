@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { fadeInUp, simpleHover } from '../utils/motionConfig';
 
-interface HeroProps {
-  setCurrentPage: (page: string) => void;
-}
-
-const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
+const Hero: React.FC = () => {
+  const navigate = useNavigate();
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
@@ -90,7 +88,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
         >
           <motion.button
             {...simpleHover}
-            onClick={() => setCurrentPage('contact')}
+            onClick={() => navigate('/contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
@@ -99,6 +97,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           
           <motion.button
             {...simpleHover}
+            onClick={() => navigate('/about')}
             className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
           >
             Learn More
