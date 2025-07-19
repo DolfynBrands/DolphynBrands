@@ -50,10 +50,10 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   // Typing effect for the polymorphic headline (adjective only)
   useEffect(() => {
     const fullText = phrases[currentPhrase];
-    let typingSpeed = 80;
-    let erasingSpeed = 40;
-    let delayAfterTyping = 1200;
-    let delayAfterErasing = 400;
+    const typingSpeed = 100;
+    const erasingSpeed = 50;
+    const delayAfterTyping = 2000;
+    const delayAfterErasing = 1000;
 
     if (!isDeleting && displayedText === fullText) {
       // Pause before erasing

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
+import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles } from 'lucide-react';
 
 const AboutPage = React.memo(() => {
   const containerVariants = {

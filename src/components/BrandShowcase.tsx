@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { TrendingUp, Users, Award, Zap } from 'lucide-react';
 
 const BrandShowcase = React.memo(() => {
   const [ref, inView] = useInView({
