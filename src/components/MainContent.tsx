@@ -66,48 +66,83 @@ const MainContent = React.memo(() => {
 
   return (
     <div className="bg-white">
-      {/* Animated background only for What We Do section */}
-      <div className="relative">
-        <AnimatedBackground />
-        {/* Services Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4">
-            <motion.div
-              ref={ref}
-              variants={containerVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
-              <motion.div variants={itemVariants} className="text-center mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                  What We Do
-                </h2>
-                <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                  We specialize in acquiring, optimizing, and scaling digital brands 
-                  to create lasting value and market leadership.
-                </p>
-              </motion.div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {services.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{ y: -10, scale: 1.02 }}
-                    className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
-                  >
-                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-r ${service.color} flex items-center justify-center mb-4`}>
-                      <service.icon size={24} className="text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{service.description}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+      {/* What We Do Section - Fluid Grid */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center">
+            What We Do
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Brand Acquisition */}
+            <div className="bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-blue-500 text-3xl mb-3"><Target /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Brand Acquisition</h3>
+              <p className="text-gray-600 text-center">We identify and acquire high-potential digital brands with proven market fit.</p>
+            </div>
+            {/* Growth Optimization */}
+            <div className="bg-gradient-to-br from-green-50 to-green-100 border border-green-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-green-500 text-3xl mb-3"><TrendingUp /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Growth Optimization</h3>
+              <p className="text-gray-600 text-center">Advanced analytics and AI-driven strategies to accelerate brand growth.</p>
+            </div>
+            {/* Operational Excellence */}
+            <div className="bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-purple-500 text-3xl mb-3"><Zap /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Operational Excellence</h3>
+              <p className="text-gray-600 text-center">Streamlined operations and supply chain optimization for maximum efficiency.</p>
+            </div>
+            {/* Global Expansion */}
+            <div className="bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-orange-500 text-3xl mb-3"><Globe /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Global Expansion</h3>
+              <p className="text-gray-600 text-center">Strategic market expansion to unlock new revenue opportunities worldwide.</p>
+            </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {/* Why Dolfyn Section - Fluid Grid */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center">
+            Why <span className="text-gradient">Dolfyn</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* AI-First Philosophy */}
+            <div className="bg-white border border-purple-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-purple-500 text-3xl mb-3"><Zap /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">AI-First Philosophy</h3>
+              <p className="text-gray-600 text-center">We blend advanced AI with human creativity to unlock new brand possibilities.</p>
+            </div>
+            {/* Data-Driven Decisions */}
+            <div className="bg-white border border-blue-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-blue-500 text-3xl mb-3"><TrendingUp /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Data-Driven Decisions</h3>
+              <p className="text-gray-600 text-center">Every strategy is backed by data, ensuring measurable and sustainable growth.</p>
+            </div>
+            {/* Ethical & Sustainable Growth */}
+            <div className="bg-white border border-green-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition">
+              <span className="text-green-500 text-3xl mb-3"><Globe /></span>
+              <h3 className="font-bold text-xl mb-2 text-center">Ethical & Sustainable Growth</h3>
+              <p className="text-gray-600 text-center">We are committed to responsible, ethical, and sustainable business practices.</p>
+            </div>
+            {/* About Us Card */}
+            <a href="/about" className="bg-blue-50 border border-blue-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition group">
+              <span className="text-blue-500 text-3xl mb-3"><ArrowRight /></span>
+              <h3 className="font-bold text-xl mb-2 text-center group-hover:text-blue-700">About Us</h3>
+              <p className="text-gray-600 text-center">Learn about our story, vision, and the team driving Dolfyn forward.</p>
+              <span className="mt-2 text-blue-400 group-hover:text-blue-700 font-semibold">Explore &rarr;</span>
+            </a>
+            {/* Our Principles Card */}
+            <a href="/principles" className="bg-purple-50 border border-purple-200 rounded-2xl p-6 flex flex-col items-center shadow hover:shadow-lg transition group">
+              <span className="text-purple-500 text-3xl mb-3"><Zap /></span>
+              <h3 className="font-bold text-xl mb-2 text-center group-hover:text-purple-700">Our Principles</h3>
+              <p className="text-gray-600 text-center">Discover the values and philosophies that shape our approach.</p>
+              <span className="mt-2 text-purple-400 group-hover:text-purple-700 font-semibold">See Principles &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
