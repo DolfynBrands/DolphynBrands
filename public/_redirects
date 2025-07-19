@@ -1,0 +1,11 @@
+# Netlify redirects for SPA routing
+/*    /index.html   200
+
+# Legacy hash-based URL redirects
+/#about    /about    301
+/#brands   /brands   301
+/#contact  /contact  301
+/#team     /team     301
+/#journey  /journey  301
+/#principles /principles 301
+/#partner-up /contact  301

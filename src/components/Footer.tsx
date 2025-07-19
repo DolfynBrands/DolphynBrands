@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { 
   Facebook, 
   Twitter, 
@@ -12,7 +13,8 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void }) => {
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578568915484&sk=about', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
@@ -22,14 +24,19 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about', key: 'about' },
-    { name: 'Our Journey', href: '/our-journey', key: 'journey' },
-    { name: 'Our Brands', href: '#brands', key: 'brands' },
-    { name: 'Partner Up', href: '#partner-up', key: 'contact' },
-    { name: 'Contact', href: '#contact', key: 'contact' },
-    { name: 'Our Team', href: '/our-team', key: 'team' },
-    { name: 'Our Principles', href: '/our-principles', key: 'principles' }
+    { name: 'About Us', path: '/about' },
+    { name: 'Our Journey', path: '/journey' },
+    { name: 'Our Brands', path: '/brands' },
+    { name: 'Partner Up', path: '/contact' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Our Team', path: '/team' },
+    { name: 'Our Principles', path: '/principles' }
   ];
+
+  const handleNavClick = (path: string) => {
+    navigate(path);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const legalLinks = [
     { name: 'Privacy Policy', href: '#' },
@@ -79,28 +86,14 @@ const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void })
             <h3 className="text-white font-bold text-lg mb-6">Quick Links</h3>
             <nav className="space-y-3">
               {quickLinks.map((link) => (
-                <motion.a
+                <motion.button
                   key={link.name}
-                  href={link.href}
-                  className="block text-gray-400 hover:text-white transition-colors"
+                  onClick={() => handleNavClick(link.path)}
+                  className="block text-left text-gray-400 hover:text-white transition-colors"
                   whileHover={{ x: 5 }}
-                  onClick={setCurrentPage ? (e) => {
-                    e.preventDefault();
-                    if (link.key) {
-                      setCurrentPage(link.key);
-                      // Use setTimeout to ensure page change happens first
-                      setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                        // Fallback for browsers that don't support smooth scrolling
-                        if (window.scrollY > 0) {
-                          window.scrollTo(0, 0);
-                        }
-                      }, 50);
-                    }
-                  } : undefined}
                 >
                   {link.name}
-                </motion.a>
+                </motion.button>
               ))}
             </nav>
           </div>
