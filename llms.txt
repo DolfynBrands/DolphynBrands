@@ -1,0 +1,31 @@
+# llms.txt for dolfynbrands.com
+# Purpose: Specify access rules for large language model (LLM) crawlers and AI bots.
+
+# --- Allow ethical/research-driven LLM bots ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# --- Disallow known AI scrapers or unverified bots ---
+# (Add more User-agents as needed if new suspicious bots are identified)
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: SeekrBot
+Disallow: /
+
+User-agent: *
+Disallow: /
+
+# --- Usage policy and contact information ---
+# Please review our terms before crawling.
+Policy: https://dolfynbrands.com/privacy
+Contact: contact@dolfynbrands.com 

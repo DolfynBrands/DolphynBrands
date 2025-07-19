@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Brain, Cpu, BarChart3, Sparkles, Target, Zap } from 'lucide-react';
 
-const AISection = () => {
+const AISection = React.memo(() => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
@@ -190,6 +190,8 @@ const AISection = () => {
       </div>
     </section>
   );
-};
+});
+
+AISection.displayName = "AISection";
 
 export default AISection;

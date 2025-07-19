@@ -16,9 +16,38 @@ export default function ContactSection() {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>("idle");
+  const [responseMsg, setResponseMsg] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    setStatus("loading");
+    setResponseMsg("");
+    try {
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('company', formData.company);
+      formDataToSend.append('message', formData.message);
+
+      const res = await fetch('/send-email.php', {
+        method: "POST",
+        body: formDataToSend,
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setResponseMsg(data.message || "Message sent successfully!");
+        setFormData({ name: '', email: '', company: '', message: '' });
+      } else {
+        setStatus("error");
+        setResponseMsg(data.error || "Failed to send message.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
+      setResponseMsg("Failed to send message. Please try again later.");
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -112,6 +141,19 @@ export default function ContactSection() {
               <motion.div variants={itemVariants}>
                 <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-200">
                   <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                  {status === 'success' && (
+                    <div className="text-green-600 font-semibold mb-4">
+                      Thank you! Your message has been sent successfully.
+                    </div>
+                  )}
+                  {status === 'error' && (
+                    <div className="text-red-600 font-semibold mb-4">
+                      Sorry, there was an error sending your message. Please try again.
+                    </div>
+                  )}
+                  {status === 'loading' && (
+                    <div className="text-blue-600 font-semibold">Sending...</div>
+                  )}
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
@@ -178,6 +220,16 @@ export default function ContactSection() {
                       />
                     </div>
                     
+                    {/* Status message */}
+                    {status === 'success' && (
+                      <div className="text-green-600 font-semibold">{responseMsg}</div>
+                    )}
+                    {status === 'error' && (
+                      <div className="text-red-600 font-semibold">{responseMsg}</div>
+                    )}
+                    {status === 'loading' && (
+                      <div className="text-blue-600 font-semibold">Sending...</div>
+                    )}
                     <motion.button
                       type="submit"
                       whileHover={{ scale: 1.02 }}
@@ -203,9 +255,16 @@ export default function ContactSection() {
                     Get instant support and quick answers to your questions through our WhatsApp Business account.
                   </p>
                   <motion.button
+                    id="contact-us-btn"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="bg-white text-green-600 px-6 py-3 rounded-xl font-semibold flex items-center space-x-2 hover:bg-green-50 transition-colors"
+                    onClick={() => {
+                      const phoneNumber = '916366314646';
+                      const message = encodeURIComponent("Hello! We’re excited to partner with Dolfyn Brands. Let’s connect!");
+                      const url = `https://wa.me/${phoneNumber}?text=${message}`;
+                      window.open(url, '_blank');
+                    }}
                   >
                     <MessageCircle size={20} />
                     <span>Chat on WhatsApp</span>
@@ -243,8 +302,8 @@ export default function ContactSection() {
                       <div>
                         <h4 className="font-semibold text-gray-900">Address</h4>
                         <p className="text-gray-600">
-                          123 Innovation Drive<br />
-                          San Francisco, CA 94105
+                          8 The Green, #22847, Dover,<br />
+                          DE 19901, USA
                         </p>
                       </div>
                     </div>

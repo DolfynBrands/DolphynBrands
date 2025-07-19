@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { motion } from 'framer-motion';
 import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles, Users, Award } from 'lucide-react';
 
-const AboutPage = () => {
+const AboutPage = React.memo(() => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -50,6 +50,8 @@ const AboutPage = () => {
       color: 'from-yellow-400 to-orange-400'
     }
   ];
+
+  AboutPage.displayName = "AboutPage";
 
   return (
     <div className="min-h-screen bg-white">
@@ -284,6 +286,6 @@ const AboutPage = () => {
       </section>
     </div>
   );
-};
+});
 
 export default AboutPage;

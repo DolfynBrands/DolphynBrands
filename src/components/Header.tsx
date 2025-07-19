@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Menu, X, Phone, Mail } from 'lucide-react';
+import { Menu, X} from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -26,7 +26,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     { name: 'Home', key: 'home' },
     { name: 'About', key: 'about' },
     { name: 'Brands', key: 'brands' },
-    { name: 'Partner Up', key: 'contact' }
+    { name: 'Our Team', key: 'team' },
+    { name: 'Partner Up', key: 'contact' },
   ];
 
   const handleNavClick = (pageKey: string) => {
@@ -53,12 +54,15 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleNavClick('home')}
           >
-            <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" />
+            <picture>
+              <source srcSet="/company-logo.webp" type="image/webp" />
+              <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" width={80} height={80} />
+            </picture>
             <span className="text-gray-900 font-bold text-2xl">Dolfyn Brands</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-8 mr-8">
             {navItems.map((item) => (
               <motion.button
                 key={item.key}
@@ -80,26 +84,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </motion.button>
             ))}
           </nav>
-
-          {/* Contact Info */}
-          <div className="hidden lg:flex items-center space-x-4">
-            <motion.a
-              href="tel:+1234567890"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Phone size={16} />
-              <span className="text-sm">+1 (234) 567-890</span>
-            </motion.a>
-            <motion.a
-                              href="mailto:contact@dolfynbrands.com"
-              className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Mail size={16} />
-                              <span className="text-sm">contact@dolfynbrands.com</span>
-            </motion.a>
-          </div>
 
           {/* Mobile Menu Toggle */}
           <motion.button

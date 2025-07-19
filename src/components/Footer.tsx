@@ -12,21 +12,23 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const Footer = () => {
+const Footer = ({ setCurrentPage }: { setCurrentPage?: (page: string) => void }) => {
   const socialLinks = [
-    { icon: Facebook, href: '#', color: 'hover:text-blue-400' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578568915484&sk=about', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
-    { icon: Instagram, href: '#', color: 'hover:text-pink-400' },
-    { icon: Linkedin, href: '#', color: 'hover:text-blue-600' },
+    { icon: Instagram, href: 'https://www.instagram.com/dolfyn_brands/', color: 'hover:text-pink-400' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/dolfyn-brands/about/?viewAsMember=true', color: 'hover:text-blue-600' },
     { icon: Youtube, href: '#', color: 'hover:text-red-500' }
   ];
 
   const quickLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Brands', href: '#brands' },
-    { name: 'Partner Up', href: '#partner-up' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'About Us', href: '#about', key: 'about' },
+    { name: 'Our Journey', href: '/our-journey', key: 'journey' },
+    { name: 'Our Brands', href: '#brands', key: 'brands' },
+    { name: 'Partner Up', href: '#partner-up', key: 'contact' },
+    { name: 'Contact', href: '#contact', key: 'contact' },
+    { name: 'Our Team', href: '/our-team', key: 'team' },
+    { name: 'Our Principles', href: '/our-principles', key: 'principles' }
   ];
 
   const legalLinks = [
@@ -82,6 +84,20 @@ const Footer = () => {
                   href={link.href}
                   className="block text-gray-400 hover:text-white transition-colors"
                   whileHover={{ x: 5 }}
+                  onClick={setCurrentPage ? (e) => {
+                    e.preventDefault();
+                    if (link.key) {
+                      setCurrentPage(link.key);
+                      // Use setTimeout to ensure page change happens first
+                      setTimeout(() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        // Fallback for browsers that don't support smooth scrolling
+                        if (window.scrollY > 0) {
+                          window.scrollTo(0, 0);
+                        }
+                      }, 50);
+                    }
+                  } : undefined}
                 >
                   {link.name}
                 </motion.a>

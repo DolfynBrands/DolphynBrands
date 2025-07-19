@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { fadeInUp, simpleHover } from '../utils/motionConfig';
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
@@ -45,13 +46,14 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           loop
           muted
           playsInline
-          preload="auto"
+          preload="none"
+          poster="/video.mp4"
           // eslint-disable-next-line react/no-unknown-property
           webkit-playsinline="true"
           // eslint-disable-next-line react/no-unknown-property
           x5-playsinline="true"
-          poster="/video.mp4"
         >
+          <source src="/video.webm" type="video/webm" />
           <source src="/video.mp4" type="video/mp4" />
           {/* Fallback for browsers that don't support video */}
           <div className="w-full h-full bg-gradient-to-br from-blue-900 to-purple-900"></div>
@@ -63,13 +65,8 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
-        {/* Main Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12"
-        >
+        {/* Main Headline - No animation for LCP optimization */}
+        <div className="mb-12">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)]">
             Transforming Ambitious
             <br />
@@ -83,18 +80,16 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           <p className="text-lg opacity-80">
             Let&apos;s build your brand&apos;s future together.
           </p>
-        </motion.div>
+        </div>
 
         {/* CTA Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.2 }}
           className="flex flex-col md:flex-row gap-4 justify-center items-center mb-16"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            {...simpleHover}
             onClick={() => setCurrentPage('contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
@@ -103,8 +98,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           </motion.button>
           
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            {...simpleHover}
             className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
           >
             Learn More
@@ -113,9 +107,8 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
 
         {/* Key Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+          {...fadeInUp}
+          transition={{ ...fadeInUp.transition, delay: 0.3 }}
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto"
         >
           <div className="text-center">
