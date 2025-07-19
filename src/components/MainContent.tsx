@@ -8,14 +8,8 @@ import {
   Globe, 
   ArrowRight
 } from 'lucide-react';
-import AnimatedBackground from './AnimatedBackground'; // Adjust the import based on your file structure
 
 const MainContent = React.memo(() => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  });
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -36,33 +30,6 @@ const MainContent = React.memo(() => {
       }
     }
   };
-
-  const services = [
-    {
-      icon: Target,
-      title: 'Brand Acquisition',
-      description: 'We identify and acquire high-potential digital brands with proven market fit.',
-      color: 'from-blue-500 to-blue-600'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Growth Optimization',
-      description: 'Advanced analytics and AI-driven strategies to accelerate brand growth.',
-      color: 'from-green-500 to-green-600'
-    },
-    {
-      icon: Zap,
-      title: 'Operational Excellence',
-      description: 'Streamlined operations and supply chain optimization for maximum efficiency.',
-      color: 'from-purple-500 to-purple-600'
-    },
-    {
-      icon: Globe,
-      title: 'Global Expansion',
-      description: 'Strategic market expansion to unlock new revenue opportunities worldwide.',
-      color: 'from-orange-500 to-orange-600'
-    }
-  ];
 
   return (
     <div className="bg-white">
