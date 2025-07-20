@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Phone, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
+import { trackFormSubmission } from '../utils/gtm';
 
 export default function ContactSection() {
   const [ref, inView] = useInView({
@@ -39,14 +40,20 @@ export default function ContactSection() {
         setStatus("success");
         setResponseMsg(data.message || "Message sent successfully!");
         setFormData({ name: '', email: '', company: '', message: '' });
+        // Track successful form submission
+        trackFormSubmission('contact_form', true);
       } else {
         setStatus("error");
         setResponseMsg(data.error || "Failed to send message.");
+        // Track failed form submission
+        trackFormSubmission('contact_form', false);
       }
     } catch (err) {
       console.error(err);
       setStatus("error");
       setResponseMsg("Failed to send message. Please try again later.");
+      // Track form submission error
+      trackFormSubmission('contact_form', false);
     }
   };
 
