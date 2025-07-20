@@ -25,7 +25,7 @@ const Header: React.FC = () => {
     { name: 'About', path: '/about' },
     { name: 'Brands', path: '/brands' },
     { name: 'Our Team', path: '/team' },
-    { name: 'Partner Up', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const handleNavClick = (path: string) => {
