@@ -1,29 +1,27 @@
 # robots.txt for dolfynbrands.com
-# Purpose: Guide search engine crawlers and protect sensitive areas.
+# Optimized for maximum search engine indexing
 
-# --- Allow all major search engines full access to public content ---
-User-agent: Googlebot
-Disallow:
-
-User-agent: Bingbot
-Disallow:
-
-User-agent: Yandex
-Disallow:
-
-User-agent: Baiduspider
-Disallow:
-
-# --- Default rule for all other well-behaved bots ---
+# Allow all search engines full access to public content
 User-agent: *
-Disallow:
+Allow: /
 
-# --- Block all bots from sensitive/private directories ---
-# These folders may contain confidential, staging, or admin content.
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /staging/
-Disallow: /private/
+# Block access to development and system files
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /.git/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /vite.config.ts
+Disallow: /tsconfig.json
 
-# --- Sitemap location for improved crawling and indexing ---
+# Block common bot traps and unnecessary files
+Disallow: /404
+Disallow: /*?*utm_*
+Disallow: /*?*fbclid*
+Disallow: /*?*gclid*
+
+# Crawl delay for respectful crawling (optional)
+# Crawl-delay: 1
+
+# Sitemap location for improved crawling and indexing
 Sitemap: https://dolfynbrands.com/sitemap.xml 

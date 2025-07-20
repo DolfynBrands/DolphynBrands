@@ -5,6 +5,7 @@ import Footer from './Footer';
 import SEO from './SEO';
 import { useRouteMetadata } from '../hooks/useRouteMetadata';
 import { preloadLikelyRoutes } from '../utils/routePreloader';
+import { trackPageView } from '../utils/gtm';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -18,6 +19,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     preloadLikelyRoutes(location.pathname);
   }, [location.pathname]);
+
+  // Track page views for Google Analytics
+  useEffect(() => {
+    trackPageView(location.pathname, routeMetadata.title);
+  }, [location.pathname, routeMetadata.title]);
 
   return (
     <div className="relative min-h-screen bg-white overflow-x-hidden">
