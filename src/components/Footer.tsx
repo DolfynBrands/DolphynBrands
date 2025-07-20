@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
       // Smooth scroll with fallback
       try {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      } catch (e) {
+      } catch {
         // Fallback for older browsers
         window.scrollTo(0, 0);
       }
