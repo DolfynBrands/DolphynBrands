@@ -15,7 +15,6 @@ import {
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
-  const location = useLocation();
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578568915484&sk=about', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
