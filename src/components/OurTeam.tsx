@@ -4,139 +4,147 @@ import { Linkedin } from 'lucide-react';
 const teamMembers = [
   {
     name: 'Pradeep',
-    role: 'Founders',
+    role: 'Founder',
     imageUrl: '',
-    linkedinUrl: 'https://www.linkedin.com/in/janedoe-example/'
+    webpUrl: '',
+    linkedinUrl: 'https://www.linkedin.com/in/janedoe-example/',
+    color: 'from-blue-500 to-purple-600',
   },
   {
     name: 'Nithin C Hassan',
-    role: 'Founders',
+    role: 'Founder',
     imageUrl: '/ourTeam/nithin-hassan.jpg',
-    linkedinUrl: 'https://www.linkedin.com/in/nithin-hassan/'
+    webpUrl: '/ourTeam/nithin-hassan.webp',
+    linkedinUrl: 'https://www.linkedin.com/in/nithin-hassan/',
+    color: 'from-blue-500 to-purple-600',
   },
   {
     name: 'Sai Rishi Gangarapu',
-    role: 'Web Dev',
+    role: 'Web Developer',
     imageUrl: '/ourTeam/sair-rishi.jpg',
-    linkedinUrl: 'https://www.linkedin.com/in/sai-rishi-gangarapu-770a08321/'
+    webpUrl: '/ourTeam/sair-rishi.webp',
+    linkedinUrl: 'https://www.linkedin.com/in/sai-rishi-gangarapu-770a08321/',
+    color: 'from-green-400 to-blue-500',
   },
   {
     name: 'Priya Iyengar',
-    role: 'Graphics Designer',
+    role: 'Graphic Designer',
     imageUrl: '',
-    linkedinUrl: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/'
-  }
+    webpUrl: '',
+    linkedinUrl: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/',
+    color: 'from-pink-400 to-yellow-400',
+  },
 ];
 
+const roleTagColors: Record<string, string> = {
+  'Founder': 'bg-gradient-to-br from-blue-500 to-purple-600',
+  'Web Developer': 'bg-gradient-to-br from-green-400 to-blue-500',
+  'Graphic Designer': 'bg-gradient-to-br from-pink-400 to-yellow-400',
+};
+
 const OurTeam: React.FC = () => {
-  // Group members by role for bubble alignment
-  // Removed unused 'grouped' variable
+  const founders = teamMembers.filter((m) => m.role === 'Founder');
+  const others = teamMembers.filter((m) => m.role !== 'Founder');
 
   return (
-    <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-32 pb-24 px-4">
-      <section className="max-w-5xl mx-auto flex flex-row">
-        {/* Vertical line and bubbles */}
-        <div className="relative flex flex-col items-center mr-10 pt-8" style={{ minWidth: 80 }}>
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-blue-200 rounded-full" style={{ transform: 'translateX(-50%)' }}></div>
-          {/* Founders bubble */}
-          <div className="flex flex-col items-center z-10">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg mb-2 bg-gradient-to-br from-blue-500 to-purple-600 text-center">
-              <span className="w-full text-center">Founders</span>
-            </div>
-          </div>
-          {/* Spacer for grid alignment */}
-          <div style={{ height: 80 }}></div>
-          {/* Web Dev bubble and Rishi */}
-          <div className="flex flex-row items-center z-10 mb-2">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-green-400 to-blue-500 text-center">
-              <span className="w-full text-center">Web Dev</span>
-            </div>
-            <div className="ml-6 flex flex-col items-center">
-              <a
-                href={teamMembers[2].linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
-                title={`View ${teamMembers[2].name}'s LinkedIn`}
-              >
-                <picture>
-                  <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />
-                  <img src={teamMembers[2].imageUrl} alt={teamMembers[2].name} width={112} height={112} className="object-cover w-28 h-28" />
-                </picture>
-                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Linkedin size={18} className="text-blue-600" />
+    <section className="bg-gradient-to-br from-white to-blue-50 min-h-screen py-24 px-4 flex flex-col items-center">
+      {/* Headline */}
+      <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 tracking-tight text-gray-900 font-sans">
+        Meet the Team
+      </h2>
+      <div className="w-full max-w-3xl mx-auto relative flex flex-col items-center">
+        {/* Vertical Timeline (continuous) */}
+        <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-200 rounded-full" style={{ left: 56, zIndex: 0 }}></div>
+        <div className="flex flex-col w-full z-10">
+          {/* Founders Row */}
+          <div className="flex flex-row items-center w-full mb-12" style={{ minHeight: 120 }}>
+            {/* Timeline and Role Bubble */}
+            <div className="relative flex flex-col items-center" style={{ width: 112, minWidth: 112 }}>
+              <div className="absolute left-1/2 top-1/2" style={{ transform: 'translate(-50%, -50%)', zIndex: 2 }}>
+                <span className={`px-4 py-2 rounded-full text-xs font-bold text-white shadow ${roleTagColors['Founder']} whitespace-nowrap`}>
+                  Founder
                 </span>
-              </a>
-              <div className="mt-4 text-center">
-                <div className="text-lg font-semibold text-gray-900">{teamMembers[2].name}</div>
               </div>
             </div>
-          </div>
-          {/* Spacer for grid alignment */}
-          <div style={{ height: 80 }}></div>
-          {/* Graphics Designer bubble and Priya */}
-          <div className="flex flex-row items-center z-10">
-            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-pink-400 to-yellow-400 text-center">
-              <span className="w-full text-center">Graphics Designer</span>
+            {/* Founders' Images and Names */}
+            <div className="flex flex-row items-center ml-8 gap-12">
+              {founders.map((member) => (
+                <div key={member.name} className="flex flex-row items-center">
+                  <a
+                    href={member.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative rounded-full overflow-hidden shadow-xl w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
+                    title={`View ${member.name}'s LinkedIn`}
+                  >
+                    {member.imageUrl ? (
+                      <picture>
+                        {member.webpUrl && <source srcSet={member.webpUrl} type="image/webp" />}
+                        <img src={member.imageUrl} alt={member.name} width={112} height={112} className="object-cover w-28 h-28" />
+                      </picture>
+                    ) : (
+                      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
+                        <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
+                        <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
+                      </svg>
+                    )}
+                    <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                      <Linkedin size={18} className="text-blue-600" />
+                    </span>
+                  </a>
+                  <div className="ml-6 flex flex-col items-start">
+                    <span className="text-lg font-semibold text-gray-900 mt-2">{member.name}</span>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="ml-6 flex flex-col items-center">
-              <a
-                href={teamMembers[3].linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
-                title={`View ${teamMembers[3].name}'s LinkedIn`}
-              >
-                <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
-                  <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
-                  <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
-                </svg>
-                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Linkedin size={18} className="text-blue-600" />
-                </span>
-              </a>
-              <div className="mt-4 text-center">
-                <div className="text-lg font-semibold text-gray-900">{teamMembers[3].name}</div>
+          </div>
+          {/* Other Members Rows */}
+          {others.map((member) => (
+            <div key={member.name} className="flex flex-row items-center w-full mb-12 last:mb-0" style={{ minHeight: 120 }}>
+              {/* Timeline and Role Bubble */}
+              <div className="relative flex flex-col items-center" style={{ width: 112, minWidth: 112 }}>
+                <div className="absolute left-1/2 top-1/2" style={{ transform: 'translate(-50%, -50%)', zIndex: 2 }}>
+                  <span className={`px-4 py-2 rounded-full text-xs font-bold text-white shadow ${roleTagColors[member.role] || 'bg-blue-400'} whitespace-nowrap`}>
+                    {member.role}
+                  </span>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-        {/* Team Images and Names for Founders only */}
-        <div className="flex-1 grid grid-cols-2 md:grid-cols-2 gap-10 items-start">
-          {teamMembers.slice(0, 2).map((member) => (
-            <div key={member.name} className="flex flex-col items-center">
-              <a
-                href={member.linkedinUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
-                title={`View ${member.name}'s LinkedIn`}
-              >
-                {member.imageUrl ? (
-                  <picture>
-                    {member.name === 'Nithin C Hassan' && <source srcSet="/ourTeam/nithin-hassan.webp" type="image/webp" />}
-                    <img src={member.imageUrl} alt={member.name} width={112} height={112} className="object-cover w-28 h-28" />
-                  </picture>
-                ) : (
-                  <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
-                    <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
-                    <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
-                  </svg>
-                )}
-                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
-                  <Linkedin size={18} className="text-blue-600" />
-                </span>
-              </a>
-              <div className="mt-4 text-center">
-                <div className="text-lg font-semibold text-gray-900">{member.name}</div>
+              {/* Profile image and name */}
+              <div className="flex flex-row items-center ml-8">
+                <a
+                  href={member.linkedinUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="relative rounded-full overflow-hidden shadow-xl w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
+                  title={`View ${member.name}'s LinkedIn`}
+                >
+                  {member.imageUrl ? (
+                    <picture>
+                      {member.webpUrl && <source srcSet={member.webpUrl} type="image/webp" />}
+                      <img src={member.imageUrl} alt={member.name} width={112} height={112} className="object-cover w-28 h-28" />
+                    </picture>
+                  ) : (
+                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
+                      <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
+                      <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
+                    </svg>
+                  )}
+                  <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Linkedin size={18} className="text-blue-600" />
+                  </span>
+                </a>
+                <div className="ml-6 flex flex-col items-start">
+                  <span className="text-lg font-semibold text-gray-900 mt-2">{member.name}</span>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

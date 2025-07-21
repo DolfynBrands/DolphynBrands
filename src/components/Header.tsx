@@ -41,8 +41,6 @@ const Header: React.FC = () => {
     return location.pathname === path;
   };
 
-  const isVivaEarth = location.pathname === '/vivaearth';
-
   // Helper functions for mouse events with delay
   const handleBrandsMouseEnter = () => {
     if (brandsHideTimeout.current) clearTimeout(brandsHideTimeout.current);
@@ -62,11 +60,7 @@ const Header: React.FC = () => {
         isScrolled ? 'w-11/12 md:w-3/4' : 'w-11/12 md:w-5/6'
       }`}
     >
-      <div className={`${
-        isVivaEarth 
-          ? 'bg-amber-50/95 border-green-700' 
-          : 'bg-white/90 border-gray-200'
-      } backdrop-blur-md rounded-3xl px-4 py-2 shadow-lg border`}>
+      <div className={'bg-white/90 border-gray-200 backdrop-blur-md rounded-3xl px-4 py-2 shadow-lg border'}>
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
@@ -94,7 +88,7 @@ const Header: React.FC = () => {
                   onMouseLeave={handleBrandsMouseLeave}
                 >
                   <motion.button
-                    className={`transition-colors relative ${isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'}`}
+                    className={"transition-colors relative text-gray-600 hover:text-gray-900"}
                     whileHover={{ scale: 1.05 }}
                   >
                     Brands
@@ -141,17 +135,15 @@ const Header: React.FC = () => {
                   onClick={() => handleNavClick(item.path)}
                   className={`transition-colors relative ${
                     isCurrentPage(item.path) 
-                      ? isVivaEarth ? 'text-green-800 font-semibold' : 'text-gray-900 font-semibold'
-                      : isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'
+                      ? 'text-gray-900 font-semibold'
+                      : 'text-gray-600 hover:text-gray-900'
                   }`}
                   whileHover={{ scale: 1.05 }}
                 >
                   {item.name}
                   {isCurrentPage(item.path) && (
                     <motion.div
-                      className={`absolute -bottom-1 left-0 w-full h-0.5 ${
-                        isVivaEarth ? 'bg-gradient-to-r from-green-600 to-green-800' : 'bg-gradient-to-r from-blue-400 to-purple-600'
-                      }`}
+                      className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
                       layoutId="activeTab"
                     />
                   )}
@@ -165,7 +157,7 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className={`md:hidden ${isVivaEarth ? 'text-green-800' : 'text-gray-900'}`}
+            className="md:hidden text-gray-900"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -188,8 +180,8 @@ const Header: React.FC = () => {
                 onClick={() => handleNavClick(item.path)}
                 className={`block w-full text-left py-2 transition-colors ${
                   isCurrentPage(item.path) 
-                    ? isVivaEarth ? 'text-green-800 font-semibold' : 'text-gray-900 font-semibold'
-                    : isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'
+                    ? 'text-gray-900 font-semibold'
+                    : 'text-gray-600 hover:text-gray-900'
                 }`}
                 whileHover={{ x: 10 }}
               >
