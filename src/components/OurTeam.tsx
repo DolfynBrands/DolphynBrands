@@ -28,8 +28,6 @@ const teamMembers = [
   }
 ];
 
-const roleOrder = ['Founders', 'Web Dev', 'Graphics Designer'];
-
 const OurTeam: React.FC = () => {
   // Group members by role for bubble alignment
   // Removed unused 'grouped' variable
