@@ -164,350 +164,222 @@ const VivaEarthLanding: React.FC = () => {
         </div>
       </section>
 
-      {/* --- Tactile Tiled Theme Sections Start Here (after carousel) --- */}
-      <div className="bg-[#F5F5F5] w-full flex flex-col items-center px-0 md:px-0">
-        {/* Section 2 & 3: Asymmetric, comic-style layout, no card backgrounds, full width */}
-        <div className="w-full flex flex-col gap-y-16 my-16">
-          {/* Asymmetric comic-style: tall image left, text below; right: text top, image below */}
-          <div className="w-full flex flex-col md:flex-row gap-0 md:gap-x-0 min-h-[400px] md:min-h-[600px]">
-            {/* Left column: Tall image, then text below */}
-            <div className="flex-1 flex flex-col items-center md:items-start mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[420px] md:h-[600px] flex items-center justify-center mb-6 md:mb-8" style={{background: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle1.jpg" 
-                  alt="Leaf in hands" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="w-full mt-2 px-4 md:px-0">
-                <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-2">Why We Began</h2>
-                <p className="font-sans text-base md:text-lg text-[#333] mb-2">There was a disconnect between purity and mass-market beauty. We wanted to bridge that gap with honesty and care.</p>
-                <blockquote className="border-l-4 border-[#C0A062] pl-4 italic text-[#6B4F4F] mb-2">“We started Viva Earth because clean, honest, and ethically crafted wellness products weren’t easily accessible.”</blockquote>
-                <div className="flex items-center gap-2 mt-2">
-                  <span className="text-[#2A4E44] font-semibold">Built in India. Trusted globally.</span>
-                  <span className="inline-block w-6 h-4 bg-[url('/public/ourTeam/sair-rishi.jpg')] bg-cover rounded-sm border border-[#C0A062]" title="India" />
-                </div>
-              </div>
-            </div>
-            {/* Right column: Text at top, then wide image below */}
-            <div className="flex-1 flex flex-col justify-between mx-6 md:mx-12">
-              <div className="mb-6 md:mb-8 px-4 md:px-0">
-                <h3 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-2">Bridging Ancient Wisdom and Modern Formulation</h3>
-                <p className="font-sans text-base md:text-lg text-[#333] mb-2">Every drop is backed by both Ayurveda and analytical precision.</p>
-                <div className="flex flex-row gap-4 mb-2 flex-wrap">
-                  <div className="flex flex-col items-center mb-2">
-                    <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">🔬</span>
-                    <span className="font-sans text-xs text-[#333]">In-house R&D</span>
-                  </div>
-                  <div className="flex flex-col items-center mb-2">
-                    <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">🌿</span>
-                    <span className="font-sans text-xs text-[#333]">Ayurvedic Formulation</span>
-                  </div>
-                  <div className="flex flex-col items-center mb-2">
-                    <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">📊</span>
-                    <span className="font-sans text-xs text-[#333]">Scientific Validation</span>
-                  </div>
-                </div>
-              </div>
-              <div className="w-full h-48 md:h-[260px] md:h-[320px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/BottleCartons/Carton Box- Lavender 1oz.jpg" 
-                  alt="Herbs" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
+      {/* --- MongoDB Atlas Style Sections Start Here (after carousel) --- */}
+      {/* Section 1: Our Why */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
+        {/* Left: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Why We Began</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">There was a disconnect between purity and mass-market beauty. We wanted to bridge that gap with honesty and care.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Story</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Meet the Founders</button>
           </div>
-
-          {/* Comic-style: It Starts in the Soil (image right, text left) */}
-          <div className="w-full flex flex-col md:flex-row-reverse gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-            {/* Right: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle2.jpg" 
-                  alt="Soil Map" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
+          <div className="flex gap-8">
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">2019</span>
+              <span className="block text-xs text-[#333]">Founded</span>
             </div>
-            {/* Left: Text */}
-            <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">It Starts in the Soil</h2>
-              <p className="font-sans text-base md:text-lg text-[#333] mb-4">Our ingredients are grown on regenerative farms and wild-harvested in pristine regions. We partner directly with farmers who share our values—ensuring every drop is traceable, ethical, and supports healthy ecosystems. Transparency is our promise, from seed to bottle.</p>
-              <div className="text-[#2A4E44] font-semibold mt-2">No middlemen. Just trusted hands.</div>
-            </div>
-          </div>
-
-          {/* Comic-style: We Make What You Trust (image left, text right) */}
-          <div className="w-full flex flex-col md:flex-row gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-            {/* Left: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #f6d365 0%, #fda085 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle3.jpg" 
-                  alt="Process Flow" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            {/* Right: Text */}
-            <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">We Make What You Trust</h2>
-              <p className="font-sans text-base md:text-lg text-[#333] mb-4">From distillation to packaging, every step is handled with care. Clean-room facilities, eco-friendly packaging, and batch traceability are our standards.</p>
-              <div className="flex flex-row gap-4 mt-2 flex-wrap">
-                <div className="flex flex-col items-center mb-2">
-                  <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">⚗️</span>
-                  <span className="font-sans text-xs text-[#333]">Distillation</span>
-                </div>
-                <div className="flex flex-col items-center mb-2">
-                  <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">🧉</span>
-                  <span className="font-sans text-xs text-[#333]">Formulation</span>
-                </div>
-                <div className="flex flex-col items-center mb-2">
-                  <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">🔬</span>
-                  <span className="font-sans text-xs text-[#333]">Testing</span>
-                </div>
-                <div className="flex flex-col items-center mb-2">
-                  <span className="inline-block w-8 h-8 bg-[#C0A062] rounded-full flex items-center justify-center mb-1">🧴</span>
-                  <span className="font-sans text-xs text-[#333]">Packaging</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Comic-style: Sustainability Impact (image right, text left) */}
-          <div className="w-full flex flex-col md:flex-row-reverse gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-            {/* Right: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle4.jpg" 
-                  alt="Impact" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            {/* Left: Text */}
-            <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Sustainability is Not a Buzzword Here</h2>
-              <p className="font-sans text-base md:text-lg text-[#333] mb-4">+1200 Rural Livelihoods Supported<br/>+50,000 Liters of Oil Distilled<br/>+8,000 kg of Plastic Saved</p>
-            </div>
-          </div>
-
-          {/* Comic-style: Global Footprint (image left, text right) */}
-          <div className="w-full flex flex-col md:flex-row gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-            {/* Left: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #f9d423 0%, #ff4e50 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle1.jpg" 
-                  alt="Global Map" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            {/* Right: Text */}
-            <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Proudly Made in India. Loved Around the World.</h2>
-              <p className="font-sans text-base md:text-lg text-[#333] mb-4">Our products reach customers in the USA, UAE, EU, and beyond. Small-batch purity, global standards.</p>
-              <blockquote className="italic text-[#6B4F4F] mb-2">“Small-batch purity, global standards.”</blockquote>
-            </div>
-          </div>
-
-          {/* Comic-style: B2B/What Makes Us Different (image right, text left) */}
-          <div className="w-full flex flex-col md:flex-row-reverse gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-            {/* Right: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle2.jpg" 
-                  alt="B2B Services" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            {/* Left: Text */}
-            <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Why Conscious Brands Choose Viva Earth</h2>
-              <p className="font-sans text-base md:text-lg text-[#333] mb-4">Our CAAS Model – Cosmetics as a Service: Private Labeling, Bulk Ingredients, White-Label Formulation. Launch your own brand or source pure, traceable ingredients with us.</p>
-            </div>
-          </div>
-
-          {/* Comic-style: Final CTA (image left, text right) */}
-          <div className="w-full flex flex-col md:flex-row gap-0 md:gap-x-0 min-h-[300px] md:min-h-[400px]">
-            {/* Left: Big image */}
-            <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-              <div className="w-full h-48 md:h-[220px] md:h-[320px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)'}}>
-                <img 
-                  src="/VivaEarthImages/Bottle/Bottle3.jpg" 
-                  alt="Final CTA" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
-            {/* Right: Text and CTA */}
-            <div className="flex-1 flex flex-col justify-center items-start mx-6 md:mx-12 px-4 md:px-0">
-              <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Experience Purity. Build a Legacy.</h2>
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-2 w-full">
-                <button className="bg-[#C0A062] text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-[#a88a4a] transition w-full sm:w-auto">Shop Now</button>
-                <button className="bg-[#C0A062] text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-[#a88a4a] transition w-full sm:w-auto">Build Your Brand With Us</button>
-              </div>
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
+              <span className="block text-xs text-[#333]">Ethical Sourcing</span>
             </div>
           </div>
         </div>
-
-        {/* Section 4: Grounded in Sourcing */}
-        <section className="w-full max-w-5xl rounded-2xl shadow-lg bg-white flex flex-col items-center p-8 my-12">
-          <h3 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">It Starts in the Soil</h3>
-          {/* Placeholder for interactive map */}
-          <div className="w-full h-64 bg-[#EADFC9] rounded-xl flex items-center justify-center mb-4">
-            <span className="text-[#6B4F4F] font-sans">[Interactive Map of India Placeholder]</span>
-          </div>
-          <div className="text-[#2A4E44] font-semibold mt-2">No middlemen. Just trusted hands.</div>
-        </section>
-
-        {/* Section 5: Our Craft – From Leaf to Label */}
-        <section className="w-full max-w-5xl rounded-2xl shadow-lg bg-white flex flex-col items-center p-8 my-12">
-          <h3 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-6">We Make What You Trust</h3>
-          <div className="flex flex-row items-center justify-between w-full max-w-3xl mb-4">
-            {/* Step 1 */}
-            <div className="flex flex-col items-center">
-              <span className="inline-block w-12 h-12 bg-[#EADFC9] rounded-full flex items-center justify-center text-2xl">⚗️</span>
-              <span className="font-sans text-xs text-[#333] mt-2">Distillation</span>
-            </div>
-            <span className="w-8 h-1 border-dotted border-b-2 border-[#C0A062] mx-2" />
-            {/* Step 2 */}
-            <div className="flex flex-col items-center">
-              <span className="inline-block w-12 h-12 bg-[#EADFC9] rounded-full flex items-center justify-center text-2xl">🧉</span>
-              <span className="font-sans text-xs text-[#333] mt-2">Formulation</span>
-            </div>
-            <span className="w-8 h-1 border-dotted border-b-2 border-[#C0A062] mx-2" />
-            {/* Step 3 */}
-            <div className="flex flex-col items-center">
-              <span className="inline-block w-12 h-12 bg-[#EADFC9] rounded-full flex items-center justify-center text-2xl">🔬</span>
-              <span className="font-sans text-xs text-[#333] mt-2">Testing</span>
-            </div>
-            <span className="w-8 h-1 border-dotted border-b-2 border-[#C0A062] mx-2" />
-            {/* Step 4 */}
-            <div className="flex flex-col items-center">
-              <span className="inline-block w-12 h-12 bg-[#EADFC9] rounded-full flex items-center justify-center text-2xl">🧴</span>
-              <span className="font-sans text-xs text-[#333] mt-2">Packaging</span>
-            </div>
-          </div>
-          <div className="flex flex-row gap-6 mt-4">
-            <div className="flex items-center gap-2"><span className="text-[#C0A062]">🏭</span><span className="font-sans text-xs text-[#333]">Clean-Room Facilities</span></div>
-            <div className="flex items-center gap-2"><span className="text-[#C0A062]">♻️</span><span className="font-sans text-xs text-[#333]">Eco-Friendly Packaging</span></div>
-            <div className="flex items-center gap-2"><span className="text-[#C0A062]">🔗</span><span className="font-sans text-xs text-[#333]">Batch Traceability</span></div>
-          </div>
-        </section>
-
-        {/* Section 6: Global Footprint, Indian Soul */}
-        <section className="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
-          {/* Left Column */}
-          <div className="rounded-2xl shadow-lg bg-white flex flex-col justify-center p-8">
-            <h3 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Proudly Made in India. Loved Around the World.</h3>
-            <div className="w-full h-40 bg-[#EADFC9] rounded-xl flex items-center justify-center mb-4">
-              <span className="text-[#6B4F4F] font-sans">[World Map with Glowing Dots Placeholder]</span>
-            </div>
-            <blockquote className="italic text-[#6B4F4F] mb-2">“Small-batch purity, global standards.”</blockquote>
-          </div>
-          {/* Right Column: Carousel of testimonials */}
-          <div className="rounded-2xl shadow-lg bg-white flex flex-col justify-center p-8">
-            <div className="w-full h-40 bg-[#EADFC9] rounded-xl flex items-center justify-center mb-4">
-              <span className="text-[#6B4F4F] font-sans">[Auto-scrolling Testimonials Carousel Placeholder]</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 7: What Makes Us Different (B2B) */}
-        <section className="w-full max-w-5xl rounded-2xl shadow-lg bg-[#2A4E44] flex flex-col items-center p-8 my-12">
-          <h3 className="font-serif text-2xl md:text-3xl text-white font-bold mb-4">Why Conscious Brands Choose Viva Earth</h3>
-          <div className="w-full flex flex-col md:flex-row gap-4 mt-4">
-            {/* Tab 1 */}
-            <div className="flex-1 bg-white/90 rounded-xl p-6 flex flex-col items-center">
-              <span className="font-serif text-lg text-[#2A4E44] font-bold mb-2">Private Labeling</span>
-              <img src="/VivaEarthImages/Bottle/Bottle2.jpg" alt="Private Labeling" className="rounded-lg object-cover w-full h-32 mb-2" />
-              <span className="font-sans text-sm text-[#333]">Launch your own brand with our proven formulations and packaging expertise.</span>
-            </div>
-            {/* Tab 2 */}
-            <div className="flex-1 bg-white/90 rounded-xl p-6 flex flex-col items-center">
-              <span className="font-serif text-lg text-[#2A4E44] font-bold mb-2">Bulk Ingredients</span>
-              <img src="/VivaEarthImages/Bottle/Bottle3.jpg" alt="Bulk Ingredients" className="rounded-lg object-cover w-full h-32 mb-2" />
-              <span className="font-sans text-sm text-[#333]">Source pure, traceable essential oils and extracts for your business needs.</span>
-            </div>
-            {/* Tab 3 */}
-            <div className="flex-1 bg-white/90 rounded-xl p-6 flex flex-col items-center">
-              <span className="font-serif text-lg text-[#2A4E44] font-bold mb-2">White-Label Formulation</span>
-              <img src="/VivaEarthImages/Bottle/Bottle4.jpg" alt="White-Label Formulation" className="rounded-lg object-cover w-full h-32 mb-2" />
-              <span className="font-sans text-sm text-[#333]">Customize our science-backed formulas with your brand’s unique touch.</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Section 9: Our Impact */}
-        <section className="w-full max-w-5xl flex flex-col items-center my-12">
-          <h3 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-6">Sustainability is Not a Buzzword Here</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
-            {/* Tile 1 */}
-            <div className="rounded-2xl shadow-lg bg-white flex flex-col items-center p-8">
-              <span className="text-4xl font-bold text-[#C0A062]">+1200</span>
-              <span className="font-sans text-sm text-[#333] mt-2 flex items-center gap-1"><span>👥</span>Rural Livelihoods Supported</span>
-            </div>
-            {/* Tile 2 */}
-            <div className="rounded-2xl shadow-lg bg-white flex flex-col items-center p-8">
-              <span className="text-4xl font-bold text-[#C0A062]">+50,000</span>
-              <span className="font-sans text-sm text-[#333] mt-2 flex items-center gap-1"><span>💧</span>Liters of Oil Distilled</span>
-            </div>
-            {/* Tile 3 */}
-            <div className="rounded-2xl shadow-lg bg-white flex flex-col items-center p-8">
-              <span className="text-4xl font-bold text-[#C0A062]">+8,000</span>
-              <span className="font-sans text-sm text-[#333] mt-2 flex items-center gap-1"><span>♻️</span>kg of Plastic Saved</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Comic-style: B2B/What Makes Us Different (image right, text left) */}
-        <div className="w-full flex flex-col md:flex-row-reverse gap-0 md:gap-x-0 min-h-[400px] md:min-h-[500px]">
-          {/* Right: Big image */}
-          <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-            <div className="w-full h-[320px] md:h-[420px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #43cea2 0%, #185a9d 100%)'}}>
-              <img 
-                src="/VivaEarthImages/Bottle/Bottle2.jpg" 
-                alt="B2B Services" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
-          {/* Left: Text */}
-          <div className="flex-1 flex flex-col justify-center mx-6 md:mx-12">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Why Conscious Brands Choose Viva Earth</h2>
-            <p className="font-sans text-base md:text-lg text-[#333] mb-4">Our CAAS Model – Cosmetics as a Service: Private Labeling, Bulk Ingredients, White-Label Formulation. Launch your own brand or source pure, traceable ingredients with us.</p>
+        {/* Right: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-900 to-green-700 overflow-hidden">
+          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/1.png" alt="Why We Began" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
           </div>
         </div>
+      </section>
 
-        {/* Comic-style: Final CTA (image left, text right) */}
-        <div className="w-full flex flex-col md:flex-row gap-0 md:gap-x-0 min-h-[300px] md:min-h-[400px]">
-          {/* Left: Big image */}
-          <div className="flex-1 flex items-center justify-center mx-6 md:mx-12">
-            <div className="w-full h-[220px] md:h-[320px] flex items-center justify-center" style={{background: 'linear-gradient(135deg, #f7971e 0%, #ffd200 100%)'}}>
-              <img 
-                src="/VivaEarthImages/Bottle/Bottle3.jpg" 
-                alt="Final CTA" 
-                className="w-full h-full object-contain"
-              />
-            </div>
+      {/* Section 2: It Starts in the Soil */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row-reverse items-stretch overflow-hidden bg-white">
+        {/* Right: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">It Starts in the Soil</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our ingredients are grown on regenerative farms and wild-harvested in pristine regions. We partner directly with farmers who share our values—ensuring every drop is traceable, ethical, and supports healthy ecosystems.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
           </div>
-          {/* Right: Text and CTA */}
-          <div className="flex-1 flex flex-col justify-center items-start mx-6 md:mx-12">
-            <h2 className="font-serif text-2xl md:text-3xl text-[#2A4E44] font-bold mb-4">Experience Purity. Build a Legacy.</h2>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-2 w-full">
-              <button className="bg-[#C0A062] text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-[#a88a4a] transition w-full sm:w-auto">Shop Now</button>
-              <button className="bg-[#C0A062] text-white font-bold py-3 px-8 rounded-lg shadow hover:bg-[#a88a4a] transition w-full sm:w-auto">Build Your Brand With Us</button>
+          <div className="flex gap-8">
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">20+</span>
+              <span className="block text-xs text-[#333]">Sourcing Regions</span>
+            </div>
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
+              <span className="block text-xs text-[#333]">Traceable Supply</span>
             </div>
           </div>
         </div>
-      </div>
+        {/* Left: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-700 to-green-400 overflow-hidden">
+          <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/2.png" alt="Soil Map" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Our Craft */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
+        {/* Left: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">We Make What You Trust</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">From distillation to packaging, every step is handled with care. Clean-room facilities, eco-friendly packaging, and batch traceability are our standards.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Process</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Traceability</button>
+          </div>
+          <div className="flex gap-8">
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">4</span>
+              <span className="block text-xs text-[#333]">Steps</span>
+            </div>
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
+              <span className="block text-xs text-[#333]">Clean Room</span>
+            </div>
+          </div>
+        </div>
+        {/* Right: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-600 to-yellow-400 overflow-hidden">
+          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/3.png" alt="Our Craft" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 4: Sustainability Impact */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row-reverse items-stretch overflow-hidden bg-white">
+        {/* Right: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Sustainability is Not a Buzzword Here</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">+1200 Rural Livelihoods Supported<br/>+50,000 Liters of Oil Distilled<br/>+8,000 kg of Plastic Saved</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Impact</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Sustainability</button>
+          </div>
+        </div>
+        {/* Left: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-500 overflow-hidden">
+          <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/4.png" alt="Impact" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: Global Footprint */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
+        {/* Left: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Proudly Made in India. Loved Around the World.</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our products reach customers in the USA, UAE, EU, and beyond. Small-batch purity, global standards.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">See Our Reach</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Testimonials</button>
+          </div>
+        </div>
+        {/* Right: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-pink-700 to-pink-400 overflow-hidden">
+          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/5.png" alt="Global Map" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: B2B/What Makes Us Different */}
+      <section className="relative w-full min-h-[500px] flex flex-col md:flex-row-reverse items-stretch overflow-hidden bg-white">
+        {/* Right: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Why Conscious Brands Choose Viva Earth</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our CAAS Model – Cosmetics as a Service: Private Labeling, Bulk Ingredients, White-Label Formulation. Launch your own brand or source pure, traceable ingredients with us.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">B2B Services</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Partner With Us</button>
+          </div>
+        </div>
+        {/* Left: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-purple-900 to-purple-500 overflow-hidden">
+          <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/6.png" alt="B2B Services" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* Section 7: Final CTA */}
+      <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
+        {/* Left: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Experience Purity. Build a Legacy.</h2>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Shop Now</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Build Your Brand With Us</button>
+          </div>
+        </div>
+        {/* Right: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-700 to-yellow-400 overflow-hidden">
+          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/7.png" alt="Final CTA" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
+
+      {/* MongoDB-style cutout: It Starts in the Soil */}
+      <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white mb-16">
+        {/* Left: Text */}
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
+          <h2 className="font-serif text-3xl md:text-5xl text-[#2A4E44] font-bold mb-4">It Starts in the Soil</h2>
+          <p className="font-sans text-base md:text-2xl text-[#333] mb-6 max-w-xl">Our ingredients are grown on regenerative farms and wild-harvested in pristine regions. We partner directly with farmers who share our values—ensuring every drop is traceable, ethical, and supports healthy ecosystems. Transparency is our promise, from seed to bottle.</p>
+          <div className="flex gap-4 mb-8">
+            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
+            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
+          </div>
+          <div className="flex gap-8">
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">20+</span>
+              <span className="block text-xs text-[#333]">Sourcing Regions</span>
+            </div>
+            <div>
+              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
+              <span className="block text-xs text-[#333]">Traceable Supply</span>
+            </div>
+          </div>
+        </div>
+        {/* Right: Cutout with image */}
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-900 to-green-700 overflow-hidden">
+          {/* SVG cutout shape overlays the left side */}
+          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
+            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
+          </svg>
+          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
+            <img src="/VivaEarthImages/Transparent/2.png" alt="Soil Map" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
+          </div>
+        </div>
+      </section>
 
       {/* Animation Keyframes */}
       <style>{`
