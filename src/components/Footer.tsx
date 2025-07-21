@@ -29,7 +29,6 @@ const Footer: React.FC = () => {
     { name: 'About Us', path: '/about' },
     { name: 'Our Journey', path: '/journey' },
     { name: 'Our Brands', path: '/brands' },
-    { name: 'Partner Up', path: '/contact' },
     { name: 'Contact Us', path: '/contact' },
     { name: 'Our Team', path: '/team' },
     { name: 'Our Principles', path: '/principles' }
@@ -37,7 +36,31 @@ const Footer: React.FC = () => {
 
   const handleNavClick = (path: string) => {
     navigate(path);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
+    // Multiple scroll attempts for better mobile compatibility
+    const scrollToTop = () => {
+      // Immediate scroll (works on most devices)
+      window.scrollTo(0, 0);
+      
+      // Smooth scroll with fallback
+      try {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch {
+        // Fallback for older browsers
+        window.scrollTo(0, 0);
+      }
+      
+      // Force scroll for mobile devices
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    
+    // Immediate scroll
+    scrollToTop();
+    
+    // Delayed scroll to ensure navigation is complete
+    setTimeout(scrollToTop, 50);
+    setTimeout(scrollToTop, 150);
   };
 
   const legalLinks = [

@@ -1,18 +1,50 @@
 # llms.txt for dolfynbrands.com
 # Purpose: Specify access rules for large language model (LLM) crawlers and AI bots.
+# Last updated: 2024-12-19
 
-# --- Allow ethical/research-driven LLM bots ---
+# --- Allow reputable AI research and commercial bots ---
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 2
 
 User-agent: ClaudeBot
 Allow: /
+Crawl-delay: 2
 
 User-agent: PerplexityBot
 Allow: /
+Crawl-delay: 2
 
-# --- Disallow known AI scrapers or unverified bots ---
-# (Add more User-agents as needed if new suspicious bots are identified)
+User-agent: Anthropic-AI
+Allow: /
+Crawl-delay: 2
+
+User-agent: Cohere-AI
+Allow: /
+Crawl-delay: 2
+
+User-agent: AI2Bot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Crawl-delay: 2
+
+User-agent: YouBot
+Allow: /
+Crawl-delay: 2
+
+# --- Allow search engine AI features ---
+User-agent: Bard
+Allow: /
+Crawl-delay: 1
+
+User-agent: BingPreview
+Allow: /
+Crawl-delay: 1
+
+# --- Disallow aggressive scrapers and unverified bots ---
 User-agent: DataForSeoBot
 Disallow: /
 
@@ -22,10 +54,39 @@ Disallow: /
 User-agent: SeekrBot
 Disallow: /
 
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# --- Default rule for unspecified bots ---
 User-agent: *
 Disallow: /
 
-# --- Usage policy and contact information ---
-# Please review our terms before crawling.
-Policy: https://dolfynbrands.com/privacy
-Contact: contact@dolfynbrands.com 
+# --- Usage Guidelines ---
+# Crawl-delay: Minimum seconds between requests
+# Please respect rate limits and server resources
+# Commercial use requires explicit permission
+
+# --- Contact and Policy Information ---
+Contact: contact@dolfynbrands.com
+Policy: https://dolfynbrands.com/ai-policy
+Terms: https://dolfynbrands.com/terms
+
+# --- Content Usage Rights ---
+# Content may be used for:
+# - Research and educational purposes
+# - AI training with proper attribution
+# - Non-commercial analysis
+# 
+# Content may NOT be used for:
+# - Direct commercial reproduction
+# - Competitive intelligence without permission
+# - Bulk data harvesting for resale 
