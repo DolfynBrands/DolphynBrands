@@ -32,10 +32,7 @@ const roleOrder = ['Founders', 'Web Dev', 'Graphics Designer'];
 
 const OurTeam: React.FC = () => {
   // Group members by role for bubble alignment
-  const grouped = roleOrder.map(role => ({
-    role,
-    members: teamMembers.filter(m => m.role === role)
-  }));
+  // Removed unused 'grouped' variable
 
   return (
     <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-32 pb-24 px-4">

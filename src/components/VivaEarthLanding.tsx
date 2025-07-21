@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 const VIVA_EARTH_BOTTLEDROPPER = [
   '/VivaEarthImages/BottleDropper/Amazon content bottel- Lavender 1oz.jpg',

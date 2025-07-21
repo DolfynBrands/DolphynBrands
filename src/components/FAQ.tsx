@@ -140,7 +140,7 @@ const FAQ: React.FC = () => {
                 <span className="mr-2">🔹</span>{section.title}
               </motion.h2>
               <div className="space-y-6">
-                {section.faqs.map((faq, idx) => (
+                {section.faqs.map((faq) => (
                   <motion.div
                     key={faq.q}
                     variants={itemVariants}
