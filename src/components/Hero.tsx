@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface HeroProps {
   setCurrentPage: (page: string) => void;
@@ -21,6 +22,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const video = videoRef.current;
@@ -169,6 +171,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
+            onClick={() => navigate('/faq')}
           >
             Learn More
           </motion.button>

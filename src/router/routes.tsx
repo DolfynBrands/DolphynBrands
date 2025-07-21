@@ -8,6 +8,8 @@ const OurPrinciples = lazy(() => import('../components/OurPrinciples'));
 const OurTeam = lazy(() => import('../components/OurTeam'));
 const OurJourney = lazy(() => import('../components/OurJourney'));
 const NotFound = lazy(() => import('../components/NotFound'));
+const FAQ = lazy(() => import('../components/FAQ'));
+const VivaEarthLanding = lazy(() => import('../components/VivaEarthLanding'));
 
 // Home page components
 import Hero from '../components/Hero';
@@ -117,6 +119,28 @@ export const routes: AppRoute[] = [
       description: 'Follow Dolfyn Brands\' journey in revolutionizing brand transformation through AI-powered strategies and innovation.',
       keywords: 'company journey, brand transformation history, dolfyn brands story',
       ogImage: 'https://dolfynbrands.com/og-journey.jpg',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/faq',
+    component: FAQ,
+    meta: {
+      title: 'FAQs - Dolfyn Brands',
+      description: 'Frequently asked questions about Dolfyn Brands, our services, and how we help transform brands with AI.',
+      keywords: 'faq, questions, help, dolfyn brands',
+      ogImage: 'https://dolfynbrands.com/og-faq.jpg',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/vivaearth',
+    component: VivaEarthLanding,
+    meta: {
+      title: 'VivaEarth Organic - Pure Essential Oils',
+      description: 'VivaEarth Organic offers pure, ethically sourced essential oils with a focus on sustainability and holistic wellness. Discover our earthy, garden-inspired collection.',
+      keywords: 'essential oils, organic, sustainable, wellness, vivaearth',
+      ogImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
       ogType: 'website'
     }
   },

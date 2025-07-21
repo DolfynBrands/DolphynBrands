@@ -8,6 +8,8 @@ const Header: React.FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBrandsOpen, setIsBrandsOpen] = useState(false);
+  const brandsHideTimeout = React.useRef<number | null>(null);
   const { scrollY } = useScroll();
   const headerOpacity = useTransform(scrollY, [0, 100], [0.95, 1]);
   const headerBlur = useTransform(scrollY, [0, 100], [8, 20]);
@@ -26,6 +28,7 @@ const Header: React.FC = () => {
     { name: 'Brands', path: '/brands' },
     { name: 'Our Team', path: '/team' },
     { name: 'Contact Us', path: '/contact' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const handleNavClick = (path: string) => {
@@ -38,6 +41,17 @@ const Header: React.FC = () => {
     return location.pathname === path;
   };
 
+  const isVivaEarth = location.pathname === '/vivaearth';
+
+  // Helper functions for mouse events with delay
+  const handleBrandsMouseEnter = () => {
+    if (brandsHideTimeout.current) clearTimeout(brandsHideTimeout.current);
+    setIsBrandsOpen(true);
+  };
+  const handleBrandsMouseLeave = () => {
+    brandsHideTimeout.current = window.setTimeout(() => setIsBrandsOpen(false), 150);
+  };
+
   return (
     <motion.header
       style={{ 
@@ -48,42 +62,101 @@ const Header: React.FC = () => {
         isScrolled ? 'w-11/12 md:w-3/4' : 'w-11/12 md:w-5/6'
       }`}
     >
-      <div className="bg-white/90 backdrop-blur-md border border-gray-200 rounded-3xl px-4 py-2 shadow-lg">
+      <div className={`${
+        isVivaEarth 
+          ? 'bg-amber-50/95 border-green-700' 
+          : 'bg-white/90 border-gray-200'
+      } backdrop-blur-md rounded-3xl px-4 py-2 shadow-lg border`}>
         <div className="flex items-center justify-between">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3 cursor-pointer"
+            className="flex items-center space-x-4 cursor-pointer"
             onClick={() => handleNavClick('/')}
           >
-            <picture>
-              <source srcSet="/company-logo.webp" type="image/webp" />
-              <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-20 h-20 object-contain" width={80} height={80} />
-            </picture>
-            <span className="text-gray-900 font-bold text-2xl">Dolfyn Brands</span>
+            <div className="flex items-center space-x-3">
+              <picture>
+                <source srcSet="/company-logo.webp" type="image/webp" />
+                <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-16 h-16 object-contain" width={64} height={64} />
+              </picture>
+              <span className="text-gray-900 font-bold text-xl">Dolfyn Brands</span>
+            </div>
           </motion.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 mr-8">
             {navItems.map((item) => (
-              <motion.button
-                key={item.path}
-                onClick={() => handleNavClick(item.path)}
-                className={`transition-colors relative ${
-                  isCurrentPage(item.path) 
-                    ? 'text-gray-900 font-semibold' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-                whileHover={{ scale: 1.05 }}
-              >
-                {item.name}
-                {isCurrentPage(item.path) && (
-                  <motion.div
-                    className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"
-                    layoutId="activeTab"
-                  />
-                )}
-              </motion.button>
+              item.name === 'Brands' ? (
+                <div
+                  key="brands"
+                  className="relative"
+                  onMouseEnter={handleBrandsMouseEnter}
+                  onMouseLeave={handleBrandsMouseLeave}
+                >
+                  <motion.button
+                    className={`transition-colors relative ${isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'}`}
+                    whileHover={{ scale: 1.05 }}
+                  >
+                    Brands
+                  </motion.button>
+                  {isBrandsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute left-0 mt-2 w-64 bg-white rounded-xl shadow-lg border border-gray-200 z-50 py-4"
+                    >
+                      <ul className="space-y-2">
+                        <li>
+                          <button
+                            className="w-full text-left px-6 py-2 hover:bg-blue-50 text-gray-900 font-medium"
+                            onClick={() => handleNavClick('/vivaearth')}
+                          >
+                            Viva Earth Organics
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="w-full text-left px-6 py-2 hover:bg-green-50 text-gray-900 font-medium"
+                            onClick={() => {}} // Placeholder, update with real path if available
+                          >
+                            Viva Bloom
+                          </button>
+                        </li>
+                        <li>
+                          <button
+                            className="w-full text-left px-6 py-2 hover:bg-purple-50 text-gray-900 font-medium"
+                            onClick={() => {}} // Placeholder, update with real path if available
+                          >
+                            My Garden Emporium
+                          </button>
+                        </li>
+                      </ul>
+                    </motion.div>
+                  )}
+                </div>
+              ) : (
+                <motion.button
+                  key={item.path}
+                  onClick={() => handleNavClick(item.path)}
+                  className={`transition-colors relative ${
+                    isCurrentPage(item.path) 
+                      ? isVivaEarth ? 'text-green-800 font-semibold' : 'text-gray-900 font-semibold'
+                      : isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {item.name}
+                  {isCurrentPage(item.path) && (
+                    <motion.div
+                      className={`absolute -bottom-1 left-0 w-full h-0.5 ${
+                        isVivaEarth ? 'bg-gradient-to-r from-green-600 to-green-800' : 'bg-gradient-to-r from-blue-400 to-purple-600'
+                      }`}
+                      layoutId="activeTab"
+                    />
+                  )}
+                </motion.button>
+              )
             ))}
           </nav>
 
@@ -92,7 +165,7 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-gray-900"
+            className={`md:hidden ${isVivaEarth ? 'text-green-800' : 'text-gray-900'}`}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </motion.button>
@@ -115,8 +188,8 @@ const Header: React.FC = () => {
                 onClick={() => handleNavClick(item.path)}
                 className={`block w-full text-left py-2 transition-colors ${
                   isCurrentPage(item.path) 
-                    ? 'text-gray-900 font-semibold' 
-                    : 'text-gray-600 hover:text-gray-900'
+                    ? isVivaEarth ? 'text-green-800 font-semibold' : 'text-gray-900 font-semibold'
+                    : isVivaEarth ? 'text-green-700 hover:text-green-900' : 'text-gray-600 hover:text-gray-900'
                 }`}
                 whileHover={{ x: 10 }}
               >

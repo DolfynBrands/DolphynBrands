@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { 
   Facebook, 
   Twitter, 
@@ -15,6 +15,8 @@ import {
 
 const Footer: React.FC = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isVivaEarth = location.pathname === '/vivaearth';
   const socialLinks = [
     { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61578568915484&sk=about', color: 'hover:text-blue-400' },
     { icon: Twitter, href: '#', color: 'hover:text-sky-400' },
@@ -52,20 +54,24 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 border-t border-gray-700">
+    <footer className={`${isVivaEarth ? 'bg-green-900 border-t border-lime-800' : 'bg-gray-900 border-t border-gray-700'}`}>
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
-              </div>
-              <span className="text-white font-bold text-xl">Dolfyn Brands</span>
+              <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <picture>
+                  <source srcSet="/company-logo.webp" type="image/webp" />
+                  <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-8 h-8 object-contain" width={32} height={32} />
+                </picture>
+              </span>
+              <span className="font-bold text-xl text-white">Dolfyn Brands</span>
             </div>
-            <p className="text-gray-400 leading-relaxed">
-              Transforming brands through AI-powered strategies and creative excellence. 
-              We make brands unforgettable.
+            <p className={`${isVivaEarth ? 'text-gray-300' : 'text-gray-400'} leading-relaxed`}>
+              {isVivaEarth
+                ? 'Pure, potent, planet-friendly essential oils. Crafted by nature, bottled by us.'
+                : 'Transforming brands through AI-powered strategies and creative excellence. We make brands unforgettable.'}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -73,7 +79,7 @@ const Footer: React.FC = () => {
                   key={index}
                   href={social.href}
                   whileHover={{ scale: 1.2, y: -2 }}
-                  className={`text-gray-400 ${social.color} transition-colors`}
+                  className={`${isVivaEarth ? 'text-gray-300 hover:text-lime-400' : `text-gray-400 ${social.color}`} transition-colors`}
                 >
                   <social.icon size={20} />
                 </motion.a>
@@ -89,7 +95,7 @@ const Footer: React.FC = () => {
                 <motion.button
                   key={link.name}
                   onClick={() => handleNavClick(link.path)}
-                  className="block text-left text-gray-400 hover:text-white transition-colors"
+                  className={`block text-left ${isVivaEarth ? 'text-gray-300 hover:text-lime-400' : 'text-gray-400 hover:text-white'} transition-colors`}
                   whileHover={{ x: 5 }}
                 >
                   {link.name}
@@ -103,18 +109,34 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-bold text-lg mb-6">Featured Brands</h3>
             <div className="space-y-3">
               {brandRecommendations.map((brand) => (
-                <motion.div
-                  key={brand.name}
-                  className="group cursor-pointer"
-                  whileHover={{ x: 5 }}
-                >
-                  <div className="text-gray-400 hover:text-white transition-colors">
-                    {brand.name}
-                  </div>
-                  <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
-                    {brand.category}
-                  </div>
-                </motion.div>
+                brand.name === 'Viva Earth Organics' ? (
+                  <motion.div
+                    key={brand.name}
+                    className="group cursor-pointer"
+                    whileHover={{ x: 5 }}
+                    onClick={() => handleNavClick('/vivaearth')}
+                  >
+                    <div className={`${isVivaEarth ? 'text-gray-300 group-hover:text-lime-400 underline' : 'text-gray-400 group-hover:text-white underline'} transition-colors`}>
+                      {brand.name}
+                    </div>
+                    <div className={`text-xs ${isVivaEarth ? 'text-gray-500 group-hover:text-lime-500' : 'text-gray-500 group-hover:text-gray-400'} transition-colors`}>
+                      {brand.category}
+                    </div>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key={brand.name}
+                    className="group"
+                    whileHover={{ x: 5 }}
+                  >
+                    <div className={`${isVivaEarth ? 'text-gray-300 group-hover:text-lime-400' : 'text-gray-400 group-hover:text-white'} transition-colors`}>
+                      {brand.name}
+                    </div>
+                    <div className={`text-xs ${isVivaEarth ? 'text-gray-500 group-hover:text-lime-500' : 'text-gray-500 group-hover:text-gray-400'} transition-colors`}>
+                      {brand.category}
+                    </div>
+                  </motion.div>
+                )
               ))}
             </div>
           </div>
@@ -122,7 +144,7 @@ const Footer: React.FC = () => {
           {/* Newsletter */}
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Stay Updated</h3>
-            <p className="text-gray-400 mb-4">
+            <p className={`${isVivaEarth ? 'text-gray-300' : 'text-gray-400'} mb-4`}>
               Get the latest insights on brand transformation and AI innovation.
             </p>
             <div className="space-y-4">
@@ -130,12 +152,12 @@ const Footer: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-l-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className={`flex-1 px-4 py-3 ${isVivaEarth ? 'bg-green-800 border-green-700' : 'bg-gray-800 border-gray-600'} rounded-l-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 ${isVivaEarth ? 'focus:ring-lime-500' : 'focus:ring-blue-500'} focus:border-transparent`}
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-r-lg hover:shadow-lg transition-shadow"
+                  className={`${isVivaEarth ? 'bg-gradient-to-r from-lime-500 to-green-600' : 'bg-gradient-to-r from-blue-500 to-purple-600'} text-white px-6 py-3 rounded-r-lg hover:shadow-lg transition-shadow`}
                 >
                   <ArrowRight size={20} />
                 </motion.button>
@@ -148,36 +170,36 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Contact Info */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
+        <div className={`border-t ${isVivaEarth ? 'border-green-800' : 'border-gray-700'} mt-12 pt-8`}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center space-x-3">
-              <Phone size={20} className="text-blue-400" />
+              <Phone size={20} className={isVivaEarth ? 'text-lime-400' : 'text-blue-400'} />
               <div>
                 <div className="text-white font-semibold">Phone</div>
-                <div className="text-gray-400">+1 (555) 123-4567</div>
+                <div className={isVivaEarth ? 'text-gray-300' : 'text-gray-400'}>+1 (555) 123-4567</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <Mail size={20} className="text-purple-400" />
+              <Mail size={20} className={isVivaEarth ? 'text-lime-400' : 'text-purple-400'} />
               <div>
                 <div className="text-white font-semibold">Email</div>
-                <div className="text-gray-400">contact@dolfynbrands.com</div>
+                <div className={isVivaEarth ? 'text-gray-300' : 'text-gray-400'}>contact@dolfynbrands.com</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
-              <MapPin size={20} className="text-yellow-400" />
+              <MapPin size={20} className={isVivaEarth ? 'text-lime-400' : 'text-yellow-400'} />
               <div>
                 <div className="text-white font-semibold">Address</div>
-                <div className="text-gray-400">8 The Green, #22847, Dover,<br />DE 19901, USA</div>
+                <div className={isVivaEarth ? 'text-gray-300' : 'text-gray-400'}>8 The Green, #22847, Dover,<br />DE 19901, USA</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Legal Links */}
-        <div className="border-t border-gray-700 mt-12 pt-8">
+        <div className={`border-t ${isVivaEarth ? 'border-green-800' : 'border-gray-700'} mt-12 pt-8`}>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
+            <div className={isVivaEarth ? 'text-gray-300' : 'text-gray-400'}>
               © 2024 Dolfyn Brands. All rights reserved.
             </div>
             <div className="flex space-x-6">
@@ -185,7 +207,7 @@ const Footer: React.FC = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                  className={`${isVivaEarth ? 'text-gray-300 hover:text-lime-400' : 'text-gray-400 hover:text-white'} text-sm transition-colors`}
                 >
                   {link.name}
                 </a>

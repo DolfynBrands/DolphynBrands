@@ -83,33 +83,33 @@ const BrandShowcase = React.memo(() => {
             variants={itemVariants}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {brands.map((brand) => (
-              <motion.div
-                key={brand.name}
-                variants={itemVariants}
-                whileHover={{ scale: 1.05, y: -10 }}
-                className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${brand.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                
-                <div className="relative p-6">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${brand.color} flex items-center justify-center`}>
-                      <span className="text-white font-bold text-lg">{brand.name[0]}</span>
+            {brands.map((brand) => {
+              const isVivaEarth = brand.name === 'Viva Earth Organics';
+              const cardContent = (
+                <motion.div
+                  key={brand.name}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.05, y: -10 }}
+                  className="group relative overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-gray-300 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${brand.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
+                  <div className="relative p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${brand.color} flex items-center justify-center`}>
+                        <span className="text-white font-bold text-lg">{brand.name[0]}</span>
+                      </div>
                     </div>
-                    {/*
-                    <div className="text-right">
-                      <div className="text-2xl font-bold text-green-400">{brand.growth}</div>
-                      <div className="text-xs text-gray-400">Growth</div>
-                    </div>
-                    */}
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{brand.name}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{brand.industry}</p>
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{brand.name}</h3>
-                  <p className="text-gray-600 text-sm mb-4">{brand.industry}</p>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+              return isVivaEarth ? (
+                <a href="/vivaearth" key={brand.name} className="block focus:outline-none focus:ring-2 focus:ring-green-400 rounded-2xl">
+                  {cardContent}
+                </a>
+              ) : cardContent;
+            })}
           </motion.div>
 
           {/* CTA */}

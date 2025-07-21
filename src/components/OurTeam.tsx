@@ -1,117 +1,146 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Linkedin } from 'lucide-react';
 
 const teamMembers = [
   {
     name: 'Pradeep',
-    role: 'Chief Executive Officer',
-    imageUrl: '', // No image
+    role: 'Founders',
+    imageUrl: '',
     linkedinUrl: 'https://www.linkedin.com/in/janedoe-example/'
   },
   {
     name: 'Nithin C Hassan',
-    role: 'Founder and CEO',
+    role: 'Founders',
     imageUrl: '/ourTeam/nithin-hassan.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/nithin-hassan/'
   },
   {
     name: 'Sai Rishi Gangarapu',
-    role: 'Web Developer',
+    role: 'Web Dev',
     imageUrl: '/ourTeam/sair-rishi.jpg',
     linkedinUrl: 'https://www.linkedin.com/in/sai-rishi-gangarapu-770a08321/'
   },
   {
     name: 'Priya Iyengar',
-    role: 'Graphic designer and illustrator',
-    imageUrl: '', // No image
+    role: 'Graphics Designer',
+    imageUrl: '',
     linkedinUrl: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/'
   }
 ];
 
-const founders = teamMembers.slice(0, 2);
-const others = teamMembers.slice(2);
-
-const subtitle = 'Our team is our competitive edge. Fueled by passion and a relentless drive for excellence, our people transform creative ideas into remarkable success';
-
-const cardHover = {
-  whileHover: { scale: 1.05, y: -10 },
-  transition: { type: "spring" as const, stiffness: 300, damping: 20 }
-};
+const roleOrder = ['Founders', 'Web Dev', 'Graphics Designer'];
 
 const OurTeam: React.FC = () => {
+  // Group members by role for bubble alignment
+  const grouped = roleOrder.map(role => ({
+    role,
+    members: teamMembers.filter(m => m.role === role)
+  }));
+
   return (
-    <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-40 pb-24 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-8 text-center tracking-tight">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">The People Behind the Progress</span>
-        </h1>
-        <p className="text-xl text-gray-700 mb-14 text-center max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
-        {/* Founders/CEOs Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-16 mb-16 justify-center">
-          {founders.map((member) => (
-            <motion.div
-              key={member.name}
-              whileHover={cardHover.whileHover}
-              transition={cardHover.transition}
-              className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
-            >
-              {member.imageUrl ? (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
+    <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-32 pb-24 px-4">
+      <section className="max-w-5xl mx-auto flex flex-row">
+        {/* Vertical line and bubbles */}
+        <div className="relative flex flex-col items-center mr-10 pt-8" style={{ minWidth: 80 }}>
+          <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-blue-200 rounded-full" style={{ transform: 'translateX(-50%)' }}></div>
+          {/* Founders bubble */}
+          <div className="flex flex-col items-center z-10">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg mb-2 bg-gradient-to-br from-blue-500 to-purple-600 text-center">
+              <span className="w-full text-center">Founders</span>
+            </div>
+          </div>
+          {/* Spacer for grid alignment */}
+          <div style={{ height: 80 }}></div>
+          {/* Web Dev bubble and Rishi */}
+          <div className="flex flex-row items-center z-10 mb-2">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-green-400 to-blue-500 text-center">
+              <span className="w-full text-center">Web Dev</span>
+            </div>
+            <div className="ml-6 flex flex-col items-center">
+              <a
+                href={teamMembers[2].linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
+                title={`View ${teamMembers[2].name}'s LinkedIn`}
+              >
+                <picture>
+                  <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />
+                  <img src={teamMembers[2].imageUrl} alt={teamMembers[2].name} width={112} height={112} className="object-cover w-28 h-28" />
+                </picture>
+                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Linkedin size={18} className="text-blue-600" />
+                </span>
+              </a>
+              <div className="mt-4 text-center">
+                <div className="text-lg font-semibold text-gray-900">{teamMembers[2].name}</div>
+              </div>
+            </div>
+          </div>
+          {/* Spacer for grid alignment */}
+          <div style={{ height: 80 }}></div>
+          {/* Graphics Designer bubble and Priya */}
+          <div className="flex flex-row items-center z-10">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full text-white font-semibold text-sm shadow-lg bg-gradient-to-br from-pink-400 to-yellow-400 text-center">
+              <span className="w-full text-center">Graphics Designer</span>
+            </div>
+            <div className="ml-6 flex flex-col items-center">
+              <a
+                href={teamMembers[3].linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
+                title={`View ${teamMembers[3].name}'s LinkedIn`}
+              >
+                <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
+                  <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
+                  <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
+                </svg>
+                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Linkedin size={18} className="text-blue-600" />
+                </span>
+              </a>
+              <div className="mt-4 text-center">
+                <div className="text-lg font-semibold text-gray-900">{teamMembers[3].name}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Team Images and Names for Founders only */}
+        <div className="flex-1 grid grid-cols-2 md:grid-cols-2 gap-10 items-start">
+          {teamMembers.slice(0, 2).map((member) => (
+            <div key={member.name} className="flex flex-col items-center">
+              <a
+                href={member.linkedinUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full overflow-hidden shadow-lg w-28 h-28 bg-gray-100 flex items-center justify-center group hover:ring-4 hover:ring-blue-300 transition-all duration-200"
+                title={`View ${member.name}'s LinkedIn`}
+              >
+                {member.imageUrl ? (
                   <picture>
                     {member.name === 'Nithin C Hassan' && <source srcSet="/ourTeam/nithin-hassan.webp" type="image/webp" />}
-                    {member.name === 'Sai Rishi Gangarapu' && <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />}
-                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
+                    <img src={member.imageUrl} alt={member.name} width={112} height={112} className="object-cover w-28 h-28" />
                   </picture>
-                </a>
-              ) : (
-                <div className="mb-6 rounded-full overflow-hidden shadow-lg w-32 h-32 bg-gray-200 flex items-center justify-center">
-                  {/* Simple SVG placeholder */}
-                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                ) : (
+                  <svg width="64" height="64" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
                     <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
                     <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
                   </svg>
-                </div>
-              )}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
-              <p className="text-blue-600 text-lg text-center">{member.role}</p>
-            </motion.div>
+                )}
+                <span className="absolute bottom-2 right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                  <Linkedin size={18} className="text-blue-600" />
+                </span>
+              </a>
+              <div className="mt-4 text-center">
+                <div className="text-lg font-semibold text-gray-900">{member.name}</div>
+              </div>
+            </div>
           ))}
         </div>
-        {/* Other Team Members Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
-          {others.map((member) => (
-            <motion.div
-              key={member.name}
-              whileHover={cardHover.whileHover}
-              transition={cardHover.transition}
-              className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
-            >
-              {member.imageUrl ? (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                  <picture>
-                    <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />
-                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
-                  </picture>
-                </a>
-              ) : (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    {/* Simple SVG placeholder */}
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
-                      <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
-                      <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
-                    </svg>
-                  </div>
-                </a>
-              )}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
-              <p className="text-blue-600 text-lg text-center">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
