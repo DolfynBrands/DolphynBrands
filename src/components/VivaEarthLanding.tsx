@@ -255,9 +255,9 @@ const VivaEarthLanding: React.FC = () => {
         {/* Right: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Sustainability is Not a Buzzword Here</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">✅ 1,200+ rural livelihoods supported through ethical, regenerative partnerships
-          <br/>✅ Therapeutic-grade essential oils crafted from organically grown botanicals
-          <br/>✅ Low-waste, earth-conscious packaging and operations that prioritize long-term impact</p>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">Your purchase directly supports 1,200+ livelihoods through our fair and sustainable partnership model.
+          <br/>Experience the difference of premium essential oils, meticulously crafted from botanicals sourced from the best growers worldwide.
+          <br/> Making a positive impact with every choice, from our sustainable operations to our low-waste packaging.</p>
           <div className="flex gap-4 mb-8">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Impact</button>
             <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Sustainability</button>
