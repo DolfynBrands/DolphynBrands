@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef} from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -7,86 +7,16 @@ interface HeroProps {
   setCurrentPage: (page: string) => void;
 }
 
-const phrases = [
-  'Iconic',
-  'Scalable',
-  'Dominant',
-  'Future-Ready',
-  'World-Class',
-  'Innovation',
-  'Industry-Leading',
-];
+
 
 const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [currentPhrase, setCurrentPhrase] = useState(0);
-  const [displayedText, setDisplayedText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      // Force play on mobile devices
-      const playVideo = async () => {
-        try {
-          await video.play();
-        } catch (error) {
-          console.log('Autoplay failed:', error);
-          // Fallback: try to play on user interaction
-          const handleUserInteraction = () => {
-            video.play().catch(console.log);
-            document.removeEventListener('touchstart', handleUserInteraction);
-            document.removeEventListener('click', handleUserInteraction);
-            window.removeEventListener('scroll', handleUserInteraction);
-          };
-          document.addEventListener('touchstart', handleUserInteraction);
-          document.addEventListener('click', handleUserInteraction);
-          window.addEventListener('scroll', handleUserInteraction);
-        }
-      };
-      playVideo();
-    }
-  }, []);
+
 
   // Typing effect for the polymorphic headline (adjective only)
-  useEffect(() => {
-    const fullText = phrases[currentPhrase];
-    const typingSpeed = 100;
-    const erasingSpeed = 50;
-    const delayAfterTyping = 2000;
-    const delayAfterErasing = 1000;
 
-    if (!isDeleting && displayedText === fullText) {
-      // Pause before erasing
-      const timeout = setTimeout(() => setIsDeleting(true), delayAfterTyping);
-      return () => clearTimeout(timeout);
-    }
-    if (isDeleting && displayedText === '') {
-      // Move to next phrase after erasing
-      const timeout = setTimeout(() => {
-        setIsDeleting(false);
-        setCurrentPhrase((prev) => (prev + 1) % phrases.length);
-      }, delayAfterErasing);
-      return () => clearTimeout(timeout);
-    }
-
-    const timeout = setTimeout(() => {
-      if (isDeleting) {
-        setDisplayedText((prev) => prev.slice(0, -1));
-      } else {
-        setDisplayedText((prev) => fullText.slice(0, prev.length + 1));
-      }
-    }, isDeleting ? erasingSpeed : typingSpeed);
-    return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting, currentPhrase]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentPhrase((prev) => (prev + 1) % phrases.length);
-    }, 2200);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-32">
@@ -126,16 +56,12 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           className="mb-12"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)] ">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
               Transforming Brands into
             </span>
             <br />
-            {/* <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
-              Brands into 
-            </span>
-            <br />*/}
             <span className="text-transparent bg-clip-text bg-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
-            {displayedText}
+              World-Class
             </span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
