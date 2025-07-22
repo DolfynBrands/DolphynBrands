@@ -472,7 +472,7 @@ const VivaBloomLanding: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-700 italic mb-6">
-                "The quality of Viva Bloom's products has transformed my client projects. Their attention to detail and commitment to excellence is unmatched in the industry."
+                &quot;The quality of Viva Bloom&apos;s products has transformed my client projects. Their attention to detail and commitment to excellence is unmatched in the industry.&quot;
               </p>
               <div className="flex text-yellow-500">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -498,7 +498,7 @@ const VivaBloomLanding: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-700 italic mb-6">
-                "As someone who has been gardening for over 30 years, I can confidently say that Viva Bloom offers the finest gardening implements I've ever used."
+                &quot;As someone who has been gardening for over 30 years, I can confidently say that Viva Bloom offers the finest gardening implements I&apos;ve ever used.&quot;
               </p>
               <div className="flex text-yellow-500">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
@@ -524,7 +524,7 @@ const VivaBloomLanding: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-700 italic mb-6">
-                "The Viva Bloom community has been an invaluable resource for my urban gardening projects. The knowledge sharing and support are truly exceptional."
+                &quot;The Viva Bloom community has been an invaluable resource for my urban gardening projects. The knowledge sharing and support are truly exceptional.&quot;
               </p>
               <div className="flex text-yellow-500">
                 <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
