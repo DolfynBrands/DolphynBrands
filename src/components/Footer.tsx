@@ -127,20 +127,25 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Featured Brands</h3>
             <div className="space-y-3">
-              {brandRecommendations.map((brand) => (
-                <motion.div
-                  key={brand.name}
-                  className="group"
-                  whileHover={{ x: 5 }}
-                >
-                  <div className="text-gray-400 group-hover:text-white underline transition-colors">
-                    {brand.name}
-                  </div>
-                  <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
-                    {brand.category}
-                  </div>
-                </motion.div>
-              ))}
+              {brandRecommendations.map((brand) => {
+                const path = brand.name === 'Viva Earth Organics' ? '/vivaearth' : 
+                             brand.name === 'Viva Bloom' ? '/vivabloom' : '#';
+                return (
+                  <motion.div
+                    key={brand.name}
+                    className="group cursor-pointer"
+                    whileHover={{ x: 5 }}
+                    onClick={() => handleNavClick(path)}
+                  >
+                    <div className="text-gray-400 group-hover:text-white underline transition-colors">
+                      {brand.name}
+                    </div>
+                    <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                      {brand.category}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 

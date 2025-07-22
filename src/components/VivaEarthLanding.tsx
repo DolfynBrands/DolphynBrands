@@ -135,29 +135,16 @@ const VivaEarthLanding: React.FC = () => {
           style={{filter: 'brightness(0.92)'}}
           draggable={false}
         />
-        {/* Text overlay (desktop) */}
+        {/* Text overlay (all screens) */}
         <div
-          className="hidden md:flex flex-col justify-center items-start absolute right-0 top-0 h-full w-full md:w-[45vw] p-8 md:p-16 z-10"
+          className="flex flex-col justify-start items-center absolute right-0 top-0 h-1/2 w-full p-8 md:p-16 z-10"
           style={{
-            background: 'rgba(255,255,255,0.96)',
             minHeight: '60vh',
           }}
         >
-          <h3 className="text-5xl md:text-5xl font-extrabold mb-4 font-serif text-green-900 leading-tight z-10">
-            Organics Re-Imagined
+          <h3 className="text-3xl md:text-7xl font-extrabold mb-4 font-serif leading-tight z-10 text-center bg-gradient-to-r from-pink-500 via-fuchsia-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
+            Purity from the Source
           </h3>
-          <p className="text-base md:text-xl text-green-800/90 mb-0 font-sans leading-relaxed z-10">
-            Experience a new era of organic wellness. Our products are crafted with a vision for purity, sustainability, and innovation—blending ancient wisdom with modern science. Discover essential oils that are as good for the earth as they are for you, and join us in redefining what it means to be truly organic.
-          </p>
-        </div>
-        {/* Mobile: text below image, full width, solid background, centered */}
-        <div className="block md:hidden w-full bg-white/95 p-6 sm:p-8 mx-4 sm:mx-8 z-10 relative text-center">
-          <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 font-serif text-green-900 leading-tight">
-            Organics Re-Imagined
-          </h3>
-        <p className="text-lg sm:text-3xl text-green-800/90 mb-0 font-sans leading-relaxed">
-          Experience a new era of organic wellness. Our products are crafted with a vision for purity, sustainability, and innovation—blending ancient wisdom with modern science. Discover essential oils that are as good for the earth as they are for you, and join us in redefining what it means to be truly organic.
-        </p>
         </div>
       </section>
 
