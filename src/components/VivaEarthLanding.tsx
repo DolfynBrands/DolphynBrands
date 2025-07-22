@@ -41,7 +41,6 @@ const VIVA_EARTH_BOTTLE_CARTONS = [
   '/VivaEarthImages/BottleCartons/Carton Box- Peppermint 1oz.jpg',
   '/VivaEarthImages/BottleCartons/Carton Box- Sandalwood 1oz.jpg',
   '/VivaEarthImages/BottleCartons/Carton Box- Ylang ylang 1oz.jpg'
-
 ];
 function shuffle(arr: string[]): string[] {
   const a = arr.slice();
@@ -118,8 +117,6 @@ const VivaEarthLanding: React.FC = () => {
         ))}
       </div>
 
-     
-
       {/* Tiled Section: Fullscreen Image with Arc-styled Text Overlay */}
       <section className="relative w-full min-h-[60vh] md:min-h-[90vh] flex flex-col md:flex-row items-center justify-center overflow-hidden">
         {/* Fullscreen background image (desktop) */}
@@ -146,7 +143,7 @@ const VivaEarthLanding: React.FC = () => {
             minHeight: '60vh',
           }}
         >
-          <h3 className="text-3xl md:text-5xl font-extrabold mb-4 font-serif text-green-900 leading-tight z-10">
+          <h3 className="text-5xl md:text-5xl font-extrabold mb-4 font-serif text-green-900 leading-tight z-10">
             Organics Re-Imagined
           </h3>
           <p className="text-base md:text-xl text-green-800/90 mb-0 font-sans leading-relaxed z-10">
@@ -158,22 +155,22 @@ const VivaEarthLanding: React.FC = () => {
           <h3 className="text-2xl sm:text-3xl font-extrabold mb-3 font-serif text-green-900 leading-tight">
             Organics Re-Imagined
           </h3>
-          <p className="text-base sm:text-lg text-green-800/90 mb-0 font-sans leading-relaxed">
-            Experience a new era of organic wellness. Our products are crafted with a vision for purity, sustainability, and innovation—blending ancient wisdom with modern science. Discover essential oils that are as good for the earth as they are for you, and join us in redefining what it means to be truly organic.
-          </p>
+        <p className="text-lg sm:text-3xl text-green-800/90 mb-0 font-sans leading-relaxed">
+          Experience a new era of organic wellness. Our products are crafted with a vision for purity, sustainability, and innovation—blending ancient wisdom with modern science. Discover essential oils that are as good for the earth as they are for you, and join us in redefining what it means to be truly organic.
+        </p>
         </div>
       </section>
 
-      {/* --- MongoDB Atlas Style Sections Start Here (after carousel) --- */}
       {/* Section 1: Our Why */}
       <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
         {/* Left: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Why We Began</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">There was a disconnect between purity and mass-market beauty. We wanted to bridge that gap with honesty and care.</p>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">Viva Earth Organics is a purpose-driven wellness brand built on the principles of regeneration, sustainability, and conscious living. Every product is crafted with care—sourced from organically grown farms and rooted in traditional botanical wisdom. By partnering with rural farming communities, Viva Earth supports ethical sourcing, fair trade practices, and sustainable livelihoods, while delivering therapeutic-grade wellness products that honor both people and planet.</p>
           <div className="flex gap-4 mb-8">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Story</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Meet the Founders</button>
+            <a className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold"
+            href="/team">Meet the Founders</a>
           </div>
           <div className="flex gap-8">
             <div>
@@ -187,7 +184,7 @@ const VivaEarthLanding: React.FC = () => {
           </div>
         </div>
         {/* Right: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-900 to-green-700 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-purple-600 to-green-700 overflow-hidden">
           <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
           </svg>
@@ -200,26 +197,28 @@ const VivaEarthLanding: React.FC = () => {
       {/* Section 2: It Starts in the Soil */}
       <section className="relative w-full min-h-[500px] flex flex-col md:flex-row-reverse items-stretch overflow-hidden bg-white">
         {/* Right: Text */}
-        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">It Starts in the Soil</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our ingredients are grown on regenerative farms and wild-harvested in pristine regions. We partner directly with farmers who share our values—ensuring every drop is traceable, ethical, and supports healthy ecosystems.</p>
+        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10 bg-white">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#204B2A]">  Background</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#204B2A] text-justify">
+            Viva Earth Organics champions clean, conscious wellness through sustainably sourced, therapeutic-grade skincare and essential oils. Rooted in organic farming and rural empowerment, our mission is to foster a regenerative bond with the earth and its communities. We needed more than design—a unified brand voice that instantly conveys our purpose, earning trust and inspiring belief in every touchpoint.
+          </p>
           <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
+            <button className="bg-[#16713C] text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
+            <button className="border border-[#16713C] text-[#16713C] px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
           </div>
           <div className="flex gap-8">
             <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">20+</span>
-              <span className="block text-xs text-[#333]">Sourcing Regions</span>
+              <span className="text-2xl font-bold text-[#204B2A]">20+</span>
+              <span className="block text-xs text-[#204B2A]">Sourcing Regions</span>
             </div>
             <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
-              <span className="block text-xs text-[#333]">Traceable Supply</span>
+              <span className="text-2xl font-bold text-[#204B2A]">100%</span>
+              <span className="block text-xs text-[#204B2A]">Traceable Supply</span>
             </div>
           </div>
         </div>
         {/* Left: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-700 to-green-400 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-700 to-yellow-600 overflow-hidden">
           <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
           </svg>
@@ -234,24 +233,14 @@ const VivaEarthLanding: React.FC = () => {
         {/* Left: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">We Make What You Trust</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">From distillation to packaging, every step is handled with care. Clean-room facilities, eco-friendly packaging, and batch traceability are our standards.</p>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">From distillation to packaging, every step is handled with care. Clean-room facilities, eco-friendly packaging, and batch traceability are our standards.</p>
           <div className="flex gap-4 mb-8">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Process</button>
             <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Traceability</button>
           </div>
-          <div className="flex gap-8">
-            <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">4</span>
-              <span className="block text-xs text-[#333]">Steps</span>
-            </div>
-            <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
-              <span className="block text-xs text-[#333]">Clean Room</span>
-            </div>
-          </div>
         </div>
         {/* Right: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-600 to-yellow-400 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-600 to-blue-900 overflow-hidden">
           <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
           </svg>
@@ -266,14 +255,16 @@ const VivaEarthLanding: React.FC = () => {
         {/* Right: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Sustainability is Not a Buzzword Here</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">+1200 Rural Livelihoods Supported<br/>+50,000 Liters of Oil Distilled<br/>+8,000 kg of Plastic Saved</p>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">✅ 1,200+ rural livelihoods supported through ethical, regenerative partnerships
+          <br/>✅ Therapeutic-grade essential oils crafted from organically grown botanicals
+          <br/>✅ Low-waste, earth-conscious packaging and operations that prioritize long-term impact</p>
           <div className="flex gap-4 mb-8">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Impact</button>
             <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Sustainability</button>
           </div>
         </div>
         {/* Left: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-blue-900 to-blue-500 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-blue-900 to-pink-700 overflow-hidden">
           <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
           </svg>
@@ -287,15 +278,16 @@ const VivaEarthLanding: React.FC = () => {
       <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
         {/* Left: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Proudly Made in India. Loved Around the World.</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our products reach customers in the USA, UAE, EU, and beyond. Small-batch purity, global standards.</p>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Crafted with Care.<br/> Trusted Worldwide.
+          </h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">Our formulations uphold the highest standards of purity and sustainability—resonating with conscious customers across the globe.</p>
           <div className="flex gap-4 mb-8">
             <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">See Our Reach</button>
             <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Testimonials</button>
           </div>
         </div>
         {/* Right: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-pink-700 to-pink-400 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-pink-700 to-purple-900 overflow-hidden">
           <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
           </svg>
@@ -309,74 +301,16 @@ const VivaEarthLanding: React.FC = () => {
       <section className="relative w-full min-h-[500px] flex flex-col md:flex-row-reverse items-stretch overflow-hidden bg-white">
         {/* Right: Text */}
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Why Conscious Brands Choose Viva Earth</h2>
-          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]">Our CAAS Model – Cosmetics as a Service: Private Labeling, Bulk Ingredients, White-Label Formulation. Launch your own brand or source pure, traceable ingredients with us.</p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">B2B Services</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Partner With Us</button>
-          </div>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Experience Purity. Build a Legacy.</h2>
+          <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333]"></p>
         </div>
         {/* Left: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-purple-900 to-purple-500 overflow-hidden">
+        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-purple-900 to-yellow-700 overflow-hidden">
           <svg className="absolute right-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
             <path d="M600,0 Q200,100 0,400 Q200,700 600,800 Z" fill="white" />
           </svg>
           <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
             <img src="/VivaEarthImages/Transparent/6.png" alt="B2B Services" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* Section 7: Final CTA */}
-      <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
-        {/* Left: Text */}
-        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Experience Purity. Build a Legacy.</h2>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Shop Now</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Build Your Brand With Us</button>
-          </div>
-        </div>
-        {/* Right: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-700 to-yellow-400 overflow-hidden">
-          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
-            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
-          </svg>
-          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
-            <img src="/VivaEarthImages/Transparent/7.png" alt="Final CTA" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
-          </div>
-        </div>
-      </section>
-
-      {/* MongoDB-style cutout: It Starts in the Soil */}
-      <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white mb-16">
-        {/* Left: Text */}
-        <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
-          <h2 className="font-serif text-3xl md:text-5xl text-[#2A4E44] font-bold mb-4">It Starts in the Soil</h2>
-          <p className="font-sans text-base md:text-2xl text-[#333] mb-6 max-w-xl">Our ingredients are grown on regenerative farms and wild-harvested in pristine regions. We partner directly with farmers who share our values—ensuring every drop is traceable, ethical, and supports healthy ecosystems. Transparency is our promise, from seed to bottle.</p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
-          </div>
-          <div className="flex gap-8">
-            <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">20+</span>
-              <span className="block text-xs text-[#333]">Sourcing Regions</span>
-            </div>
-            <div>
-              <span className="text-2xl font-bold text-[#2A4E44]">100%</span>
-              <span className="block text-xs text-[#333]">Traceable Supply</span>
-            </div>
-          </div>
-        </div>
-        {/* Right: Cutout with image */}
-        <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-green-900 to-green-700 overflow-hidden">
-          {/* SVG cutout shape overlays the left side */}
-          <svg className="absolute left-0 top-0 h-full w-full hidden md:block" viewBox="0 0 600 800" preserveAspectRatio="none">
-            <path d="M0,0 Q400,100 600,400 Q400,700 0,800 Z" fill="white" />
-          </svg>
-          <div className="relative z-10 flex flex-col items-center justify-center w-full h-full py-8">
-            <img src="/VivaEarthImages/Transparent/2.png" alt="Soil Map" className="w-3/4 max-w-xs md:max-w-md object-contain drop-shadow-xl" />
           </div>
         </div>
       </section>
@@ -402,4 +336,4 @@ const VivaEarthLanding: React.FC = () => {
   );
 };
 
-export default VivaEarthLanding; 
+export default VivaEarthLanding;
