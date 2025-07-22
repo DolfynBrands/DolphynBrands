@@ -1,119 +1,71 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
-    name: 'Pradeep',
-    role: 'Chief Executive Officer',
-    imageUrl: '', // No image
-    linkedinUrl: 'https://www.linkedin.com/in/janedoe-example/'
-  },
-  {
     name: 'Nithin C Hassan',
-    role: 'Founder and CEO',
-    imageUrl: '/ourTeam/nithin-hassan.jpg',
-    linkedinUrl: 'https://www.linkedin.com/in/nithin-hassan/'
+    role: 'Co-Founder / Managing Partner',
+    imageUrl: '/ourTeam/nithin-hassan.webp',
+    linkedIn: 'https://www.linkedin.com/in/nithin-hassan/',
   },
   {
-    name: 'Sai Rishi Gangarapu',
+    name: 'Sai Rishi',
     role: 'Web Developer',
-    imageUrl: '/ourTeam/sair-rishi.jpg',
-    linkedinUrl: 'https://www.linkedin.com/in/sai-rishi-gangarapu-770a08321/'
+    imageUrl: '/ourTeam/sair-rishi.webp',
+    linkedIn: 'https://www.linkedin.com/in/sai-rishi/',
   },
   {
     name: 'Priya Iyengar',
-    role: 'Graphic designer and illustrator',
-    imageUrl: '', // No image
-    linkedinUrl: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/'
-  }
+    role: 'Graphic Designer and Illustator',
+    imageUrl: '/ourTeam/Priya.png',
+    linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
+  },
+  // Add more members as needed
 ];
 
-const founders = teamMembers.slice(0, 2);
-const others = teamMembers.slice(2);
+const LinkedInIcon = () => (
+  <svg
+    className="inline-block ml-1 mb-1"
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    fill="currentColor"
+    viewBox="0 0 24 24"
+  >
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm15.5 11.268h-3v-5.604c0-1.337-.025-3.063-1.868-3.063-1.868 0-2.154 1.459-2.154 2.967v5.7h-3v-10h2.881v1.367h.041c.401-.761 1.379-1.563 2.838-1.563 3.034 0 3.595 1.997 3.595 4.59v5.606z"/>
+  </svg>
+);
 
-const subtitle = 'Our team is our competitive edge. Fueled by passion and a relentless drive for excellence, our people transform creative ideas into remarkable success';
-
-const cardHover = {
-  whileHover: { scale: 1.05, y: -10 },
-  transition: { type: "spring" as const, stiffness: 300, damping: 20 }
-};
-
-const OurTeam: React.FC = () => {
-  return (
-    <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-40 pb-24 px-4">
-      <div className="max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-8 text-center tracking-tight">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">The People Behind the Progress</span>
-        </h1>
-        <p className="text-xl text-gray-700 mb-14 text-center max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
-        {/* Founders/CEOs Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-16 mb-16 justify-center">
-          {founders.map((member) => (
-            <motion.div
-              key={member.name}
-              whileHover={cardHover.whileHover}
-              transition={cardHover.transition}
-              className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
-            >
-              {member.imageUrl ? (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                  <picture>
-                    {member.name === 'Nithin C Hassan' && <source srcSet="/ourTeam/nithin-hassan.webp" type="image/webp" />}
-                    {member.name === 'Sai Rishi Gangarapu' && <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />}
-                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
-                  </picture>
-                </a>
-              ) : (
-                <div className="mb-6 rounded-full overflow-hidden shadow-lg w-32 h-32 bg-gray-200 flex items-center justify-center">
-                  {/* Simple SVG placeholder */}
-                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
-                    <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
-                    <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
-                  </svg>
-                </div>
-              )}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
-              <p className="text-blue-600 text-lg text-center">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-        {/* Other Team Members Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10 mt-8">
-          {others.map((member) => (
-            <motion.div
-              key={member.name}
-              whileHover={cardHover.whileHover}
-              transition={cardHover.transition}
-              className="bg-white border border-gray-200 rounded-3xl shadow-lg p-8 flex flex-col items-center hover:shadow-xl transition-shadow duration-300"
-            >
-              {member.imageUrl ? (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                  <picture>
-                    <source srcSet="/ourTeam/sair-rishi.webp" type="image/webp" />
-                    <img src={member.imageUrl} alt={member.name} width={200} height={200} />
-                  </picture>
-                </a>
-              ) : (
-                <a href={member.linkedinUrl} target="_blank" rel="noopener noreferrer" className="block mb-6 rounded-full overflow-hidden shadow-lg hover:scale-105 transition-transform duration-300 w-32 h-32">
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-                    {/* Simple SVG placeholder */}
-                    <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="40" cy="40" r="40" fill="#E5E7EB" />
-                      <circle cx="40" cy="32" r="16" fill="#D1D5DB" />
-                      <ellipse cx="40" cy="60" rx="24" ry="12" fill="#D1D5DB" />
-                    </svg>
-                  </div>
-                </a>
-              )}
-              <h2 className="text-2xl font-bold text-gray-900 mb-2 text-center">{member.name}</h2>
-              <p className="text-blue-600 text-lg text-center">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+const OurTeam: React.FC = () => (
+  <section className="bg-white min-h-screen py-24 px-4 flex flex-col items-center">
+    <div className="w-full flex justify-center mb-16 mt-10">
+      <h2 className="text-4xl md:text-5xl font-bold text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-sans tracking-tight">
+        Meet the dolfyns
+      </h2>
     </div>
-  );
-};
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 w-full max-w-6xl">
+      {teamMembers.map((member) => (
+        <div key={member.name} className="flex flex-col items-center">
+          <div className="w-full aspect-square bg-gray-200 overflow-hidden mb-6 rounded-xl shadow-md">
+            <img
+              src={member.imageUrl}
+              alt={member.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="text-xl font-semibold text-gray-900 mb-2 text-center">{member.name}</span>
+          <span className="text-lg text-gray-700 text-center mb-2">{member.role}</span>
+          <a
+            href={member.linkedIn}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline flex items-center"
+          >
+            LinkedIn <LinkedInIcon />
+          </a>
+        </div>
+      ))}
+    </div>
+  </section>
+);
 
-export default OurTeam; 
+export default OurTeam;

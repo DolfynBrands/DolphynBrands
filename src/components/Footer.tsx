@@ -75,20 +75,22 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 border-t border-gray-700">
+    <footer className={'bg-gray-900 border-t border-gray-700'}>
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
-              </div>
-              <span className="text-white font-bold text-xl">Dolfyn Brands</span>
+              <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                <picture>
+                  <source srcSet="/company-logo.webp" type="image/webp" />
+                  <img src="/company-logo.png" alt="Dolfyn Brands Logo" className="w-8 h-8 object-contain" width={32} height={32} />
+                </picture>
+              </span>
+              <span className="font-bold text-xl text-white">Dolfyn Brands</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Transforming brands through AI-powered strategies and creative excellence. 
-              We make brands unforgettable.
+              Transforming brands through AI-powered strategies and creative excellence. We make brands unforgettable.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -128,10 +130,10 @@ const Footer: React.FC = () => {
               {brandRecommendations.map((brand) => (
                 <motion.div
                   key={brand.name}
-                  className="group cursor-pointer"
+                  className="group"
                   whileHover={{ x: 5 }}
                 >
-                  <div className="text-gray-400 hover:text-white transition-colors">
+                  <div className="text-gray-400 group-hover:text-white underline transition-colors">
                     {brand.name}
                   </div>
                   <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
@@ -153,7 +155,7 @@ const Footer: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-gray-800 border border-gray-600 rounded-l-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="flex-1 px-4 py-3 bg-gray-800 border-gray-600 rounded-l-lg text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 />
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -200,7 +202,7 @@ const Footer: React.FC = () => {
         {/* Legal Links */}
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
+            <div className="text-gray-400">
               © 2024 Dolfyn Brands. All rights reserved.
             </div>
             <div className="flex space-x-6">
