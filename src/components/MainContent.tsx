@@ -5,7 +5,10 @@ import {
   Target, 
   Zap, 
   Globe, 
-  ArrowRight
+  ArrowRight,
+  Diamond,
+  BarChart3,
+  Sparkles
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,13 +36,29 @@ const MainContent = React.memo(() => {
   };
 
   return (
-    <div className="bg-white">
-      {/* What We Do Section - Fluid Grid */}
-      <section className="py-16 bg-gradient-to-br from-white via-blue-50 to-blue-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center">
-            What We Do
-          </h2>
+    <div className="bg-gray-950 text-white">
+      {/* What We Do Section - Luxury Grid */}
+      <section className="py-24 bg-gradient-to-br from-gray-950 via-gray-900 to-gray-800 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTAtMThjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTE4IDBjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0xOCAxOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-3 text-center tracking-tight"
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-blue-500">What We Do</span>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-12 rounded-full"
+          ></motion.div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Brand Acquisition */}
             <motion.div
@@ -47,13 +66,16 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0 }}
-              className="group bg-white border border-blue-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-blue-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-8 flex flex-col items-center hover:bg-gray-800/50 transition-all duration-500 hover:border-blue-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Target className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-4 mb-6 shadow-[0_0_15px_rgba(37,99,235,0.5)] group-hover:shadow-[0_0_25px_rgba(37,99,235,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Diamond className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-center text-white group-hover:text-blue-400 transition-colors">Brand Acquisition</h3>
+                <p className="text-gray-400 text-center text-sm">We identify and acquire high-potential digital brands with proven market fit.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-blue-700 transition-colors">Brand Acquisition</h3>
-              <p className="text-gray-600 text-center">We identify and acquire high-potential digital brands with proven market fit.</p>
             </motion.div>
             {/* Growth Optimization */}
             <motion.div
@@ -61,13 +83,16 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="group bg-white border border-green-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-green-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-8 flex flex-col items-center hover:bg-gray-800/50 transition-all duration-500 hover:border-purple-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <TrendingUp className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-4 mb-6 shadow-[0_0_15px_rgba(147,51,234,0.5)] group-hover:shadow-[0_0_25px_rgba(147,51,234,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <BarChart3 className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-center text-white group-hover:text-purple-400 transition-colors">Growth Optimization</h3>
+                <p className="text-gray-400 text-center text-sm">Advanced analytics and AI-driven strategies to accelerate brand growth.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-green-700 transition-colors">Growth Optimization</h3>
-              <p className="text-gray-600 text-center">Advanced analytics and AI-driven strategies to accelerate brand growth.</p>
             </motion.div>
             {/* Operational Excellence */}
             <motion.div
@@ -75,13 +100,16 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="group bg-white border border-purple-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-purple-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-8 flex flex-col items-center hover:bg-gray-800/50 transition-all duration-500 hover:border-teal-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Zap className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg p-4 mb-6 shadow-[0_0_15px_rgba(20,184,166,0.5)] group-hover:shadow-[0_0_25px_rgba(20,184,166,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Sparkles className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-center text-white group-hover:text-teal-400 transition-colors">Operational Excellence</h3>
+                <p className="text-gray-400 text-center text-sm">Streamlined operations and supply chain optimization for maximum efficiency.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-purple-700 transition-colors">Operational Excellence</h3>
-              <p className="text-gray-600 text-center">Streamlined operations and supply chain optimization for maximum efficiency.</p>
             </motion.div>
             {/* Global Expansion */}
             <motion.div
@@ -89,38 +117,60 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="group bg-white border border-orange-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-orange-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-lg p-8 flex flex-col items-center hover:bg-gray-800/50 transition-all duration-500 hover:border-amber-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-orange-400 to-orange-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Globe className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-700 rounded-lg p-4 mb-6 shadow-[0_0_15px_rgba(217,119,6,0.5)] group-hover:shadow-[0_0_25px_rgba(217,119,6,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Globe className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-xl mb-3 text-center text-white group-hover:text-amber-400 transition-colors">Global Expansion</h3>
+                <p className="text-gray-400 text-center text-sm">Strategic market expansion to unlock new revenue opportunities worldwide.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-orange-700 transition-colors">Global Expansion</h3>
-              <p className="text-gray-600 text-center">Strategic market expansion to unlock new revenue opportunities worldwide.</p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Why Dolfyn Section - Fluid Grid */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-10 text-center">
-            Why <span className="text-gradient">Dolfyn</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Why Dolfyn Section - Premium Grid */}
+      <section className="py-28 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTAtMThjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTE4IDBjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0xOCAxOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-3 text-center tracking-tight"
+          >
+            Why <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500">Dolfyn</span>
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="w-24 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto mb-16 rounded-full"
+          ></motion.div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {/* AI-First Philosophy */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0 }}
-              className="group bg-white border border-purple-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-purple-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-10 flex flex-col items-center hover:bg-gray-800/80 transition-all duration-500 hover:border-purple-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Zap className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-5 mb-6 shadow-[0_0_20px_rgba(147,51,234,0.5)] group-hover:shadow-[0_0_30px_rgba(147,51,234,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Zap className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4 text-center text-white group-hover:text-purple-300 transition-colors">AI-First Philosophy</h3>
+                <p className="text-gray-300 text-center">We blend advanced AI with human creativity to unlock new brand possibilities.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-purple-700 transition-colors">AI-First Philosophy</h3>
-              <p className="text-gray-600 text-center">We blend advanced AI with human creativity to unlock new brand possibilities.</p>
             </motion.div>
             {/* Data-Driven Decisions */}
             <motion.div
@@ -128,13 +178,16 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="group bg-white border border-blue-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-blue-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-10 flex flex-col items-center hover:bg-gray-800/80 transition-all duration-500 hover:border-blue-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <TrendingUp className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-5 mb-6 shadow-[0_0_20px_rgba(37,99,235,0.5)] group-hover:shadow-[0_0_30px_rgba(37,99,235,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <BarChart3 className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4 text-center text-white group-hover:text-blue-300 transition-colors">Data-Driven Decisions</h3>
+                <p className="text-gray-300 text-center">Every strategy is backed by data, ensuring measurable and sustainable growth.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-blue-700 transition-colors">Data-Driven Decisions</h3>
-              <p className="text-gray-600 text-center">Every strategy is backed by data, ensuring measurable and sustainable growth.</p>
             </motion.div>
             {/* Ethical & Sustainable Growth */}
             <motion.div
@@ -142,13 +195,16 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="group bg-white border border-green-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-green-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg p-10 flex flex-col items-center hover:bg-gray-800/80 transition-all duration-500 hover:border-teal-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-green-400 to-green-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Globe className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-teal-500 to-teal-700 rounded-lg p-5 mb-6 shadow-[0_0_20px_rgba(20,184,166,0.5)] group-hover:shadow-[0_0_30px_rgba(20,184,166,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Globe className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4 text-center text-white group-hover:text-teal-300 transition-colors">Ethical & Sustainable Growth</h3>
+                <p className="text-gray-300 text-center">We are committed to responsible, ethical, and sustainable business practices.</p>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-green-700 transition-colors">Ethical & Sustainable Growth</h3>
-              <p className="text-gray-600 text-center">We are committed to responsible, ethical, and sustainable business practices.</p>
             </motion.div>
             {/* About Us Card */}
             <motion.a
@@ -157,14 +213,17 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="group bg-blue-50 border border-blue-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-blue-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gradient-to-br from-blue-900/30 to-blue-800/30 backdrop-blur-sm border border-blue-800/50 rounded-lg p-10 flex flex-col items-center hover:bg-blue-900/40 transition-all duration-500 hover:border-blue-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <ArrowRight className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg p-5 mb-6 shadow-[0_0_20px_rgba(37,99,235,0.5)] group-hover:shadow-[0_0_30px_rgba(37,99,235,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <ArrowRight className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4 text-center text-white group-hover:text-blue-300 transition-colors">About Us</h3>
+                <p className="text-gray-300 text-center">Learn about our story, vision, and the team driving Dolfyn forward.</p>
+                <span className="mt-6 inline-block px-6 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full text-blue-300 group-hover:bg-blue-600/40 group-hover:border-blue-500/50 transition-all duration-300">Explore &rarr;</span>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-blue-700 transition-colors">About Us</h3>
-              <p className="text-gray-600 text-center">Learn about our story, vision, and the team driving Dolfyn forward.</p>
-              <span className="mt-2 text-blue-400 group-hover:text-blue-700 font-semibold">Explore &rarr;</span>
             </motion.a>
             {/* Our Principles Card */}
             <motion.a
@@ -173,14 +232,17 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="group bg-purple-50 border border-purple-200 rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-purple-400 hover:-translate-y-2 cursor-pointer"
+              className="group bg-gradient-to-br from-purple-900/30 to-purple-800/30 backdrop-blur-sm border border-purple-800/50 rounded-lg p-10 flex flex-col items-center hover:bg-purple-900/40 transition-all duration-500 hover:border-purple-500/50 cursor-pointer relative overflow-hidden"
             >
-              <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-full p-4 mb-4 shadow-lg group-hover:scale-110 transition-transform">
-                <Zap className="text-white text-4xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-lg p-5 mb-6 shadow-[0_0_20px_rgba(147,51,234,0.5)] group-hover:shadow-[0_0_30px_rgba(147,51,234,0.7)] transition-all duration-500 group-hover:scale-110">
+                  <Sparkles className="text-white text-3xl" />
+                </div>
+                <h3 className="font-bold text-2xl mb-4 text-center text-white group-hover:text-purple-300 transition-colors">Our Principles</h3>
+                <p className="text-gray-300 text-center">Discover the values and philosophies that shape our approach.</p>
+                <span className="mt-6 inline-block px-6 py-2 bg-purple-600/20 border border-purple-500/30 rounded-full text-purple-300 group-hover:bg-purple-600/40 group-hover:border-purple-500/50 transition-all duration-300">See Principles &rarr;</span>
               </div>
-              <h3 className="font-bold text-2xl mb-2 text-center group-hover:text-purple-700 transition-colors">Our Principles</h3>
-              <p className="text-gray-600 text-center">Discover the values and philosophies that shape our approach.</p>
-              <span className="mt-2 text-purple-400 group-hover:text-purple-700 font-semibold">See Principles &rarr;</span>
             </motion.a>
           </div>
         </div>

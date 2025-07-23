@@ -189,10 +189,6 @@ const VivaEarthLanding: React.FC = () => {
           <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#204B2A] text-justify">
             Viva Earth Organics champions clean, conscious wellness through sustainably sourced, therapeutic-grade skincare and essential oils. Rooted in organic farming and rural empowerment, our mission is to foster a regenerative bond with the earth and its communities. We needed more than design—a unified brand voice that instantly conveys our purpose, earning trust and inspiring belief in every touchpoint.
           </p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-[#16713C] text-white px-6 py-3 rounded-lg font-bold">Learn More</button>
-            <button className="border border-[#16713C] text-[#16713C] px-6 py-3 rounded-lg font-bold">Our Sourcing</button>
-          </div>
           <div className="flex gap-8">
             <div>
               <span className="text-2xl font-bold text-[#204B2A]">20+</span>
@@ -221,10 +217,6 @@ const VivaEarthLanding: React.FC = () => {
         <div className="flex-1 flex flex-col justify-center px-6 py-12 z-10">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">We Make What You Trust</h2>
           <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">From distillation to packaging, every step is handled with care. Clean-room facilities, eco-friendly packaging, and batch traceability are our standards.</p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Process</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Traceability</button>
-          </div>
         </div>
         {/* Right: Cutout with image */}
         <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-yellow-600 to-blue-900 overflow-hidden">
@@ -245,10 +237,6 @@ const VivaEarthLanding: React.FC = () => {
           <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">Your purchase directly supports 1,200+ livelihoods through our fair and sustainable partnership model.
           <br/>Experience the difference of premium essential oils, meticulously crafted from botanicals sourced from the best growers worldwide.
           <br/> Making a positive impact with every choice, from our sustainable operations to our low-waste packaging.</p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">Our Impact</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Sustainability</button>
-          </div>
         </div>
         {/* Left: Cutout with image */}
         <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-blue-900 to-pink-700 overflow-hidden">
@@ -268,10 +256,6 @@ const VivaEarthLanding: React.FC = () => {
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-[#2A4E44]">Crafted with Care.<br/> Trusted Worldwide.
           </h2>
           <p className="text-lg md:text-2xl mb-6 max-w-xl text-[#333] text-justify">Our formulations uphold the highest standards of purity and sustainability—resonating with conscious customers across the globe.</p>
-          <div className="flex gap-4 mb-8">
-            <button className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold">See Our Reach</button>
-            <button className="border border-green-700 text-green-700 px-6 py-3 rounded-lg font-bold">Testimonials</button>
-          </div>
         </div>
         {/* Right: Cutout with image */}
         <div className="relative flex-1 flex items-center justify-center bg-gradient-to-br from-pink-700 to-purple-900 overflow-hidden">

@@ -2,15 +2,11 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 // Sample gardening product images - these would need to be replaced with actual Viva Bloom images
-const VIVA_BLOOM_TOOLS = [
-  '/VivaBloomImages/Tools/garden-trowel.jpg',
-  '/VivaBloomImages/Tools/pruning-shears.jpg',
-  '/VivaBloomImages/Tools/garden-fork.jpg',
-  '/VivaBloomImages/Tools/watering-can.jpg',
-  '/VivaBloomImages/Tools/garden-gloves.jpg',
-  '/VivaBloomImages/Tools/rake.jpg',
-  '/VivaBloomImages/Tools/spade.jpg',
-  '/VivaBloomImages/Tools/hoe.jpg',
+const VIVA_BLOOM_Fertilizers = [
+  '/VivaBloomImages/Fertilizers/Fertilizer1.jpg',
+  '/VivaBloomImages/Fertilizers/Fertilizer3.jpg',
+  '/VivaBloomImages/Fertilizers/Fertilizer2.jpg',
+
 ];
 
 const VIVA_BLOOM_SEEDS = [
@@ -49,7 +45,7 @@ const VivaBloomLanding: React.FC = () => {
 
   // Prepare shuffled and duplicated images for each row
   const rows = [
-    [...shuffle(VIVA_BLOOM_TOOLS), ...shuffle(VIVA_BLOOM_TOOLS)],
+    [...VIVA_BLOOM_Fertilizers, ...VIVA_BLOOM_Fertilizers,, ...VIVA_BLOOM_Fertilizers], // Use actual images without shuffling for first row
     [...shuffle(VIVA_BLOOM_SEEDS), ...shuffle(VIVA_BLOOM_SEEDS)],
     [...shuffle(VIVA_BLOOM_PLANTERS), ...shuffle(VIVA_BLOOM_PLANTERS)],
   ];
@@ -67,32 +63,14 @@ const VivaBloomLanding: React.FC = () => {
         {/* Hero Background Image */}
         <div className="absolute inset-0 w-full h-full">
           <img
-            src="/VivaBloomImages/hero.jpg"
+            src="\VivaBloomImages\hero.png"
             alt="Viva Bloom Gardening Supplies Hero"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
-        {/* Hero Content */}
-        <motion.div 
-          className="relative z-10 text-center px-4 max-w-4xl mx-auto"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-        >
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg font-serif tracking-wide">
-            <span className="block mb-2">VIVA BLOOM</span>
-            <span className="text-3xl md:text-4xl font-light block mt-4">PREMIUM GARDENING</span>
-          </h1>
-          <p className="text-xl md:text-2xl text-white mb-10 max-w-2xl mx-auto drop-shadow-md font-light tracking-wider">
-            Elevating the art of gardening with exceptional tools and supplies
-          </p>
-          <button className="bg-green-600 hover:bg-green-700 text-white px-10 py-4 text-lg tracking-widest uppercase font-light transition-colors">
-            Discover Collection
-          </button>
-        </motion.div>
         
-        {/* Scroll indicator */}
+        {/*
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
           <div className="w-8 h-14 border-2 border-white rounded-full flex justify-center">
             <motion.div 
@@ -102,6 +80,7 @@ const VivaBloomLanding: React.FC = () => {
             />
           </div>
         </div>
+                  */}
       </section>
 
       {/* Brand Statement - Full-width luxury section */}
