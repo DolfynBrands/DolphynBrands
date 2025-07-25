@@ -10,6 +10,62 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+// --- Data for the new "Latest Thinking" section ---
+// Replace image URLs with your actual image paths
+const latestArticles = [
+  {
+    id: 1,
+    category: 'Brand Building',
+    title: 'How Dolphyn Brands Is Building The World’s Smartest Growth Engine',
+    imageUrl: 'BlogImages/1.png',
+    layout: 'normal',
+    link:'https://www.linkedin.com/pulse/how-dolfyn-brands-building-worlds-smartest-growth-engine-hassan-r8ojc'
+  },
+  {
+    id: 2,
+    category: 'Brand Building',
+    title: 'Why We’re Building Dolfyn Brands',
+    imageUrl: 'BlogImages/5.png',
+    layout: 'large', // This card will be larger
+    bgColor: 'bg-green-600',
+    link :'https://www.linkedin.com/pulse/why-were-building-dolfyn-brands-nithin-hassan-w4kqc'
+  },
+  {
+    id: 3,
+    category: 'Viva Earth',
+    title: 'Launching Viva Earth Organics: A New Era of Brand Heart',
+    imageUrl: '/VivaEarthImages/hero.png',
+    layout: 'normal',
+    link:'https://www.linkedin.com/pulse/launching-viva-earth-organics-new-era-brand-heart-purpose-hassan-bjmqc'
+  },
+  {
+    id: 4,
+    category: 'Business Intelligence',
+    title: 'Navigating Trade Volatility with Intelligence',
+    imageUrl: 'BlogImages/4.png',
+    layout: 'normal',
+    link:'https://www.linkedin.com/pulse/navigating-trade-volatility-intelligence-how-dolfyn-brands-hassan-mzsdc'
+  },
+   {
+    id: 5,
+    category: 'Leadership',
+    title: 'Dare to Build. We’re With You.',
+    imageUrl: '/BlogImages/image.png',
+    layout: 'tall',
+    link :'https://www.businessinsider.com/indians-leaving-big-tech-to-launch-startups-back-home-2024-9'
+  },
+    {
+    id: 6,
+    category: 'Business Intelligence',
+    title: 'Who Should Tell Dolphyn’s Story?',
+    imageUrl: 'BlogImages/2.png',
+    layout: 'wide',
+    link:'https://www.linkedin.com/pulse/who-should-tell-dolfyn-storyai-human-nithin-hassan-9j3zc'
+
+  },
+];
+
+
 const MainContent = React.memo(() => {
   const navigate = useNavigate();
   const containerVariants = {
@@ -17,7 +73,7 @@ const MainContent = React.memo(() => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
+        staggerChildren: 0.1
       }
     }
   };
@@ -130,8 +186,7 @@ const MainContent = React.memo(() => {
         </div>
       </section>
 
-      {/* Why Dolfyn Section - Premium Grid */}
-      <section className="py-28 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 relative overflow-hidden">
+<section className="py-28 bg-gradient-to-br from-gray-100 via-gray-50 to-gray-100 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiMwMDAwMDAiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTAtMThjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bTE4IDBjMC0yLjIwOS0xLjc5MS00LTQtNHMtNCAxLjc5MS00IDQgMS43OTEgNCA0IDQgNC0xLjc5MSA0LTR6bS0xOCAxOGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHptMTggMGMwLTIuMjA5LTEuNzkxLTQtNC00cy00IDEuNzkxLTQgNCAxLjc5MSA0IDQgNCA0LTEuNzkxIDQtNHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20"></div>
         </div>
@@ -152,22 +207,22 @@ const MainContent = React.memo(() => {
             viewport={{ once: true }}
             className="w-24 h-1 bg-gradient-to-r from-amber-500 to-yellow-400 mx-auto mb-16 rounded-full"
           ></motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* AI-First Philosophy */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0 }}
-              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-10 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-purple-300 cursor-pointer relative overflow-hidden"
+              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-6 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-purple-300 cursor-pointer relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg p-5 mb-6 transition-all duration-500 group-hover:scale-110">
-                  <Zap className="text-white text-3xl" />
+                <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg p-4 mb-4 transition-all duration-500 group-hover:scale-110">
+                  <Zap className="text-white text-2xl" />
                 </div>
-                <h3 className="font-bold text-2xl mb-4 text-center text-gray-800 group-hover:text-purple-600 transition-colors">AI-First Philosophy</h3>
-                <p className="text-gray-600 text-center">We blend advanced AI with human creativity to unlock new brand possibilities.</p>
+                <h3 className="font-bold text-xl mb-2 text-center text-gray-800 group-hover:text-purple-600 transition-colors">AI-First Philosophy</h3>
+                <p className="text-gray-600 text-center text-sm">We blend advanced AI with human creativity to unlock new possibilities.</p>
               </div>
             </motion.div>
             {/* Data-Driven Decisions */}
@@ -176,15 +231,15 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-10 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-blue-300 cursor-pointer relative overflow-hidden"
+              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-6 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-blue-300 cursor-pointer relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-5 mb-6 transition-all duration-500 group-hover:scale-110">
-                  <BarChart3 className="text-white text-3xl" />
+                <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-4 mb-4 transition-all duration-500 group-hover:scale-110">
+                  <BarChart3 className="text-white text-2xl" />
                 </div>
-                <h3 className="font-bold text-2xl mb-4 text-center text-gray-800 group-hover:text-blue-600 transition-colors">Data-Driven Decisions</h3>
-                <p className="text-gray-600 text-center">Every strategy is backed by data, ensuring measurable and sustainable growth.</p>
+                <h3 className="font-bold text-xl mb-2 text-center text-gray-800 group-hover:text-blue-600 transition-colors">Data-Driven Decisions</h3>
+                <p className="text-gray-600 text-center text-sm">Strategies backed by data for measurable growth.</p>
               </div>
             </motion.div>
             {/* Ethical & Sustainable Growth */}
@@ -193,63 +248,111 @@ const MainContent = React.memo(() => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-10 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-teal-300 cursor-pointer relative overflow-hidden"
+              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-6 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-teal-300 cursor-pointer relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-teal-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg p-5 mb-6 transition-all duration-500 group-hover:scale-110">
-                  <Globe className="text-white text-3xl" />
+                <div className="bg-gradient-to-br from-teal-400 to-teal-600 rounded-lg p-4 mb-4 transition-all duration-500 group-hover:scale-110">
+                  <Globe className="text-white text-2xl" />
                 </div>
-                <h3 className="font-bold text-2xl mb-4 text-center text-gray-800 group-hover:text-teal-600 transition-colors">Ethical & Sustainable Growth</h3>
-                <p className="text-gray-600 text-center">We are committed to responsible, ethical, and sustainable business practices.</p>
+                <h3 className="font-bold text-xl mb-2 text-center text-gray-800 group-hover:text-teal-600 transition-colors">Ethical & Sustainable Growth</h3>
+                <p className="text-gray-600 text-center text-sm">Committed to responsible and sustainable practices.</p>
               </div>
             </motion.div>
-            {/* About Us Card */}
-            <motion.a
-              href="/about"
+                        {/* Our Principles */}
+            <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="group bg-gradient-to-br from-blue-50 to-blue-100 backdrop-blur-sm border border-blue-200 rounded-lg p-10 flex flex-col items-center hover:bg-blue-50 transition-all duration-500 hover:border-blue-300 cursor-pointer relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="relative z-10">
-                <div className="bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg p-5 mb-6 transition-all duration-500 group-hover:scale-110">
-                  <ArrowRight className="text-white text-3xl" />
-                </div>
-                <h3 className="font-bold text-2xl mb-4 text-center text-gray-800 group-hover:text-blue-600 transition-colors">About Us</h3>
-                <p className="text-gray-600 text-center">Learn about our story, vision, and the team driving Dolfyn forward.</p>
-                <span className="mt-6 inline-block px-6 py-2 bg-blue-100 border border-blue-200 rounded-full text-blue-600 group-hover:bg-blue-200 group-hover:border-blue-300 transition-all duration-300">Explore &rarr;</span>
-              </div>
-            </motion.a>
-            {/* Our Principles Card */}
-            <motion.a
-              href="/principles"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="group bg-gradient-to-br from-purple-50 to-purple-100 backdrop-blur-sm border border-purple-200 rounded-lg p-10 flex flex-col items-center hover:bg-purple-50 transition-all duration-500 hover:border-purple-300 cursor-pointer relative overflow-hidden"
+              className="group bg-white/90 backdrop-blur-sm border border-gray-200 rounded-lg p-6 flex flex-col items-center hover:bg-gray-50 transition-all duration-500 hover:border-purple-300 cursor-pointer relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-purple-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative z-10">
-                <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg p-5 mb-6 transition-all duration-500 group-hover:scale-110">
-                  <Sparkles className="text-white text-3xl" />
+                <div className="bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg p-4 mb-4 transition-all duration-500 group-hover:scale-110">
+                  <Sparkles className="text-white text-2xl" />
                 </div>
-                <h3 className="font-bold text-2xl mb-4 text-center text-gray-800 group-hover:text-purple-600 transition-colors">Our Principles</h3>
-                <p className="text-gray-600 text-center">Discover the values and philosophies that shape our approach.</p>
-                <span className="mt-6 inline-block px-6 py-2 bg-purple-100 border border-purple-200 rounded-full text-purple-600 group-hover:bg-purple-200 group-hover:border-purple-300 transition-all duration-300">See Principles &rarr;</span>
+                <h3 className="font-bold text-xl mb-2 text-center text-gray-800 group-hover:text-purple-600 transition-colors">Our Principles</h3>
+                <p className="text-gray-600 text-center text-sm">Discover the values that guide our approach.</p>
               </div>
-            </motion.a>
+            </motion.div>
           </div>
         </div>
       </section>
+      {/* --- NEW SECTION: Our Latest Thinking --- */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-3 text-center tracking-tight text-gray-800"
+          >
+            Our Latest Thinking
+          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="w-24 h-1 bg-green-500 mx-auto mb-16 rounded-full"
+          ></motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[25rem] gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {latestArticles.map((article) => {
+              const getGridClasses = () => {
+                switch(article.layout) {
+                  case 'large': return 'lg:col-span-2 lg:row-span-2';
+                  case 'tall': return 'lg:row-span-2';
+                  case 'wide': return 'lg:col-span-3';
+                  default: return 'lg:col-span-1 lg:row-span-1';
+                }
+              };
+              return (
+                <motion.div 
+                  key={article.id}
+                  variants={itemVariants}
+                  className={`group relative flex flex-col justify-end rounded-lg overflow-hidden cursor-pointer ${getGridClasses()}`}
+                >
+                  {/* Background Image */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-110"
+                    style={{ backgroundImage: `url(${article.imageUrl})`}}
+                  ></div>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                  
+                  {/* Content */}
+                  <div className="relative p-6 text-white z-10">
+                    <div className={`inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wider rounded-full mb-2 ${article.bgColor || 'bg-gray-800/50'}`}>
+                      {article.category}
+                    </div>
+                    <h3 className="text-xl lg:text-2xl font-bold leading-tight">
+                      {article.title}
+                    </h3>
+                    <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center text-green-300">
+                      <a href={article.link} target="_blank" rel="noopener noreferrer">Learn More</a> <ArrowRight className="ml-2 h-5 w-5" />
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-gray-100">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <motion.div variants={containerVariants}>
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={containerVariants}>
             <motion.h2 
               variants={itemVariants}
               className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
