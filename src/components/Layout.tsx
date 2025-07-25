@@ -5,7 +5,7 @@ import Footer from './Footer';
 import SEO from './SEO';
 import { useRouteMetadata } from '../hooks/useRouteMetadata';
 import { preloadLikelyRoutes } from '../utils/routePreloader';
-import { trackPageView } from '../utils/gtm';
+import { trackPageView } from '../utils/ga';
 
 interface LayoutProps {
   children: React.ReactNode;
