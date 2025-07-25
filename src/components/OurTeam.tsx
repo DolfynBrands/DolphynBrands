@@ -24,7 +24,6 @@ const teamMembers: TeamMember[] = [
   },
   {
     name: 'Priya Iyengar',
-<<<<<<< HEAD
     role: 'Graphic Designer and Illustator',
     imageUrl: '/ourTeam/3.png',
     linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
@@ -45,10 +44,6 @@ const teamMembers: TeamMember[] = [
     name: 'Priya Iyengar',
     role: 'Graphic Designer and Illustator',
     imageUrl: '/ourTeam/3.png',
-=======
-    role: 'Graphic Designer and Illustrator',
-    imageUrl: '/ourTeam/Priya.png',
->>>>>>> 65a26fa2ad6501f3c6f933294baf9b12f09c9215
     linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
   },
 ];
