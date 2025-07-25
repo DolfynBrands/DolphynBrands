@@ -15,7 +15,7 @@ const teamMembers = [
   },
   {
     name: 'Priya Iyengar',
-    role: 'Graphic Designer and Illustator',
+    role: 'Graphic Designer and Illustrator',
     imageUrl: '/ourTeam/Priya.png',
     linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
   },
