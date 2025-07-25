@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Send, Phone, Mail, MapPin, MessageCircle, ArrowRight } from 'lucide-react';
-import { trackFormSubmission } from '../utils/gtm';
+import { trackFormSubmission } from '../utils/ga';
 
 export default function ContactSection() {
   const [ref, inView] = useInView({
