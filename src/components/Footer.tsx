@@ -184,7 +184,7 @@ const Footer: React.FC = () => {
               <Phone size={20} className="text-blue-400" />
               <div>
                 <div className="text-white font-semibold">Phone</div>
-                <div className="text-gray-400">+1 (555) 123-4567</div>
+                <div className="text-gray-400">+1 302 248 3005</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">

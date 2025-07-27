@@ -9,7 +9,8 @@ interface HeroProps {
 
 
 
-const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
+// eslint-disable-next-line no-empty-pattern
+const Hero: React.FC<HeroProps> = ({}) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const navigate = useNavigate();
 
@@ -49,29 +50,33 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
       {/* Main Content */}
       <div className="relative z-20 text-center max-w-6xl mx-auto px-4 text-white">
         {/* Main Headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-12"
-        >
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)] ">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="relative z-20 flex flex-col items-center justify-center w-full"
+            >
+          <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight drop-shadow-[0_4px_32px_rgba(0,0,0,0.9)] ">
+            {/*
+            <span className="text-transparent font-black uppercase bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
               Transforming Brands into
             </span>
             <br />
-            <span className="text-transparent bg-clip-text bg-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
-              World-Class
+            */}
+            <span className="text-transparent font-black uppercase bg-clip-text bg-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)] transition-all duration-700 ease-in-out">
+              Accelerate Brand Success
             </span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
+            {/*
+            <span className="text-transparent font-black uppercase bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600 drop-shadow-[0_2px_16px_rgba(0,0,0,0.8)]">
               Powerhouses
             </span>
+            */}
           </h1>
           <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed opacity-90">
             Building the world’s most valuable digital brand portfolio with AI-driven optimization and global expansion.
           </p>
-          <p className="text-lg opacity-80">
+          <p className="text-lg opacity-80 mb-5 mt-5">
             Let&apos;s build your brand&apos;s future together.
           </p>
         </motion.div>
@@ -86,7 +91,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => setCurrentPage('contact')}
+            onClick={() => navigate('/contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
           >
             <span>Partner With Us</span>
