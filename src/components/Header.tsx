@@ -112,7 +112,7 @@ const Header: React.FC = () => {
                         <li>
                           <button
                             className="w-full text-left px-6 py-2 hover:bg-green-50 text-gray-900 font-medium"
-                            onClick={() => {}} // Placeholder, update with real path if available
+                            onClick={() => handleNavClick('/vivabloom')}
                           >
                             Viva Bloom
                           </button>

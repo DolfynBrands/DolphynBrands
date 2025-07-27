@@ -127,20 +127,25 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-bold text-lg mb-6">Featured Brands</h3>
             <div className="space-y-3">
-              {brandRecommendations.map((brand) => (
-                <motion.div
-                  key={brand.name}
-                  className="group"
-                  whileHover={{ x: 5 }}
-                >
-                  <div className="text-gray-400 group-hover:text-white underline transition-colors">
-                    {brand.name}
-                  </div>
-                  <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
-                    {brand.category}
-                  </div>
-                </motion.div>
-              ))}
+              {brandRecommendations.map((brand) => {
+                const path = brand.name === 'Viva Earth Organics' ? '/vivaearth' : 
+                             brand.name === 'Viva Bloom' ? '/vivabloom' : '#';
+                return (
+                  <motion.div
+                    key={brand.name}
+                    className="group cursor-pointer"
+                    whileHover={{ x: 5 }}
+                    onClick={() => handleNavClick(path)}
+                  >
+                    <div className="text-gray-400 group-hover:text-white underline transition-colors">
+                      {brand.name}
+                    </div>
+                    <div className="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                      {brand.category}
+                    </div>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
 
@@ -179,7 +184,7 @@ const Footer: React.FC = () => {
               <Phone size={20} className="text-blue-400" />
               <div>
                 <div className="text-white font-semibold">Phone</div>
-                <div className="text-gray-400">+1 (555) 123-4567</div>
+                <div className="text-gray-400">+1 302 248 3005</div>
               </div>
             </div>
             <div className="flex items-center space-x-3">
@@ -203,7 +208,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-400">
-              © 2024 Dolfyn Brands. All rights reserved.
+              © 2025 Dolfyn Brands. All rights reserved.
             </div>
             <div className="flex space-x-6">
               {legalLinks.map((link) => (

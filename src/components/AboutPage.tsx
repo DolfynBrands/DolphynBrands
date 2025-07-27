@@ -1,421 +1,343 @@
-import React from "react";
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Heart, Zap, Brain, Cpu, BarChart3, Sparkles } from 'lucide-react';
+import { BarChart3, Sparkles, Cpu, Brain, Target, Heart, Eye, Zap } from 'lucide-react';
 
-const AboutPage = React.memo(() => {
+// --- Helper function to get color classes based on theme ---
+const getColorClasses = (theme: string) => {
+    switch (theme) {
+        case 'purple':
+            return {
+                bg: 'from-purple-500 to-purple-600',
+                hoverBorder: 'hover:border-purple-400',
+                hoverText: 'group-hover:text-purple-600',
+                hoverBg: 'from-purple-100',
+                iconShadow: 'shadow-purple-500/30'
+            };
+        case 'blue':
+            return {
+                bg: 'from-blue-500 to-blue-600',
+                hoverBorder: 'hover:border-blue-400',
+                hoverText: 'group-hover:text-blue-600',
+                hoverBg: 'from-blue-100',
+                iconShadow: 'shadow-blue-500/30'
+            };
+        case 'teal':
+            return {
+                bg: 'from-teal-400 to-teal-500',
+                hoverBorder: 'hover:border-teal-400',
+                hoverText: 'group-hover:text-teal-600',
+                hoverBg: 'from-teal-100',
+                iconShadow: 'shadow-teal-500/30'
+            };
+        case 'amber':
+             return {
+                bg: 'from-amber-400 to-amber-500',
+                hoverBorder: 'hover:border-amber-400',
+                hoverText: 'group-hover:text-amber-600',
+                hoverBg: 'from-amber-100',
+                iconShadow: 'shadow-amber-500/30'
+            };
+        case 'pink':
+             return {
+                bg: 'from-pink-500 to-rose-500',
+                hoverBorder: 'hover:border-pink-400',
+                hoverText: 'group-hover:text-pink-600',
+                hoverBg: 'from-pink-100',
+                iconShadow: 'shadow-pink-500/30'
+            };
+        case 'green':
+             return {
+                bg: 'from-green-500 to-emerald-500',
+                hoverBorder: 'hover:border-green-400',
+                hoverText: 'group-hover:text-green-600',
+                hoverBg: 'from-green-100',
+                iconShadow: 'shadow-green-500/30'
+            };
+        default:
+            return {
+                bg: 'from-gray-500 to-gray-600',
+                hoverBorder: 'hover:border-gray-400',
+                hoverText: 'group-hover:text-gray-600',
+                hoverBg: 'from-gray-100',
+                iconShadow: 'shadow-gray-500/30'
+            };
+    }
+};
+
+
+// --- Main App Component ---
+export default function App() {
+  // --- ANIMATION VARIANTS ---
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.3
-      }
+      transition: { staggerChildren: 0.2, delayChildren: 0.2 }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.8
-      }
-    }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
+
+  // --- DATA FOR SECTIONS ---
+  const growthEnginePillars = [
+    { icon: BarChart3, title: 'Performance Marketing', subtitle: 'Grow Faster, Smarter', description: 'We use AI to run ads that reach the right people and boost your sales, fast.', bullets: ['Expert in Meta, Google, Amazon', 'Smart ad strategy', 'Creative that sells'] },
+    { icon: Sparkles, title: 'Digital Branding', subtitle: 'Stand Out Online', description: 'We design your brand and website to look great and turn visitors into fans.', bullets: ['Cool websites & logos', 'Eye-catching packaging', 'Stories that connect'] },
+    { icon: Cpu, title: 'Supply Chain', subtitle: 'Deliver With Ease', description: 'We help you get products made, stocked, and delivered on time, every time.', bullets: ['No wasted stock', 'Fast delivery', 'Trusted partners'] },
+    { icon: Brain, title: 'AI & Automation', subtitle: 'Smarter Business', description: 'We build smart tools that save time, predict trends, and help you grow.', bullets: ['Smart pricing', 'Customer insights', 'Easy automation'] },
+    { icon: Target, title: 'Sales Expansion', subtitle: 'Reach More People', description: 'We get your brand on top sites and in stores, so more people can buy.', bullets: ['Amazon, Flipkart, Nykaa', 'Retail & online', 'More sales channels'] },
+    { icon: Heart, title: 'Founder Coaching', subtitle: 'Grow With Us', description: 'We guide founders and teams to make smart choices and build strong brands.', bullets: ['1:1 mentoring', 'Team building', 'Community support'] },
+  ];
 
   const aiFeatures = [
-    {
-      icon: Brain,
-      title: 'Intelligent Brand Analysis',
-      description: 'AI-powered deep analysis of brand positioning, market sentiment, and competitive landscape',
-      color: 'from-purple-400 to-pink-400'
-    },
-    {
-      icon: Cpu,
-      title: 'Predictive Modeling',
-      description: 'Advanced algorithms predict brand performance and optimize strategies for maximum impact',
-      color: 'from-blue-400 to-cyan-400'
-    },
-    {
-      icon: BarChart3,
-      title: 'Real-time Analytics',
-      description: 'Continuous monitoring and optimization of brand metrics with instant insights',
-      color: 'from-green-400 to-emerald-400'
-    },
-    {
-      icon: Sparkles,
-      title: 'Creative AI Enhancement',
-      description: 'AI-assisted creative processes that amplify human creativity and design innovation',
-      color: 'from-yellow-400 to-orange-400'
-    }
+    { icon: Brain, title: 'Intelligent Brand Analysis', description: 'AI-powered deep analysis of brand positioning, market sentiment, and competitive landscape.' },
+    { icon: Cpu, title: 'Predictive Modeling', description: 'Advanced algorithms predict brand performance and optimize strategies for maximum impact.' },
+    { icon: BarChart3, title: 'Real-time Analytics', description: 'Continuous monitoring and optimization of brand metrics with instant insights.' },
+    { icon: Sparkles, title: 'Creative AI Enhancement', description: 'AI-assisted creative processes that amplify human creativity and design innovation.' }
   ];
 
-  const growthPillars = [
-    {
-      icon: BarChart3,
-      title: 'Performance Marketing',
-      subtitle: 'Grow Faster, Smarter',
-      description: 'We use AI to run ads that reach the right people and boost your sales, fast.',
-      bullets: [
-        'Expert in Meta, Google, Amazon',
-        'Smart ad strategy',
-        'Creative that sells',
-      ],
-      color: 'from-blue-400 to-blue-600',
-    },
-    {
-      icon: Sparkles,
-      title: 'Digital Branding',
-      subtitle: 'Stand Out Online',
-      description: 'We design your brand and website to look great and turn visitors into fans.',
-      bullets: [
-        'Cool websites & logos',
-        'Eye-catching packaging',
-        'Stories that connect',
-      ],
-      color: 'from-purple-400 to-pink-500',
-    },
-    {
-      icon: Cpu,
-      title: 'Supply Chain',
-      subtitle: 'Deliver With Ease',
-      description: 'We help you get products made, stocked, and delivered on time, every time.',
-      bullets: [
-        'No wasted stock',
-        'Fast delivery',
-        'Trusted partners',
-      ],
-      color: 'from-green-400 to-emerald-500',
-    },
-    {
-      icon: Brain,
-      title: 'AI & Automation',
-      subtitle: 'Smarter Business',
-      description: 'We build smart tools that save time, predict trends, and help you grow.',
-      bullets: [
-        'Smart pricing',
-        'Customer insights',
-        'Easy automation',
-      ],
-      color: 'from-yellow-400 to-orange-500',
-    },
-    {
-      icon: Target,
-      title: 'Sales Expansion',
-      subtitle: 'Reach More People',
-      description: 'We get your brand on top sites and in stores, so more people can buy.',
-      bullets: [
-        'Amazon, Flipkart, Nykaa',
-        'Retail & online',
-        'More sales channels',
-      ],
-      color: 'from-pink-400 to-red-500',
-    },
-    {
-      icon: Heart,
-      title: 'Founder Coaching',
-      subtitle: 'Grow With Us',
-      description: 'We guide founders and teams to make smart choices and build strong brands.',
-      bullets: [
-        '1:1 mentoring',
-        'Team building',
-        'Community support',
-      ],
-      color: 'from-blue-400 to-purple-500',
-    },
-  ];
-
-  AboutPage.displayName = "AboutPage";
-
-  // Card class for plain by default, colored border, shadow, and lift on hover (like MainContent)
-  const cardBase = "group bg-white border rounded-2xl p-8 flex flex-col items-center shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer -translate-y-0 hover:-translate-y-2";
-
-  // Helper to get color classes for border and icon
-  const colorMap = {
-    blue: {
-      border: 'border-blue-200 hover:border-blue-400',
-      text: 'text-blue-500 group-hover:text-blue-700',
-    },
-    purple: {
-      border: 'border-purple-200 hover:border-purple-400',
-      text: 'text-purple-500 group-hover:text-purple-700',
-    },
-    yellow: {
-      border: 'border-yellow-200 hover:border-yellow-400',
-      text: 'text-yellow-500 group-hover:text-yellow-700',
-    },
-    green: {
-      border: 'border-green-200 hover:border-green-400',
-      text: 'text-green-500 group-hover:text-green-700',
-    },
-    pink: {
-      border: 'border-pink-200 hover:border-pink-400',
-      text: 'text-pink-500 group-hover:text-pink-700',
-    },
-    orange: {
-      border: 'border-orange-200 hover:border-orange-400',
-      text: 'text-orange-500 group-hover:text-orange-700',
-    },
-    cyan: {
-      border: 'border-cyan-200 hover:border-cyan-400',
-      text: 'text-cyan-500 group-hover:text-cyan-700',
-    },
-    emerald: {
-      border: 'border-emerald-200 hover:border-emerald-400',
-      text: 'text-emerald-500 group-hover:text-emerald-700',
-    },
-    red: {
-      border: 'border-red-200 hover:border-red-400',
-      text: 'text-red-500 group-hover:text-red-700',
-    },
-  };
-
-  // Add gradient backgrounds for icon circles
-  const iconBgMap = {
-    blue: 'bg-gradient-to-br from-blue-400 to-blue-600',
-    purple: 'bg-gradient-to-br from-purple-400 to-purple-600',
-    yellow: 'bg-gradient-to-br from-yellow-400 to-orange-500',
-    green: 'bg-gradient-to-br from-green-400 to-green-600',
-    pink: 'bg-gradient-to-br from-pink-400 to-pink-600',
-    orange: 'bg-gradient-to-br from-orange-400 to-orange-600',
-  };
-
-  // Assign colorKey for each pillar: blue, purple, green, yellow, pink, blue
-  const pillarColorKeys: Array<keyof typeof colorMap & keyof typeof iconBgMap> = ['blue', 'purple', 'green', 'yellow', 'pink', 'blue'];
-  // Assign colorKey for each feature: purple, blue, green, yellow
-  const featureColorKeys: Array<keyof typeof colorMap & keyof typeof iconBgMap> = ['purple', 'blue', 'green', 'yellow'];
+  const colorThemes = ['blue', 'purple', 'teal', 'amber', 'pink', 'green'];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+    <>
+      <style>{`
+        .hero-text-gradient-light {
+          background: linear-gradient(90deg, #2563eb 0%, #9333ea 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .section-heading-gradient {
+          background: linear-gradient(90deg, #2563eb 0%, #9333ea 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        /* Removed old card styles, as they are now handled by Tailwind classes */
+      `}</style>
+      
+      <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-white text-gray-800 font-sans">
+        <main>
+          {/* Hero Section */}
+          <section className="relative h-screen flex items-center justify-center text-center px-4">
+            {/* Hero Background Image */}
+            <img
+              src="/about.jpg"
+              className="absolute inset-0 w-full h-full object-cover object-center z-0"
+              style={{ filter: 'brightness(0.85)', opacity: 1 }}
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100/20 via-purple-50/20 to-white/20 z-10" />
+            {/* Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="relative z-20 flex flex-col items-top justify-center w-full"
+            >
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-black uppercase text-white drop-shadow-lg">
+                Meet the Growth Engine
+              </h1>
+            </motion.div>
+          </section>
+          {/* Our Story Section */}
+          <section className="py-20 md:py-32 bg-gradient-to-br from-purple-50 via-blue-50 to-white">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              variants={containerVariants}
+              className="container mx-auto px-6 text-center max-w-4xl"
+            >
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-black mb-3 text-center tracking-tight text-gray-800"
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-6">
-              Meet the <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Growth Engine</span>
-            </h1>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              We are a data-driven, AI-first accelerator powering the next generation of consumer brands. Our team blends deep domain expertise with bleeding-edge technology to craft scale-ready solutions across every brand touchpoint.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+            Our Story
+          </motion.h2>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-12 rounded-full"
+            ></motion.div>             
+          <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                Born from the intersection of creativity and technology, Dolfyn Brands emerged to solve the most challenging brand transformation problems. We believe every brand has the potential to become extraordinary – it just needs the right transformation.
+              </motion.p>
+              <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-700 leading-relaxed mt-4">
+                Our culture? <span className="text-blue-700 font-semibold">Founder Obsession + Execution Excellence.</span> We hire doers, builders, and believers. Every Dolfyn team member is laser-focused on one mission: making your brand unstoppable.
+              </motion.p>
+            </motion.div>
+          </section>
 
-      {/* Story, Mission, Culture Section */}
-      <section className="pt-32 py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className="mb-24"
-          >
-            <motion.div variants={itemVariants} className="text-center mb-16">
-              <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Story</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Born from the intersection of creativity and technology, Dolfyn Brands emerged to solve the most challenging brand transformation problems. We believe every brand has the potential to become extraordinary – it just needs the right transformation.<br /><br />
-                Our culture? <span className="font-semibold text-blue-700">Founder Obsession + Execution Excellence.</span> We hire doers, builders, and believers. Every Dolfyn team member is laser-focused on one mission: making your brand unstoppable.
-              </p>
-            </motion.div>
-          </motion.div>
-          {/* Vision, Mission, Values, Strategy Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
-            {/* Vision */}
+          {/* Vision & Mission Section - Clean Grid Layout */}
+          <section className="py-20 md:py-24 bg-white">
             <motion.div
-              variants={itemVariants}
-              className={`${cardBase} ${colorMap.blue.border}`}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={containerVariants}
+              className="container mx-auto px-6"
             >
-              <div className={`w-16 h-16 rounded-full ${iconBgMap.blue} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-                <Eye size={28} className="text-white" />
+              {/* MODIFIED: Changed to a clean 2x2 grid on medium screens and up */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                {[
+                  {icon: Eye, title: 'Vision', content: "To become the world's most trusted brand transformation partner, empowering businesses to achieve unprecedented growth through innovative AI-driven strategies and creative excellence.", theme: 'blue', size:32},
+                  {icon: Target, title: 'Mission', content: 'We transform brands through cutting-edge AI technology, strategic innovation, and creative excellence, delivering measurable results that drive sustainable business growth.', theme: 'green', size:28},
+                  {icon: Heart, title: 'Values', content: (<ul className="list-disc list-inside text-left"><li>Innovation-first approach</li><li>Transparent partnerships</li><li>Measurable results</li><li>Creative excellence</li></ul>), theme: 'pink', size:28},
+                  {icon: Zap, title: 'Strategy', content: 'Our three-pillar approach combines AI-powered insights, creative innovation, and strategic implementation to deliver transformative results.', theme: 'amber', size:28}
+                ].map((card) => {
+                    const colors = getColorClasses(card.theme);
+                    return (
+                        <motion.div 
+                            key={card.title} 
+                            variants={itemVariants} 
+                            // MODIFIED: Removed asymmetric layout classes
+                            className={`group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 flex flex-col items-center text-center transition-all duration-300 cursor-pointer relative overflow-hidden h-full ${colors.hoverBorder}`}
+                        >
+                            <div className={`absolute inset-0 bg-gradient-to-br ${colors.hoverBg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                            <div className="relative z-10 flex flex-col items-center h-full w-full">
+                                <span className={`p-3 rounded-xl mb-4 bg-gradient-to-br ${colors.bg} transition-all duration-500 group-hover:scale-110 shadow-lg ${colors.iconShadow}`}>
+                                    <card.icon className="text-white" size={card.size} />
+                                </span>
+                                <h3 className={`text-2xl font-bold mb-3 text-gray-800 ${colors.hoverText} transition-colors`}>
+                                    {card.title}
+                                </h3>
+                                <div className="text-gray-600 text-base">
+                                    {card.content}
+                                </div>
+                            </div>
+                        </motion.div>
+                    )
+                })}
               </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">Vision</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                To become the world&apos;s most trusted brand transformation partner, empowering businesses to achieve unprecedented growth through innovative AI-driven strategies and creative excellence.
-              </p>
             </motion.div>
-            {/* Mission */}
-            <motion.div
-              variants={itemVariants}
-              className={`${cardBase} ${colorMap.purple.border}`}
-            >
-              <div className={`w-16 h-16 rounded-full ${iconBgMap.purple} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-                <Target size={28} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">Mission</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                We transform brands through cutting-edge AI technology, strategic innovation, and creative excellence, delivering measurable results that drive sustainable business growth.
-              </p>
-            </motion.div>
-            {/* Values */}
-            <motion.div
-              variants={itemVariants}
-              className={`${cardBase} ${colorMap.yellow.border}`}
-            >
-              <div className={`w-16 h-16 rounded-full ${iconBgMap.yellow} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-                <Heart size={28} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-yellow-700 transition-colors">Values</h3>
-              <ul className="text-gray-700 text-lg space-y-3">
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Innovation-first approach</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Transparent partnerships</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Measurable results</span>
-                </li>
-                <li className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                  <span>Creative excellence</span>
-                </li>
-              </ul>
-            </motion.div>
-            {/* Strategy */}
-            <motion.div
-              variants={itemVariants}
-              className={`${cardBase} ${colorMap.green.border}`}
-            >
-              <div className={`w-16 h-16 rounded-full ${iconBgMap.green} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
-                <Zap size={28} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-green-700 transition-colors">Strategy</h3>
-              <p className="text-gray-700 text-lg leading-relaxed">
-                Our three-pillar approach combines AI-powered insights, creative innovation, and strategic implementation to deliver transformative results for brands across all industries.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* Growth Engine Pillars Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
+          {/* The Growth Engine Section */}
+          <section className="py-20 md:py-32 bg-gray-50">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={containerVariants}
+              className="container mx-auto px-6"
+            >
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-black mb-3 text-center tracking-tight text-gray-800"
           >
-            <motion.div variants={itemVariants} className="text-center mb-16">
-              <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">Growth Engine</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+            The Growth Engine
+          </motion.h2>
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-12 rounded-full"
+              ></motion.div>
+              <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-700 leading-relaxed text-center max-w-4xl mx-auto mb-16">
                 From performance marketing to digital branding, from supply chain to AI-driven automation — our in-house talent is what sets your brand apart.
-              </p>
+              </motion.p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {growthEnginePillars.map((item, index) => {
+                  const theme = colorThemes[index % colorThemes.length];
+                  const colors = getColorClasses(theme);
+                  return (
+                    <motion.div 
+                        key={item.title} 
+                        variants={itemVariants} 
+                        // MODIFIED: Removed the specific 'spanClass' for a uniform grid
+                        className={`group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 flex flex-col transition-all duration-300 cursor-pointer relative overflow-hidden ${colors.hoverBorder}`}
+                    >
+                        <div className={`absolute inset-0 bg-gradient-to-br ${colors.hoverBg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                        <div className="relative z-10 flex flex-col h-full">
+                            <div className="flex items-center mb-4">
+                                <span className={`p-3 rounded-xl mr-4 bg-gradient-to-br ${colors.bg} transition-all duration-500 group-hover:scale-110 shadow-lg ${colors.iconShadow}`}>
+                                    <item.icon className="text-white" size={28} />
+                                </span>
+                                <div>
+                                    <h3 className={`text-xl font-bold text-gray-800 ${colors.hoverText} transition-colors`}>
+                                        {item.title}
+                                    </h3>
+                                    <p className="font-semibold text-gray-500 text-sm">{item.subtitle}</p>
+                                </div>
+                            </div>
+                            <p className="text-gray-600 mb-4 flex-grow text-left text-base">{item.description}</p>
+                            <ul className="text-gray-600 list-disc list-inside space-y-1 text-left text-base">
+                                {item.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}
+                            </ul>
+                        </div>
+                    </motion.div>
+                  )
+                })}
+              </div>
             </motion.div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-              {growthPillars.map((pillar, idx) => (
-                <motion.div
-                  key={pillar.title}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.04, y: -8 }}
-                  className={`${cardBase} ${colorMap[pillarColorKeys[idx]].border}`}
-                >
-                  <div className={`w-16 h-16 rounded-full ${iconBgMap[pillarColorKeys[idx]]} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                    <pillar.icon size={32} className="text-white" />
-                  </div>
-                  <h3 className={`text-2xl font-bold text-gray-900 mb-2 group-hover:text-${pillarColorKeys[idx]}-700 transition-colors`}>{pillar.title}</h3>
-                  <div className="text-sm font-semibold text-gray-500 mb-2">{pillar.subtitle}</div>
-                  <p className="text-gray-700 mb-4">{pillar.description}</p>
-                  <ul className="text-gray-600 text-sm space-y-2 pl-4 list-disc">
-                    {pillar.bullets.map((b, i) => (
-                      <li key={i}>{b}</li>
-                    ))}
-                  </ul>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* AI Section (condensed) */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-        </div>
-        <div className="max-w-7xl mx-auto px-4 relative">
-          <motion.div variants={containerVariants} initial="hidden" animate="visible">
-            <motion.div variants={itemVariants} className="text-center mb-16">
-              <h2 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-                AI-Powered <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Innovation</span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                AI is at the core of what we do. Our tech team builds automations, dashboards, and predictive tools to give your brand an unfair advantage. Our AI-first approach delivers unprecedented insights, optimization, and results that traditional methods simply cannot match.
-              </p>
-            </motion.div>
-            {/* AI Features Grid */}
-            <motion.div 
-              variants={itemVariants}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
-            >
-              {aiFeatures.map((feature, idx) => (
-                <motion.div
-                  key={feature.title}
-                  variants={itemVariants}
-                  whileHover={{ scale: 1.05, y: -10 }}
-                  className={`${cardBase} ${colorMap[featureColorKeys[idx]].border}`}
-                >
-                  <div className={`w-16 h-16 rounded-full ${iconBgMap[featureColorKeys[idx]]} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                    <feature.icon size={28} className="text-white" />
-                  </div>
-                  <h3 className={`text-xl font-bold text-gray-900 mb-3 group-hover:text-${featureColorKeys[idx]}-700 transition-colors`}>{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Call to Action Section */}
-      <section className="py-20 bg-gradient-to-br from-yellow-50 to-orange-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-center"
-          >
-            <motion.h2
-              variants={itemVariants}
-              className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6"
-            >
-              Ready to Transform Your Brand?
-            </motion.h2>
-            <p className="text-lg text-gray-700 mb-8">
-              We&apos;re passionate about helping brands reach their full potential.
-            </p>
+          </section>
+          
+          {/* AI-Powered Innovation Section */}
+          <section className="py-20 md:py-32 bg-white">
             <motion.div
-              variants={itemVariants}
-              className="inline-flex rounded-full shadow-md"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={containerVariants}
+              className="container mx-auto px-6"
             >
-              <a
-                href="#"
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-6 rounded-full text-lg transition-all duration-300 hover:shadow-lg"
-              >
-                Get Started Today
-              </a>
+            <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-black mb-3 text-center tracking-tight text-gray-800"
+          >
+            AI Powered Innovation
+          </motion.h2>
+              <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
+                  className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-12 rounded-full"
+              ></motion.div>
+              <motion.p variants={itemVariants} className="text-lg md:text-xl text-gray-700 leading-relaxed text-center max-w-4xl mx-auto mb-16">
+                AI is at the core of what we do. Our tech team builds automations, dashboards, and predictive tools to give your brand an unfair advantage. Our AI-first approach delivers unprecedented insights, optimization, and results that traditional methods simply cannot match.
+              </motion.p>
+              {/* MODIFIED: Changed grid to md:grid-cols-2 and lg:grid-cols-4 for a clean layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {aiFeatures.map((feature, index) => {
+                  const theme = colorThemes[index % colorThemes.length];
+                  const colors = getColorClasses(theme);
+                  return (
+                    <motion.div
+                        key={feature.title}
+                        variants={itemVariants}
+                        // MODIFIED: Removed the col-span function for a uniform grid
+                        className={`group bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-6 flex h-full flex-col items-center justify-start text-center overflow-hidden transition-all duration-300 cursor-pointer relative ${colors.hoverBorder}`}
+                    >
+                        <div className={`absolute inset-0 bg-gradient-to-br ${colors.hoverBg} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+                        <div className="relative z-10 flex flex-col items-center h-full w-full">
+                            <span className={`mb-4 inline-block rounded-xl p-4 shadow-lg bg-gradient-to-br ${colors.bg} transition-all duration-500 group-hover:scale-110 ${colors.iconShadow}`}>
+                                <feature.icon className="text-white" size={32} />
+                            </span>
+                            <h3 className={`text-xl font-bold mb-2 text-gray-800 ${colors.hoverText} transition-colors`}>{feature.title}</h3>
+                            <p className="text-gray-600 text-base">{feature.description}</p>
+                        </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </motion.div>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+          </section>
+        </main>
+      </div>
+    </>
   );
-});
-
-export default AboutPage;
+}

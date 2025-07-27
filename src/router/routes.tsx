@@ -10,6 +10,7 @@ const OurJourney = lazy(() => import('../components/OurJourney'));
 const NotFound = lazy(() => import('../components/NotFound'));
 const FAQ = lazy(() => import('../components/FAQ'));
 const VivaEarthLanding = lazy(() => import('../components/VivaEarthLanding'));
+const VivaBloomLanding = lazy(() => import('../components/VivaBloomLanding'));
 
 // Home page components
 import Hero from '../components/Hero';
@@ -133,14 +134,24 @@ export const routes: AppRoute[] = [
       ogType: 'website'
     }
   },
-  {
-    path: '/vivaearth',
+  {    path: '/vivaearth',
     component: VivaEarthLanding,
     meta: {
       title: 'VivaEarth Organic - Pure Essential Oils',
       description: 'VivaEarth Organic offers pure, ethically sourced essential oils with a focus on sustainability and holistic wellness. Discover our earthy, garden-inspired collection.',
       keywords: 'essential oils, organic, sustainable, wellness, vivaearth',
       ogImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/vivabloom',
+    component: VivaBloomLanding,
+    meta: {
+      title: 'Viva Bloom - Premium Gardening Supplies',
+      description: 'Viva Bloom offers high-quality, sustainable gardening supplies for passionate gardeners. From tools to seeds, we help you cultivate beauty and abundance in your garden.',
+      keywords: 'gardening supplies, sustainable gardening, garden tools, organic seeds, viva bloom',
+      ogImage: 'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=800&q=80',
       ogType: 'website'
     }
   },

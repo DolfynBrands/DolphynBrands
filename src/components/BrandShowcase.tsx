@@ -85,6 +85,7 @@ const BrandShowcase = React.memo(() => {
           >
             {brands.map((brand) => {
               const isVivaEarth = brand.name === 'Viva Earth Organics';
+              const isVivaBloom = brand.name === 'Viva Bloom';
               const cardContent = (
                 <motion.div
                   key={brand.name}
@@ -104,11 +105,21 @@ const BrandShowcase = React.memo(() => {
                   </div>
                 </motion.div>
               );
-              return isVivaEarth ? (
-                <a href="/vivaearth" key={brand.name} className="block focus:outline-none focus:ring-2 focus:ring-green-400 rounded-2xl">
-                  {cardContent}
-                </a>
-              ) : cardContent;
+              if (isVivaEarth) {
+                return (
+                  <a href="/vivaearth" key={brand.name} className="block focus:outline-none focus:ring-2 focus:ring-green-400 rounded-2xl">
+                    {cardContent}
+                  </a>
+                );
+              } else if (isVivaBloom) {
+                return (
+                  <a href="/vivabloom" key={brand.name} className="block focus:outline-none focus:ring-2 focus:ring-green-400 rounded-2xl">
+                    {cardContent}
+                  </a>
+                );
+              } else {
+                return cardContent;
+              }
             })}
           </motion.div>
 
