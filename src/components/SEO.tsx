@@ -69,7 +69,7 @@ const SEO: React.FC<SEOProps> = ({
             ],
             "contactPoint": {
               "@type": "ContactPoint",
-              "telephone": "+1-555-123-4567",
+              "telephone": "+1-302-248-3005",
               "contactType": "customer service",
               "email": "contact@dolfynbrands.com"
             },
