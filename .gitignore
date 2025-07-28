@@ -25,3 +25,7 @@ dist-ssr
 .env
 .env.production
 
+# Backend uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+

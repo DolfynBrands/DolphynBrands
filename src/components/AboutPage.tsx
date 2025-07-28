@@ -122,7 +122,7 @@ export default function App() {
           <section className="relative h-screen flex items-center justify-center text-center px-4">
             {/* Hero Background Image */}
             <img
-              src="/about.jpg"
+              src="aboutPageImages/about.jpg"
               className="absolute inset-0 w-full h-full object-cover object-center z-0"
               style={{ filter: 'brightness(0.85)', opacity: 1 }}
             />
