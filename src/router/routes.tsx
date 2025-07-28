@@ -11,6 +11,7 @@ const NotFound = lazy(() => import('../components/NotFound'));
 const FAQ = lazy(() => import('../components/FAQ'));
 const VivaEarthLanding = lazy(() => import('../components/VivaEarthLanding'));
 const VivaBloomLanding = lazy(() => import('../components/VivaBloomLanding'));
+const Careers = lazy(() => import('../components/Careers'));
 
 // Home page components
 import Hero from '../components/Hero';
@@ -35,9 +36,13 @@ export interface AppRoute {
 
 // Home page component wrapper
 const HomePage: React.FC = () => {
+  const handlePageChange = (page: string) => {
+    console.log('Page changed to:', page);
+  };
+
   return (
     <>
-      <Hero />
+      <Hero setCurrentPage={handlePageChange} />
       <MainContent />
     </>
   );
@@ -134,7 +139,19 @@ export const routes: AppRoute[] = [
       ogType: 'website'
     }
   },
-  {    path: '/vivaearth',
+  {
+    path: '/careers',
+    component: Careers,
+    meta: {
+      title: 'Careers - Join Our Team | Dolfyn Brands',
+      description: 'Join the Dolfyn Brands team and be part of our mission to transform brands through innovation and creativity. Apply for exciting career opportunities.',
+      keywords: 'careers, jobs, dolfyn brands careers, job opportunities, brand transformation careers',
+      ogImage: 'https://dolfynbrands.com/og-careers.jpg',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/vivaearth',
     component: VivaEarthLanding,
     meta: {
       title: 'VivaEarth Organic - Pure Essential Oils',

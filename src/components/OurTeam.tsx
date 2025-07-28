@@ -13,20 +13,38 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     name: 'Nithin C Hassan',
-    role: 'Co-Founder / Managing Partner',
-    imageUrl: '/ourTeam/1.png',
+    role: 'Co-Founder / CEO',
+    imageUrl: '/ourTeam/5.png',
     linkedIn: 'https://www.linkedin.com/in/nithin-hassan/',
   },
   {
-    name: 'Sai Rishi',
+    name: 'Mousumi Das',
+    role: 'Strategic Advisor - Pricing & Monetization',
+    imageUrl: '/ourTeam/4.png',
+    linkedIn: 'https://www.linkedin.com/in/mousumidas/',
+  },
+  {
+    name: 'Rohan Bhide',
+    role: 'Influencer Strategy & Digital Growth Advisor',
+    imageUrl: '/ourTeam/2.png',
+    linkedIn: 'https://www.linkedin.com/in/rohan-bhide/',
+  },
+  {
+    name: 'Ankitha Sadakale',
+    role: 'Strategic Advisor - Performance Marketing & Marketplaces',
+    imageUrl: '/ourTeam/ankita.png',
+    linkedIn: 'https://www.linkedin.com/in/ankitha-sadakale/',
+  },
+  {
+    name: 'Sai Rishi Gangarapu',
     role: 'Web Developer',
-    imageUrl: '/ourTeam/sair-rishi.webp',
+    imageUrl: '/ourTeam/rishi.png',
     linkedIn: 'https://www.linkedin.com/in/sai-rishi/',
   },
   {
     name: 'Priya Iyengar',
     role: 'Graphic Designer & Illustrator',
-    imageUrl: '/ourTeam/3.png',
+    imageUrl: '/ourTeam/priya.png',
     linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
   },
 ];
@@ -48,7 +66,7 @@ const OurTeam: React.FC = () => {
         <section className="relative h-screen flex items-center justify-center text-center px-4">
           {/* Hero Background Image */}
           <img
-            src="/team.jpg"
+            src="ourTeam/team.jpg"
             alt="Our Team"
             className="absolute inset-0 w-full h-full object-cover object-center z-0"
             style={{ filter: 'brightness(0.85)', opacity: 1 }}

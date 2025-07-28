@@ -83,7 +83,7 @@ const VivaEarthLanding: React.FC = () => {
       <section className="relative w-full min-h-[60vh] md:min-h-[90vh] flex flex-col md:flex-row items-center justify-center overflow-hidden">
         {/* Fullscreen background image (desktop) */}
         <img
-          src="/shelf.png"
+          src="VivaEarthImages/shelf.png"
           alt="VivaEarth"
           className="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
           style={{filter: 'brightness(0.92)'}}
@@ -91,7 +91,7 @@ const VivaEarthLanding: React.FC = () => {
         />
         {/* Mobile image on top */}
         <img
-          src="/shelf.png"
+          src="VivaEarthImages/shelf.png"
           alt="VivaEarth"
           className="block md:hidden w-full h-56 sm:h-72 object-cover z-0"
           style={{filter: 'brightness(0.92)'}}
@@ -162,10 +162,10 @@ const VivaEarthLanding: React.FC = () => {
         <div
              className="flex flex-col justify-start items-center absolute right-0 top-0 h-1/2 w-full p-8 md:p-16 z-10"
              style={{
-      minHeight: '60vh',
+      minHeight: '70vh',
              }}
         >
-             <h3 className="text-3xl md:text-7xl font-extrabold mb-4 font-serif leading-tight z-10 text-center bg-gradient-to-r from-pink-500 via-fuchsia-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
+             <h3 className="text-3xl md:text-7xl font-extrabold mb-4 font-black leading-tight z-10 text-center bg-gradient-to-r from-pink-500 via-fuchsia-500 to-yellow-400 bg-clip-text text-transparent drop-shadow-lg">
       Purity from the Source
              </h3>
         </div>
