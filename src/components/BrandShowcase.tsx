@@ -123,18 +123,8 @@ const BrandShowcase = React.memo(() => {
             })}
           </motion.div>
 
-          {/* CTA */}
-          <motion.div 
-            variants={itemVariants}
-            className="text-center mt-16"
-          >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:shadow-lg transition-shadow">
-              View All Case Studies
-            </motion.button>
-          </motion.div>
+          {/* CTA removed: pending case studies */}
+
         </motion.div>
       </div>
     </section>
