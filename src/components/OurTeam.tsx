@@ -35,6 +35,12 @@ const teamMembers: TeamMember[] = [
     imageUrl: '/ourTeam/ankita.png',
     linkedIn: 'https://www.linkedin.com/in/ankitha-sadakale/',
   },
+    {
+    name: 'Varun Nirmal',
+    role: 'Financial Advisor',
+    imageUrl: '/ourTeam/varun.png',
+    linkedIn: 'https://www.linkedin.com/in/varun-nirmal-93a159a/',
+  },
   {
     name: 'Sai Rishi Gangarapu',
     role: 'Web Developer',
