@@ -36,7 +36,7 @@ export interface AppRoute {
 
 // Home page component wrapper
 const HomePage: React.FC = () => {
-  const handlePageChange = (_page: string) => {
+  const handlePageChange = () => {
     // Remove console.log for production
     // console.log('Page changed to:', page);
   };
