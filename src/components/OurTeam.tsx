@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Priya Iyengar',
     role: 'Graphic Designer & Illustrator',
-    imageUrl: '/ourTeam/priya.png',
+    imageUrl: '/ourTeam/Priya.png',
     linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
   },
 ];
