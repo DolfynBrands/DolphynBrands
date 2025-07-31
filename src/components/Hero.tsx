@@ -93,9 +93,10 @@ const Hero: React.FC<HeroProps> = ({}) => {
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate('/contact')}
             className="bg-white text-gray-900 px-8 py-4 rounded-full text-lg font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors"
+            aria-label="Partner with Dolfyn Brands - Contact us to start your brand transformation journey"
           >
             <span>Partner With Us</span>
-            <ArrowRight size={20} />
+            <ArrowRight size={20} aria-hidden="true" />
           </motion.button>
           
           <motion.button
@@ -103,6 +104,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
             whileTap={{ scale: 0.95 }}
             className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
             onClick={() => navigate('/faq')}
+            aria-label="Learn more about Dolfyn Brands services and brand transformation process"
           >
             Learn More
           </motion.button>

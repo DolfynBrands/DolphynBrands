@@ -17,7 +17,7 @@ const latestArticles = [
     id: 1,
     category: 'Brand Building',
     title: 'How Dolphyn Brands Is Building The World’s Smartest Growth Engine',
-    imageUrl: 'BlogImages/1.png',
+    imageUrl: 'BlogImages/1.webp',
     layout: 'normal',
     link:'https://www.linkedin.com/pulse/how-dolfyn-brands-building-worlds-smartest-growth-engine-hassan-r8ojc'
   },
@@ -25,7 +25,7 @@ const latestArticles = [
     id: 2,
     category: 'Brand Building',
     title: 'Why We’re Building Dolfyn Brands',
-    imageUrl: 'BlogImages/5.png',
+    imageUrl: 'BlogImages/5.webp',
     layout: 'large', // This card will be larger
     bgColor: 'bg-green-600',
     link :'https://www.linkedin.com/pulse/why-were-building-dolfyn-brands-nithin-hassan-w4kqc'
@@ -34,7 +34,7 @@ const latestArticles = [
     id: 3,
     category: 'Viva Earth',
     title: 'Launching Viva Earth Organics: A New Era of Brand Heart',
-    imageUrl: '/VivaEarthImages/hero.png',
+    imageUrl: '/VivaEarthImages/hero.webp',
     layout: 'normal',
     link:'https://www.linkedin.com/pulse/launching-viva-earth-organics-new-era-brand-heart-purpose-hassan-bjmqc'
   },
@@ -42,7 +42,7 @@ const latestArticles = [
     id: 4,
     category: 'Business Intelligence',
     title: 'Navigating Trade Volatility with Intelligence',
-    imageUrl: 'BlogImages/4.png',
+    imageUrl: 'BlogImages/4.webp',
     layout: 'normal',
     link:'https://www.linkedin.com/pulse/navigating-trade-volatility-intelligence-how-dolfyn-brands-hassan-mzsdc'
   },
@@ -50,7 +50,7 @@ const latestArticles = [
     id: 5,
     category: 'Leadership',
     title: 'Dare to Build. We’re With You.',
-    imageUrl: '/BlogImages/image.png',
+    imageUrl: '/BlogImages/image.webp',
     layout: 'tall',
     link :'https://www.businessinsider.com/indians-leaving-big-tech-to-launch-startups-back-home-2024-9'
   },
@@ -58,7 +58,7 @@ const latestArticles = [
     id: 6,
     category: 'Business Intelligence',
     title: 'Who Should Tell Dolphyn’s Story?',
-    imageUrl: 'BlogImages/2.png',
+    imageUrl: 'BlogImages/2.webp',
     layout: 'wide',
     link:'https://www.linkedin.com/pulse/who-should-tell-dolfyn-storyai-human-nithin-hassan-9j3zc'
 
@@ -359,7 +359,14 @@ const MainContent = React.memo(() => {
                   {/* Background Image */}
                   <div 
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 ease-in-out group-hover:scale-110"
-                    style={{ backgroundImage: `url(${article.imageUrl})`}}
+                    style={{ 
+                      backgroundImage: `url(${article.imageUrl})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      willChange: 'transform'
+                    }}
+                    role="img"
+                    aria-label={`Background image for ${article.title}`}
                   ></div>
                   {/* Gradient Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
@@ -373,7 +380,15 @@ const MainContent = React.memo(() => {
                       {article.title}
                     </h3>
                     <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center text-green-300">
-                      <a href={article.link} target="_blank" rel="noopener noreferrer">Learn More</a> <ArrowRight className="ml-2 h-5 w-5" />
+                      <a 
+                        href={article.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={`Read article: ${article.title}`}
+                      >
+                        Learn More
+                      </a> 
+                      <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
                     </div>
                   </div>
                 </motion.div>
@@ -410,15 +425,17 @@ const MainContent = React.memo(() => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-blue-600 text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 hover:bg-blue-700 transition-colors"
                 onClick={() => navigate('/contact')}
+                aria-label="Get started with Dolfyn Brands - Contact us to begin your brand transformation"
               >
                 <span>Get Started</span>
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden="true" />
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-600 hover:text-white transition-colors"
                 onClick={() => navigate('/faq')}
+                aria-label="Learn more about Dolfyn Brands services and brand transformation solutions"
               >
                 Learn More
               </motion.button>

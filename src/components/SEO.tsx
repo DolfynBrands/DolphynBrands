@@ -48,6 +48,33 @@ const SEO: React.FC<SEOProps> = ({
       
       {/* Additional Meta Tags */}
       <meta name="robots" content="index, follow" />
+      <meta name="googlebot" content="index, follow" />
+      <meta name="language" content="en-US" />
+      <meta name="revisit-after" content="7 days" />
+      
+      {/* Structured Data - Organization */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Dolfyn Brands",
+          "url": "https://dolfynbrands.com",
+          "logo": "https://dolfynbrands.com/company-logo.webp",
+          "description": "Leading digital brand acquisition and growth company specializing in scaling e-commerce brands through AI-driven strategies and operational excellence.",
+          "founder": {
+            "@type": "Person",
+            "name": "Nithin Hassan"
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/dolfynbrands"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-XXX-XXX-XXXX",
+            "contactType": "Business"
+          }
+        })}
+      </script>
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       
