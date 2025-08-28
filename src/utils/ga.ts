@@ -8,8 +8,15 @@ declare global {
 
 export const GTM_ID = 'GTM-M6PFK45R';
 
+// Check if analytics is enabled (cookie consent given)
+const isAnalyticsEnabled = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  const consent = localStorage.getItem('cookie-consent');
+  return consent === 'accepted';
+};
+
 export const trackPageView = (url: string, title: string) => {
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && isAnalyticsEnabled()) {
     window.dataLayer.push({
       event: 'page_view',
       page_path: url,
@@ -19,7 +26,7 @@ export const trackPageView = (url: string, title: string) => {
 };
 
 export const trackEvent = (eventName: string, parameters: Record<string, unknown> = {}) => {
-  if (typeof window !== 'undefined' && window.dataLayer) {
+  if (typeof window !== 'undefined' && window.dataLayer && isAnalyticsEnabled()) {
     window.dataLayer.push({
       event: eventName,
       ...parameters,
