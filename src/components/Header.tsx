@@ -4,7 +4,8 @@ import { Menu, X } from 'lucide-react';
 
 // Mock hooks for a standalone environment. In a real app, you'd use react-router-dom.
 const useNavigate = () => (path: string | URL | null | undefined) => {
-  console.log(`Navigating to: ${path}`);
+  // Remove console.log for production
+  // console.log(`Navigating to: ${path}`);
   // In a real app, this would change the URL.
   // For this example, we'll just log it.
   window.history.pushState({}, '', path);
@@ -121,6 +122,14 @@ const Header: React.FC = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-4 cursor-pointer"
             onClick={() => handleNavClick('/')}
+            role="button"
+            tabIndex={0}
+            aria-label="Go to Dolfyn Brands homepage"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                handleNavClick('/');
+              }
+            }}
           >
             <div className="flex items-center space-x-3">
               <picture>
@@ -212,8 +221,10 @@ const Header: React.FC = () => {
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden text-gray-900"
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={isMenuOpen}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
           </motion.button>
         </div>
 

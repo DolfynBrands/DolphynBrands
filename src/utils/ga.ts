@@ -1,17 +1,17 @@
-// Google Analytics (gtag.js) utilities for React Router integration
+// Google Tag Manager utilities for React Router integration
 
 declare global {
   interface Window {
     dataLayer: unknown[];
-    gtag: (...args: unknown[]) => void;
   }
 }
 
-export const GA_MEASUREMENT_ID = 'G-S6G6R20R05';
+export const GTM_ID = 'GTM-M6PFK45R';
 
 export const trackPageView = (url: string, title: string) => {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('config', GA_MEASUREMENT_ID, {
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push({
+      event: 'page_view',
       page_path: url,
       page_title: title,
     });
@@ -19,8 +19,11 @@ export const trackPageView = (url: string, title: string) => {
 };
 
 export const trackEvent = (eventName: string, parameters: Record<string, unknown> = {}) => {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
-    window.gtag('event', eventName, parameters);
+  if (typeof window !== 'undefined' && window.dataLayer) {
+    window.dataLayer.push({
+      event: eventName,
+      ...parameters,
+    });
   }
 };
 
@@ -30,4 +33,15 @@ export const trackFormSubmission = (formName: string, success: boolean = true) =
 
 export const trackButtonClick = (buttonName: string, location: string) => {
   trackEvent('button_click', { button_name: buttonName, click_location: location });
+};
+
+export const trackCustomEvent = (eventName: string, parameters: Record<string, unknown> = {}) => {
+  trackEvent(eventName, parameters);
+};
+
+// Initialize GTM dataLayer if not exists
+export const initializeGTM = () => {
+  if (typeof window !== 'undefined') {
+    window.dataLayer = window.dataLayer || [];
+  }
 };
