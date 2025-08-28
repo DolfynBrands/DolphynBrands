@@ -11,19 +11,35 @@ const CookieConsent: React.FC<CookieConsentProps> = ({ onAccept, onDecline }) =>
 
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
-    if (!consent) {
-      setIsVisible(true);
+    if (consent) {
+      try {
+        const { timestamp } = JSON.parse(consent);
+        const ninetyDays = 90 * 24 * 60 * 60 * 1000;
+        if (Date.now() - timestamp < ninetyDays) {
+          return;
+        }
+      } catch {
+        // If parsing fails, treat as no consent
+      }
     }
+    setIsVisible(true);
+    localStorage.removeItem('cookie-consent');
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem('cookie-consent', 'accepted');
+    localStorage.setItem(
+      'cookie-consent',
+      JSON.stringify({ status: 'accepted', timestamp: Date.now() })
+    );
     setIsVisible(false);
     onAccept();
   };
 
   const handleDecline = () => {
-    localStorage.setItem('cookie-consent', 'declined');
+    localStorage.setItem(
+      'cookie-consent',
+      JSON.stringify({ status: 'declined', timestamp: Date.now() })
+    );
     setIsVisible(false);
     onDecline();
   };

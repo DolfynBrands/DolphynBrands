@@ -8,11 +8,18 @@ declare global {
 
 export const GTM_ID = 'GTM-M6PFK45R';
 
-// Check if analytics is enabled (cookie consent given)
-const isAnalyticsEnabled = (): boolean => {
+// Check if analytics is enabled (cookie consent given and not expired)
+export const isAnalyticsEnabled = (): boolean => {
   if (typeof window === 'undefined') return false;
   const consent = localStorage.getItem('cookie-consent');
-  return consent === 'accepted';
+  if (!consent) return false;
+  try {
+    const { status, timestamp } = JSON.parse(consent);
+    const ninetyDays = 90 * 24 * 60 * 60 * 1000;
+    return status === 'accepted' && Date.now() - timestamp < ninetyDays;
+  } catch {
+    return false;
+  }
 };
 
 export const trackPageView = (url: string, title: string) => {

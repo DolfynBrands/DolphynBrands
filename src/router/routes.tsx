@@ -12,6 +12,10 @@ const FAQ = lazy(() => import('../components/FAQ'));
 const VivaEarthLanding = lazy(() => import('../components/VivaEarthLanding'));
 const VivaBloomLanding = lazy(() => import('../components/VivaBloomLanding'));
 const Careers = lazy(() => import('../components/Careers'));
+const PrivacyPolicy = lazy(() => import('../components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('../components/TermsOfService'));
+const CookiePolicy = lazy(() => import('../components/CookiePolicy'));
+const GDPR = lazy(() => import('../components/GDPR'));
 
 // Home page components
 import Hero from '../components/Hero';
@@ -148,6 +152,42 @@ export const routes: AppRoute[] = [
       description: 'Join the Dolfyn Brands team and be part of our mission to transform brands through innovation and creativity. Apply for exciting career opportunities.',
       keywords: 'careers, jobs, dolfyn brands careers, job opportunities, brand transformation careers',
       ogImage: 'https://dolfynbrands.com/og-careers.jpg',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/privacy-policy',
+    component: PrivacyPolicy,
+    meta: {
+      title: 'Privacy Policy - Dolfyn Brands',
+      description: 'How Dolfyn Brands collects, uses, and protects personal information.',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/terms-of-service',
+    component: TermsOfService,
+    meta: {
+      title: 'Terms of Service - Dolfyn Brands',
+      description: 'Terms and conditions for using the Dolfyn Brands website.',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/cookie-policy',
+    component: CookiePolicy,
+    meta: {
+      title: 'Cookie Policy - Dolfyn Brands',
+      description: 'Details about the cookies used by Dolfyn Brands.',
+      ogType: 'website'
+    }
+  },
+  {
+    path: '/gdpr',
+    component: GDPR,
+    meta: {
+      title: 'GDPR Commitment - Dolfyn Brands',
+      description: 'Your data protection rights under GDPR when interacting with Dolfyn Brands.',
       ogType: 'website'
     }
   },

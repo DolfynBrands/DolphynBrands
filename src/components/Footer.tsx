@@ -199,10 +199,10 @@ const Footer: React.FC = () => {
   ];
 
   const legalLinks: LegalLink[] = [
-    { name: 'Privacy Policy', href: '#', description: 'How we protect your data' },
-    { name: 'Terms of Service', href: '#', description: 'Terms and conditions of use' },
-    { name: 'Cookie Policy', href: '#', description: 'How we use cookies' },
-    { name: 'GDPR', href: '#', description: 'Your data protection rights' }
+    { name: 'Privacy Policy', href: '/privacy-policy', description: 'How we protect your data' },
+    { name: 'Terms of Service', href: '/terms-of-service', description: 'Terms and conditions of use' },
+    { name: 'Cookie Policy', href: '/cookie-policy', description: 'How we use cookies' },
+    { name: 'GDPR', href: '/gdpr', description: 'Your data protection rights' }
   ];
 
   // Newsletter subscription handler
