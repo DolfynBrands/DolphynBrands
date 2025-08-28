@@ -52,7 +52,7 @@ const teamPageSchema = {
         "@type": "Person",
         "name": "Priya Iyengar",
         "jobTitle": "Graphic Designer & Illustrator",
-        "sameAs": "https://www.linkedin.com/in/priya-iyengar/"
+        "sameAs": "https://www.linkedin.com/in/priya-iyengar-9b361a260/"
       }
     ]
   }
@@ -115,7 +115,7 @@ const teamMembers: TeamMember[] = [
     name: 'Priya Iyengar',
     role: 'Graphic Designer & Illustrator',
     imageUrl: '/ourTeam/priya.webp',
-    linkedIn: 'https://www.linkedin.com/in/priya-iyengar/',
+    linkedIn: 'https://www.linkedin.com/in/priya-iyengar-9b361a260/',
     bio: 'Creative designer bringing brands to life through visual storytelling'
   },
 ];
@@ -199,7 +199,7 @@ const OurTeam: React.FC = () => {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-white text-gray-800 font-sans">
         <main role="main">
           {/* Enhanced Hero Section */}
-          <section className="relative h-screen flex items-center justify-center text-center px-4" aria-labelledby="hero-heading">
+          <section className="relative min-h-screen flex items-center justify-center text-center px-4 pt-20" aria-labelledby="hero-heading">
             {/* Hero Background Image with optimization */}
             <picture>
               <source 
@@ -334,11 +334,11 @@ const OurTeam: React.FC = () => {
                           target="_blank"
                           href={member.linkedIn}
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-500/20 transition-all duration-300 font-semibold"
+                          className="inline-flex items-center justify-center p-2 text-blue-600 hover:text-blue-700 hover:bg-blue-50 rounded-lg focus:ring-2 focus:ring-blue-500/20 transition-all duration-300"
                           aria-label={`View ${member.name}'s LinkedIn profile (opens in new tab)`}
                         >
                           <LinkedInIcon ariaLabel={`${member.name} LinkedIn`} />
-                          <span className="ml-2">Connect on LinkedIn</span>
+                          <span className="ml-2 text-blue-600">LinkedIn</span>
                         </a>
                       </div>
                     </motion.article>

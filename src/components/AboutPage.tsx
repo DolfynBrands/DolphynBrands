@@ -214,7 +214,7 @@ export default function AboutPage() {
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-white text-gray-800 font-sans">
         <main role="main">
           {/* Hero Section */}
-          <section className="relative h-screen flex items-center justify-center text-center px-4" aria-labelledby="hero-heading">
+          <section className="relative min-h-screen flex items-center justify-center text-center px-4 pt-20" aria-labelledby="hero-heading">
             {/* Hero Background Image with optimizations */}
             <picture>
               <source 

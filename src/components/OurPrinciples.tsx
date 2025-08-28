@@ -193,7 +193,7 @@ const OurPrinciples: React.FC = () => {
         }
       `}</style>
 
-      <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-20 md:pt-32 pb-24 px-4">
+      <div className="bg-gradient-to-br from-white to-blue-50 min-h-screen pt-28 md:pt-32 pb-24 px-4">
         <div className="max-w-6xl mx-auto">
           <motion.header
             initial={{ opacity: 0, y: 30 }}
