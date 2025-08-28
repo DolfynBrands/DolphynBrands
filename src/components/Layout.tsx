@@ -35,7 +35,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         ogType={routeMetadata.ogType}
       />
       <Header />
-      <main className="pt-24 md:pt-32">
+      <main>
         {children}
       </main>
       <Footer />
