@@ -6,7 +6,7 @@ import SEO from './SEO';
 import CookieConsent from './CookieConsent';
 import { useRouteMetadata } from '../hooks/useRouteMetadata';
 import { preloadLikelyRoutes } from '../utils/routePreloader';
-import { trackPageView, initializeGTM } from '../utils/ga';
+import { trackPageView, initializeGTM, isAnalyticsEnabled } from '../utils/ga';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -20,6 +20,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Initialize GTM
   useEffect(() => {
     initializeGTM();
+  }, []);
+
+  // Enable analytics if previously accepted
+  useEffect(() => {
+    if (isAnalyticsEnabled()) {
+      setAnalyticsEnabled(true);
+    }
   }, []);
 
   // Preload likely next routes for better performance
