@@ -1,5 +1,28 @@
 import React from 'react';
 
+const FEATURED_PRODUCTS = [
+     {
+          name: 'Lavender Essential Oil',
+          size: '1 oz',
+          image: '/VivaEarthImages/BottleDropper/Amazon content bottel- Lavender 1oz.jpg',
+     },
+     {
+          name: 'Peppermint Essential Oil',
+          size: '1 oz',
+          image: '/VivaEarthImages/BottleDropper/Amazon content bottel- Peppermint 1oz.jpg',
+     },
+     {
+          name: 'Tea Tree Essential Oil',
+          size: '4 oz',
+          image: '/VivaEarthImages/BottleDropper/Amazon content bottel- Tea Tree 4oz.jpg',
+     },
+     {
+          name: 'Eucalyptus Essential Oil',
+          size: '4 oz',
+          image: '/VivaEarthImages/BottleDropper/Amazon content bottel- Eucalyptus 4oz.jpg',
+     },
+];
+
 // const VIVA_EARTH_BOTTLEDROPPER = [
 //      '/VivaEarthImages/BottleDropper/Amazon content bottel- Lavender 1oz.jpg',
 //      '/VivaEarthImages/BottleDropper/Amazon content bottel- Peppermint 1oz.jpg',
@@ -76,6 +99,19 @@ const VivaEarthLanding: React.FC = () => {
       className="w-full h-full object-cover"
              />
              <div className="absolute inset-0 bg-black/30" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center gap-4 px-6 text-center">
+             <h1 className="text-3xl md:text-5xl font-bold text-white drop-shadow-lg">
+                  Experience Pure Essential Oils
+             </h1>
+             <a
+                  href="https://www.amazon.com/dp/B0F2849TB5?ref=ppx_yo2ov_dt_b_fed_asin_title"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A4E44] text-white font-semibold px-6 py-3 transition-colors duration-200 hover:bg-[#1f3b33] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2A4E44]"
+             >
+                  Buy - $9.99
+             </a>
         </div>
    </section>
 
@@ -171,6 +207,53 @@ const VivaEarthLanding: React.FC = () => {
         </div>
    </section>
 
+
+      {/* Featured Products */}
+      <section className="relative w-full bg-white py-16 px-6 md:px-12 lg:px-20">
+        <div className="max-w-6xl mx-auto">
+             <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+                  <div>
+                       <p className="text-sm uppercase tracking-[0.2em] text-[#2A4E44]/80 mb-2">Featured Products</p>
+                       <h2 className="font-serif text-4xl md:text-5xl font-bold text-[#2A4E44]">Pure. Potent. Purposeful.</h2>
+                  </div>
+                  <p className="text-base md:text-lg text-[#333] max-w-xl">
+                       Discover our bestselling essential oils sourced from regenerative farms and distilled at peak potency. Each bottle delivers the therapeutic-grade purity your daily rituals deserve.
+                  </p>
+             </div>
+             <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+                  {FEATURED_PRODUCTS.map((product) => (
+                       <article
+                            key={product.name}
+                            className="group border border-[#d9e4dd] rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 bg-white"
+                            aria-label={`${product.name} ${product.size}`}
+                       >
+                            <div className="relative overflow-hidden">
+                                 <img
+                                      src={product.image}
+                                      alt={`${product.name} bottle`}
+                                      className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105"
+                                      loading="lazy"
+                                 />
+                            </div>
+                            <div className="p-6 flex flex-col gap-4">
+                                 <div>
+                                      <h3 className="text-xl font-semibold text-[#204B2A]">{product.name}</h3>
+                                      <p className="text-sm text-[#4f675f]">{product.size}</p>
+                                 </div>
+                                 <a
+                                      href="https://www.amazon.com/dp/B0F2849TB5?ref=ppx_yo2ov_dt_b_fed_asin_title"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A4E44] text-white font-semibold px-5 py-2 transition-colors duration-200 hover:bg-[#1f3b33] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2A4E44]"
+                                 >
+                                      Buy - $9.99
+                                 </a>
+                            </div>
+                       </article>
+                  ))}
+             </div>
+        </div>
+      </section>
 
    {/* Section 1: Our Why */}
    <section className="relative w-full min-h-[500px] flex flex-col md:flex-row items-stretch overflow-hidden bg-white">
