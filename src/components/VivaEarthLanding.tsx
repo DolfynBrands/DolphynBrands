@@ -100,6 +100,16 @@ const VivaEarthLanding: React.FC = () => {
              />
              <div className="absolute inset-0 bg-black/30" />
         </div>
+        <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
+             <a
+                  href="https://www.amazon.com/Viva-Earth-Lavendar-Essential-Oil/dp/B0F2849TB5"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A4E44] text-white font-semibold px-8 py-3 text-lg transition-colors duration-200 hover:bg-[#1f3b33] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2A4E44]"
+             >
+                  Buy · $9.99
+             </a>
+        </div>
    </section>
 
       {/* Shelf Image Section (Replaces Carousel) */}
@@ -228,12 +238,12 @@ const VivaEarthLanding: React.FC = () => {
                                       <p className="text-sm text-[#4f675f]">{product.size}</p>
                                  </div>
                                  <a
-                                      href="https://www.amazon.com/dp/B0F2849TB5?ref=ppx_yo2ov_dt_b_fed_asin_title"
+                                      href="https://www.amazon.com/Viva-Earth-Lavendar-Essential-Oil/dp/B0F2849TB5"
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       className="inline-flex items-center justify-center gap-2 rounded-full bg-[#2A4E44] text-white font-semibold px-5 py-2 transition-colors duration-200 hover:bg-[#1f3b33] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#2A4E44]"
                                  >
-                                      Buy on Amazon
+                                      Buy · $9.99
                                  </a>
                             </div>
                        </article>
